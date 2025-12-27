@@ -1,0 +1,169 @@
+;;; ═══════════════════════════════════════════════════════════════════════════════
+;;; AEA PROTOCOL WITH FORMAL SPECIFICATIONS
+;;; This demonstrates the built-in protocol enforcement syntax
+;;; ═══════════════════════════════════════════════════════════════════════════════
+
+(do
+  (sol_log_ "=== AEA PROTOCOL WITH SPECS ===")
+
+  ;; ═══════════════════════════════════════════════════════════════════════════
+  ;; PROTOCOL SPECIFICATION
+  ;; These are checked at compile-time and generate verification conditions
+  ;; ═══════════════════════════════════════════════════════════════════════════
+
+  ;; Define the Order state machine
+  ;; This ensures only valid state transitions can occur
+  (defstate OrderStatus
+    :states (Created Accepted InProgress Delivered Completed Disputed Refunded Cancelled)
+    :initial Created
+    :terminal (Completed Refunded Cancelled)
+    :transitions
+      ((Created -> Accepted Cancelled)
+       (Accepted -> InProgress Refunded)
+       (InProgress -> Delivered Disputed Refunded)
+       (Delivered -> Completed Disputed)
+       (Disputed -> Completed Refunded)))
+
+  ;; Define the Participant state machine
+  (defstate ParticipantStatus
+    :states (Inactive Active Cooldown Slashed Suspended)
+    :initial Inactive
+    :terminal (Slashed)
+    :transitions
+      ((Inactive -> Active)
+       (Active -> Cooldown Slashed Suspended)
+       (Cooldown -> Inactive Active Slashed)
+       (Suspended -> Active Slashed)))
+
+  ;; ═══════════════════════════════════════════════════════════════════════════
+  ;; ACCESS CONTROL RULES
+  ;; These generate signer checks automatically
+  ;; ═══════════════════════════════════════════════════════════════════════════
+
+  ;; Only buyer can confirm delivery
+  (defaccess ConfirmDelivery
+    :signer (order buyer)
+    :precondition (= order_status Delivered))
+
+  ;; Only provider can accept order
+  (defaccess AcceptOrder
+    :signer (order provider)
+    :precondition (= order_status Created))
+
+  ;; Only buyer can cancel (before acceptance)
+  (defaccess CancelOrder
+    :signer (order buyer)
+    :precondition (= order_status Created))
+
+  ;; Admin-only operations
+  (defaccess ResolveDispute
+    :admin
+    :precondition (= order_status Disputed))
+
+  (defaccess SlashParticipant
+    :admin
+    :precondition (!= participant_status Slashed))
+
+  ;; Registration requires active status for provider
+  (defaccess CreateOrder
+    :signer (buyer authority)
+    :active (buyer provider)
+    :precondition (= service_active true))
+
+  ;; ═══════════════════════════════════════════════════════════════════════════
+  ;; ECONOMIC INVARIANTS
+  ;; These are verified to hold before and after every instruction
+  ;; ═══════════════════════════════════════════════════════════════════════════
+
+  ;; Stake accounting invariant
+  (definvariant StakeAccounting
+    "total_staked equals sum of all participant stakes"
+    (= config_total_staked (sum participants stake_amount)))
+
+  ;; Escrow accounting invariant  
+  (definvariant EscrowAccounting
+    "escrow balance equals sum of active order amounts"
+    (= escrow_total (sum_active_orders amount fee_amount)))
+
+  ;; Non-negative stakes
+  (definvariant NonNegativeStakes
+    "all stakes must be non-negative"
+    (forall_participants (>= stake_amount 0)))
+
+  ;; Fee calculation correctness
+  (definvariant FeeCalculation
+    "fees are calculated correctly from amount and fee_bps"
+    (forall_orders (= fee_amount (/ (* amount escrow_fee_bps) 10000))))
+
+  ;; ═══════════════════════════════════════════════════════════════════════════
+  ;; PROTOCOL IMPLEMENTATION
+  ;; The actual instruction handlers
+  ;; ═══════════════════════════════════════════════════════════════════════════
+
+  ;; Assume sufficient instruction data
+  (assume (>= (instruction-data-len) 16))
+  (assume (>= (account-data-len 0) 128))
+  (assume (>= (account-data-len 1) 256))
+  (assume (>= (account-data-len 2) 256))
+  (assume (>= (account-data-len 3) 256))
+
+  ;; Read instruction discriminator
+  (define instr_ptr (instruction-data-ptr))
+  (define discriminator (mem-load1 instr_ptr 0))
+
+  ;; INSTRUCTION 43: CONFIRM DELIVERY
+  ;; Access control is automatically enforced by (defaccess ConfirmDelivery ...)
+  (if (= discriminator 43)
+    (do
+      (sol_log_ ">>> CONFIRM DELIVERY <<<")
+      
+      (define order_ptr (account-data-ptr 1))
+      (define buyer_ptr (account-data-ptr 2))
+      (define provider_ptr (account-data-ptr 3))
+
+      ;; The state transition is validated against (defstate OrderStatus ...)
+      ;; This will only compile if Delivered -> Completed is a valid transition
+      (mem-store order_ptr 0 4)  ;; status = Completed
+
+      ;; Update provider stats
+      (define prov_completed (mem-load provider_ptr 24))
+      (mem-store provider_ptr 24 (+ prov_completed 1))
+
+      (define amount (mem-load order_ptr 24))
+      (define prov_earned (mem-load provider_ptr 56))
+      (mem-store provider_ptr 56 (+ prov_earned amount))
+
+      (sol_log_ "Order completed!")
+      0)
+    null)
+
+  ;; INSTRUCTION 44: CANCEL ORDER
+  (if (= discriminator 44)
+    (do
+      (sol_log_ ">>> CANCEL ORDER <<<")
+      
+      (define order_ptr (account-data-ptr 1))
+      
+      ;; State transition: Created -> Cancelled (validated by defstate)
+      (mem-store order_ptr 0 7)  ;; status = Cancelled
+
+      (sol_log_ "Order cancelled!")
+      0)
+    null)
+
+  ;; INSTRUCTION 41: ACCEPT ORDER
+  (if (= discriminator 41)
+    (do
+      (sol_log_ ">>> ACCEPT ORDER <<<")
+      
+      (define order_ptr (account-data-ptr 1))
+      
+      ;; State transition: Created -> Accepted (validated by defstate)
+      (mem-store order_ptr 0 1)  ;; status = Accepted
+
+      (sol_log_ "Order accepted!")
+      0)
+    null)
+
+  (sol_log_ "=== AEA COMPLETE ===")
+  0)

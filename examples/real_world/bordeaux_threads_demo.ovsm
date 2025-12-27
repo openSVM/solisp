@@ -1,0 +1,216 @@
+;; Bordeaux Threads Demo - Portable Shared-State Concurrency
+;;
+;; This example demonstrates OVSM's implementation of Bordeaux Threads,
+;; the standard Common Lisp threading library.
+;;
+;; Features demonstrated:
+;; - Thread creation and joining
+;; - Mutex locks for synchronization
+;; - Atomic integers for lock-free operations
+;; - Semaphores for resource limiting
+;; - Condition variables for signaling
+
+;; ============================================================================
+;; 1. ATOMIC INTEGERS - Lock-free concurrent counters
+;; ============================================================================
+
+(println "=== Atomic Integer Demo ===")
+
+;; Create an atomic counter
+(define counter (make-atomic-integer :value 0))
+(println (str "Initial counter: " (atomic-integer-value counter)))
+
+;; Increment atomically (returns new value)
+(define new-val (atomic-integer-incf counter 10))
+(println (str "After incf by 10: " new-val))
+
+;; Decrement atomically
+(define new-val (atomic-integer-decf counter 3))
+(println (str "After decf by 3: " new-val))
+
+;; Compare-and-swap (CAS) - atomic conditional update
+(define success (atomic-integer-cas counter 7 100))
+(println (str "CAS 7->100 succeeded: " success))
+(println (str "Counter after CAS: " (atomic-integer-value counter)))
+
+;; CAS that fails (value is now 100, not 7)
+(define success (atomic-integer-cas counter 7 200))
+(println (str "CAS 7->200 succeeded: " success))
+(println (str "Counter unchanged: " (atomic-integer-value counter)))
+
+(println "")
+
+;; ============================================================================
+;; 2. MUTEX LOCKS - Protecting shared data
+;; ============================================================================
+
+(println "=== Mutex Lock Demo ===")
+
+;; Create a named lock
+(define data-lock (make-lock :name "data-lock"))
+(println (str "Created lock: " data-lock))
+
+;; Shared data protected by lock
+(define shared-data 0)
+
+;; with-lock-held ensures lock is always released
+(with-lock-held data-lock
+  (println "Lock acquired, updating shared data...")
+  (set! shared-data (+ shared-data 100))
+  (set! shared-data (+ shared-data 50))
+  (println (str "Shared data inside lock: " shared-data)))
+;; Lock automatically released here
+
+(println (str "Shared data after lock released: " shared-data))
+(println "")
+
+;; ============================================================================
+;; 3. RECURSIVE LOCKS - Can be acquired multiple times by same thread
+;; ============================================================================
+
+(println "=== Recursive Lock Demo ===")
+
+(define rlock (make-recursive-lock :name "reentrant"))
+(println (str "Created recursive lock: " rlock))
+
+;; Recursive function that needs to hold lock
+(defun recursive-update (n)
+  (with-recursive-lock-held rlock
+    (if (<= n 0)
+        0
+        (+ n (recursive-update (- n 1))))))
+
+(define sum (recursive-update 5))
+(println (str "Recursive sum with lock held: " sum))
+(println "")
+
+;; ============================================================================
+;; 4. SEMAPHORES - Limiting concurrent access
+;; ============================================================================
+
+(println "=== Semaphore Demo ===")
+
+;; Create semaphore with 3 permits (e.g., max 3 concurrent connections)
+(define connection-pool (make-semaphore :count 3 :name "db-connections"))
+(println (str "Created semaphore: " connection-pool))
+
+;; Acquire a permit (non-blocking check with timeout)
+(println "Acquiring permits...")
+(wait-on-semaphore connection-pool :timeout 1)
+(println "  Got permit 1")
+(wait-on-semaphore connection-pool :timeout 1)
+(println "  Got permit 2")
+(wait-on-semaphore connection-pool :timeout 1)
+(println "  Got permit 3")
+
+;; Try to acquire 4th (should timeout since all 3 are taken)
+(define got-permit (wait-on-semaphore connection-pool :timeout 0.5))
+(println (str "Got 4th permit (should be false): " got-permit))
+
+;; Release permits back
+(signal-semaphore connection-pool :count 3)
+(println "Released 3 permits back to pool")
+(println "")
+
+;; ============================================================================
+;; 5. CONDITION VARIABLES - Thread signaling
+;; ============================================================================
+
+(println "=== Condition Variable Demo ===")
+
+(define ready-cv (make-condition-variable :name "ready"))
+(println (str "Created condition variable: " ready-cv))
+
+;; Condition notify/broadcast don't block even with no waiters
+(condition-notify ready-cv)
+(println "Sent notify signal (no waiters)")
+(condition-broadcast ready-cv)
+(println "Sent broadcast signal (no waiters)")
+(println "")
+
+;; ============================================================================
+;; 6. THREADS - Creating and joining OS threads
+;; ============================================================================
+
+(println "=== Thread Demo ===")
+
+;; Get current thread info
+(define main (current-thread))
+(println (str "Current thread: " main))
+
+;; Create a worker thread
+(define worker 
+  (make-thread 
+    (lambda () 
+      (println "  Worker: Starting computation...")
+      (define result (* 6 7))
+      (println (str "  Worker: Computed " result))
+      result)
+    :name "calculator"))
+
+(println (str "Created worker thread: " worker))
+(println (str "Worker thread name: " (thread-name worker)))
+
+;; Check if thread is still running
+(println "Waiting for worker to complete...")
+
+;; Join thread (blocks until complete, returns result)
+(define result (join-thread worker))
+(println (str "Worker returned: " result))
+
+;; Thread yield - give other threads a chance to run
+(thread-yield)
+(println "Main thread yielded")
+(println "")
+
+;; ============================================================================
+;; 7. TYPE PREDICATES - Checking types
+;; ============================================================================
+
+(println "=== Type Predicate Demo ===")
+
+(define lock (make-lock))
+(define sem (make-semaphore :count 1))
+(define ai (make-atomic-integer :value 0))
+(define cv (make-condition-variable))
+(define rlock (make-recursive-lock))
+
+(println (str "lockp on lock: " (lockp lock)))
+(println (str "lockp on semaphore: " (lockp sem)))
+(println (str "semaphorep on semaphore: " (semaphorep sem)))
+(println (str "atomic-integer-p on atomic: " (atomic-integer-p ai)))
+(println (str "condition-variable-p on cv: " (condition-variable-p cv)))
+(println (str "recursive-lock-p on rlock: " (recursive-lock-p rlock)))
+(println "")
+
+;; ============================================================================
+;; 8. PRACTICAL PATTERN - Thread-safe counter
+;; ============================================================================
+
+(println "=== Practical Pattern: Thread-Safe Counter ===")
+
+;; Using atomic integers for a thread-safe counter
+(define hits (make-atomic-integer :value 0))
+
+;; Simulate concurrent increments
+(define t1 (make-thread (lambda () 
+  (dotimes (i 100) (atomic-integer-incf hits))
+  100)))
+
+(define t2 (make-thread (lambda () 
+  (dotimes (i 100) (atomic-integer-incf hits))
+  100)))
+
+(define t3 (make-thread (lambda () 
+  (dotimes (i 100) (atomic-integer-incf hits))
+  100)))
+
+;; Wait for all threads
+(join-thread t1)
+(join-thread t2)
+(join-thread t3)
+
+(println (str "Final hit count (should be 300): " (atomic-integer-value hits)))
+(println "")
+
+(println "=== Bordeaux Threads Demo Complete ===")

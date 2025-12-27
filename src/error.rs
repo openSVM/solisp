@@ -1,0 +1,365 @@
+//! Error types for OVSM interpreter
+
+use thiserror::Error;
+
+/// OVSM interpreter errors
+#[derive(Error, Debug, Clone)]
+pub enum Error {
+    // Parse errors
+    /// Syntax error encountered during parsing
+    ///
+    /// **Triggered by:** Invalid OVSM syntax (unmatched parentheses, invalid S-expressions)
+    /// **Example:** `(if (> x 10)` (missing closing parenthesis)
+    #[error("Syntax error at line {line}, column {col}: {message}")]
+    SyntaxError {
+        /// Line number where error occurred
+        line: usize,
+        /// Column number where error occurred
+        col: usize,
+        /// Error description
+        message: String,
+    },
+
+    /// General parse error
+    #[error("Parse error: {0}")]
+    ParseError(String),
+
+    /// Unexpected end of file during parsing
+    #[error("Unexpected end of file")]
+    UnexpectedEof,
+
+    /// Unexpected token encountered during parsing
+    #[error("Unexpected token: expected {expected}, got {got}")]
+    UnexpectedToken {
+        /// Expected token description
+        expected: String,
+        /// Actual token received
+        got: String,
+    },
+
+    // Runtime errors
+    /// Reference to undefined variable
+    ///
+    /// **Triggered by:** Using a variable before assignment
+    /// **Example:** `x` (when x was never defined)
+    /// **Prevention:** Always define variables with `(define x value)` before use
+    #[error("Undefined variable: {name}")]
+    UndefinedVariable {
+        /// Variable name
+        name: String,
+        /// Available fields (if accessing object field) - not shown in base error message
+        #[doc(hidden)]
+        available_fields: Option<Vec<String>>,
+    },
+
+    /// Reference to undefined tool
+    #[error("Undefined tool: {name}")]
+    UndefinedTool {
+        /// Tool name
+        name: String,
+    },
+
+    /// Type mismatch error
+    ///
+    /// **Triggered by:** Operation expecting one type but receiving another
+    /// **Example:** `(+ "hello" 5)` (string + number), `(if "text" ...)` (string as boolean)
+    /// **Prevention:** Ensure type compatibility in operations and conversions
+    #[error("Type error: expected {expected}, got {got}")]
+    TypeError {
+        /// Expected type
+        expected: String,
+        /// Actual type
+        got: String,
+    },
+
+    /// Attempt to reassign a constant value
+    #[error("Cannot reassign constant: {name}")]
+    ConstantReassignment {
+        /// Constant name
+        name: String,
+    },
+
+    /// Division by zero error
+    ///
+    /// **Triggered by:** Dividing by zero or taking modulo of zero
+    /// **Example:** `$x = 10 / 0`, `$y = 5 % 0`
+    /// **Prevention:** Check denominator before division operations
+    #[error("Division by zero")]
+    DivisionByZero,
+
+    /// Assertion failed
+    ///
+    /// **Triggered by:** Assertion condition evaluated to false
+    /// **Example:** `(assert (> x 0) "x must be positive")` when x <= 0
+    /// **Prevention:** Ensure preconditions are met before assertions
+    #[error("Assertion failed: {message}")]
+    AssertionFailed {
+        /// Assertion failure message
+        message: String,
+    },
+
+    /// Array index out of bounds
+    ///
+    /// **Triggered by:** Accessing array element beyond valid range
+    /// **Example:** `$arr = [1, 2, 3]; $x = $arr[5]` (index 5 when length is 3)
+    /// **Prevention:** Check array length before indexing, use LEN() tool
+    #[error("Index out of bounds: {index} for array of length {length}")]
+    IndexOutOfBounds {
+        /// Requested index
+        index: usize,
+        /// Array length
+        length: usize,
+    },
+
+    /// Invalid operation for given types
+    ///
+    /// **Triggered by:** Performing unsupported operations on incompatible types
+    /// **Example:** `[1,2] * "text"` (array multiplication with string)
+    /// **Prevention:** Verify operand types support the intended operation
+    #[error("Invalid operation: {op} on types {left_type} and {right_type}")]
+    InvalidOperation {
+        /// Operation name
+        op: String,
+        /// Left operand type
+        left_type: String,
+        /// Right operand type
+        right_type: String,
+    },
+
+    /// Invalid comparison between incompatible types
+    #[error("Invalid comparison between types {left_type} and {right_type}")]
+    InvalidComparison {
+        /// Left operand type
+        left_type: String,
+        /// Right operand type
+        right_type: String,
+    },
+
+    /// Attempt to call a non-callable value
+    #[error("Value is not callable: {type_name}")]
+    NotCallable {
+        /// Type of non-callable value
+        type_name: String,
+    },
+
+    /// Operation on empty collection that requires elements
+    #[error("Empty collection for operation: {operation}")]
+    EmptyCollection {
+        /// Operation name
+        operation: String,
+    },
+
+    // Tool errors
+    /// Tool execution failed
+    ///
+    /// **Triggered by:** Runtime failure during tool execution
+    /// **Example:** `POW(2, 1000000)` (computation overflow), `SQRT(-5)` (negative sqrt)
+    /// **Recovery:** Classified as Recoverable - may be retried with different inputs
+    #[error("Tool execution failed: {tool} - {reason}")]
+    ToolExecutionError {
+        /// Tool name
+        tool: String,
+        /// Failure reason
+        reason: String,
+    },
+
+    /// Invalid arguments provided to tool
+    #[error("Invalid arguments for tool {tool}: {reason}")]
+    InvalidArguments {
+        /// Tool name
+        tool: String,
+        /// Reason for invalidity
+        reason: String,
+    },
+
+    /// Tool not yet implemented
+    #[error("Tool not implemented: {tool}")]
+    NotImplemented {
+        /// Tool name
+        tool: String,
+    },
+
+    // Resource errors
+    /// Operation timed out
+    #[error("Timeout after {0:?}")]
+    Timeout(std::time::Duration),
+
+    /// Memory limit exceeded
+    #[error("Out of memory (limit: {0} bytes)")]
+    OutOfMemory(usize),
+
+    /// Execution limit exceeded
+    #[error("Execution limit exceeded (max: {limit} operations)")]
+    ExecutionLimitExceeded {
+        /// Maximum allowed operations
+        limit: usize,
+    },
+
+    /// Too many loop iterations
+    #[error("Too many iterations (limit: {limit})")]
+    TooManyIterations {
+        /// Maximum allowed iterations
+        limit: usize,
+    },
+
+    /// Circuit breaker is open preventing operations
+    #[error("Circuit breaker is open")]
+    CircuitOpen,
+
+    // Control flow
+    /// Break statement used outside of loop
+    #[error("Break statement outside loop")]
+    InvalidBreak,
+
+    /// Continue statement used outside of loop
+    #[error("Continue statement outside loop")]
+    InvalidContinue,
+
+    // External errors
+    /// RPC call failed
+    #[error("RPC error: {message}")]
+    RpcError {
+        /// Error message
+        message: String,
+    },
+
+    /// AI service error
+    #[error("AI service error: {message}")]
+    AiServiceError {
+        /// Error message
+        message: String,
+    },
+
+    /// Network operation failed
+    #[error("Network error: {message}")]
+    NetworkError {
+        /// Error message
+        message: String,
+    },
+
+    /// No parallel tasks completed successfully
+    #[error("No tasks completed")]
+    NoTasksCompleted,
+
+    // User-defined
+    /// User-defined error
+    #[error("User error: {0}")]
+    UserError(String),
+
+    /// General runtime error
+    #[error("Runtime error: {0}")]
+    RuntimeError(String),
+
+    /// Compiler error
+    #[error("Compiler error: {0}")]
+    CompilerError(String),
+
+    // Control flow (catch/throw)
+    /// Throw value for non-local exit (not really an error, used for control flow)
+    /// This is caught by matching catch blocks
+    #[error("Uncaught throw: tag {tag}")]
+    ThrowValue {
+        /// Tag to identify the target catch point
+        tag: String,
+        /// Value being thrown
+        value: Box<crate::runtime::Value>,
+    },
+
+    // Bordeaux Threads errors
+    /// Thread-related error
+    #[error("Thread error: {message}")]
+    ThreadError {
+        /// Error message
+        message: String,
+    },
+
+    /// Lock acquisition timeout
+    #[error("Lock acquisition timed out after {0:?}")]
+    LockTimeout(std::time::Duration),
+
+    /// Lock not held by current thread (cannot release)
+    #[error("Lock not held: cannot release lock not owned by current thread")]
+    LockNotHeld,
+
+    /// Thread was already joined
+    #[error("Thread already joined: {id}")]
+    ThreadAlreadyJoined {
+        /// Thread ID
+        id: String,
+    },
+
+    /// Thread join failed (thread panicked)
+    #[error("Thread join failed: thread panicked")]
+    ThreadJoinFailed,
+}
+
+/// Error severity classification
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+pub enum ErrorSeverity {
+    /// Fatal error that cannot be recovered from
+    Fatal,
+    /// Recoverable error that may be retried
+    Recoverable,
+    /// Warning that doesn't prevent execution
+    Warning,
+}
+
+impl Error {
+    /// Create a runtime error with a message
+    pub fn runtime(msg: impl Into<String>) -> Self {
+        Error::RuntimeError(msg.into())
+    }
+
+    /// Create a compiler error with a message
+    pub fn compiler(msg: impl Into<String>) -> Self {
+        Error::CompilerError(msg.into())
+    }
+
+    /// Classify error severity
+    pub fn classify(&self) -> ErrorSeverity {
+        match self {
+            Error::DivisionByZero => ErrorSeverity::Fatal,
+            Error::AssertionFailed { .. } => ErrorSeverity::Fatal,
+            Error::OutOfMemory(_) => ErrorSeverity::Fatal,
+            Error::SyntaxError { .. } => ErrorSeverity::Fatal,
+            Error::UnexpectedEof => ErrorSeverity::Fatal,
+
+            Error::ToolExecutionError { .. } => ErrorSeverity::Recoverable,
+            Error::RpcError { .. } => ErrorSeverity::Recoverable,
+            Error::NetworkError { .. } => ErrorSeverity::Recoverable,
+            Error::Timeout(_) => ErrorSeverity::Recoverable,
+            Error::AiServiceError { .. } => ErrorSeverity::Recoverable,
+
+            Error::TypeError { .. } => ErrorSeverity::Warning,
+            Error::IndexOutOfBounds { .. } => ErrorSeverity::Warning,
+
+            _ => ErrorSeverity::Recoverable,
+        }
+    }
+
+    /// Get enhanced error message with available fields (for UndefinedVariable errors)
+    pub fn enhanced_message(&self) -> String {
+        match self {
+            Error::UndefinedVariable {
+                name,
+                available_fields,
+            } => {
+                let base = format!("Undefined variable: {}", name);
+                if let Some(fields) = available_fields {
+                    if !fields.is_empty() {
+                        return format!(
+                            "{}. Parent object has fields: [{}]",
+                            base,
+                            fields.join(", ")
+                        );
+                    }
+                }
+                base
+            }
+            _ => self.to_string(),
+        }
+    }
+}
+
+/// Result type for OVSM operations
+pub type Result<T> = std::result::Result<T, Error>;
