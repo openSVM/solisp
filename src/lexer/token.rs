@@ -219,10 +219,6 @@ pub enum TokenKind {
     CommaAt,
     /// Pipe operator (|) - used for refinement types
     Pipe,
-    /// Indent token (for Python-style syntax)
-    Indent,
-    /// Dedent token (for Python-style syntax)
-    Dedent,
 
     // Special
     /// End of file marker
@@ -275,12 +271,9 @@ impl TokenKind {
         )
     }
 
-    /// Get keyword from string - LISP has NO keywords, everything is an identifier
-    /// This function now returns None for everything - Python keywords are DEAD
+    /// Get keyword from string - Returns None as LISP uses identifiers, not keywords
+    /// Special forms like 'if', 'define', 'while' are handled by the parser, not the lexer
     pub fn keyword(_s: &str) -> Option<TokenKind> {
-        // PYTHON IS DEAD. LONG LIVE LISP.
-        // In LISP, there are no reserved keywords - everything is just identifiers
-        // Special forms like 'if', 'define', 'while' are handled by the parser, not the lexer
         None
     }
 }
