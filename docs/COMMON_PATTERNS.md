@@ -1,6 +1,6 @@
-# OVSM Common Patterns Guide
+# Solisp Common Patterns Guide
 
-A collection of idiomatic patterns and best practices for OVSM scripting.
+A collection of idiomatic patterns and best practices for Solisp scripting.
 
 ## Table of Contents
 
@@ -20,7 +20,7 @@ A collection of idiomatic patterns and best practices for OVSM scripting.
 
 **Pattern**: Validate inputs early and return/exit on failure.
 
-```ovsm
+```solisp
 // Bad: Nested conditionals
 IF $input != null THEN
     IF $input > 0 THEN
@@ -44,7 +44,7 @@ RETURN $input * 2
 
 **Pattern**: Use TRY-CATCH for operations that may fail but shouldn't crash the program.
 
-```ovsm
+```solisp
 TRY:
     $result = RISKY_OPERATION($data)
     RETURN $result
@@ -57,7 +57,7 @@ CATCH:
 
 **Pattern**: Always check for zero before division.
 
-```ovsm
+```solisp
 // Bad: May crash on zero
 $result = $numerator / $denominator
 
@@ -76,7 +76,7 @@ $result = $numerator / $denominator
 
 **Pattern**: Collect items that match a condition.
 
-```ovsm
+```solisp
 $numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 $evens = []
 
@@ -91,7 +91,7 @@ RETURN $evens  // [2, 4, 6, 8, 10]
 
 **Pattern**: Transform each element in a collection.
 
-```ovsm
+```solisp
 $prices = [10, 20, 30, 40]
 $with_tax = []
 $tax_rate = 1.08
@@ -107,7 +107,7 @@ RETURN $with_tax
 
 **Pattern**: Use built-in tools for efficiency.
 
-```ovsm
+```solisp
 $numbers = [42, 17, 99, 3, 54]
 
 // Using built-in tools (preferred)
@@ -125,7 +125,7 @@ FOR $num IN $numbers:
 
 **Pattern**: Accumulate values from a collection.
 
-```ovsm
+```solisp
 $scores = [85, 92, 78, 90, 88]
 
 // Sum using built-in
@@ -146,7 +146,7 @@ RETURN {total: $total, average: $average, count: $count}
 
 **Pattern**: Exit loop when condition is met.
 
-```ovsm
+```solisp
 $found = null
 
 FOR $item IN $items:
@@ -164,7 +164,7 @@ RETURN $found
 
 **Pattern**: Skip processing for items that don't meet criteria.
 
-```ovsm
+```solisp
 $valid_items = []
 
 FOR $item IN $all_items:
@@ -181,7 +181,7 @@ RETURN $valid_items
 
 **Pattern**: Use ranges for numeric iterations.
 
-```ovsm
+```solisp
 // Count from 1 to 10
 $sum = 0
 FOR $i IN [1..11]:
@@ -194,7 +194,7 @@ RETURN $sum  // 55 (1+2+3+...+10)
 
 **Pattern**: Search in nested structures.
 
-```ovsm
+```solisp
 $found = false
 $result = null
 
@@ -218,7 +218,7 @@ RETURN $result
 
 **Pattern**: Use ternary for concise conditional assignment.
 
-```ovsm
+```solisp
 // Bad: Verbose
 IF $score >= 60 THEN
     $status = "pass"
@@ -233,7 +233,7 @@ $status = $score >= 60 ? "pass" : "fail"
 
 **Pattern**: Classify values into multiple categories.
 
-```ovsm
+```solisp
 $score = 85
 
 IF $score >= 90 THEN
@@ -257,7 +257,7 @@ RETURN $grade
 
 **Pattern**: Use boolean flags for state tracking.
 
-```ovsm
+```solisp
 $has_errors = false
 $errors = []
 
@@ -281,7 +281,7 @@ ELSE
 
 **Pattern**: Ensure all required fields are present.
 
-```ovsm
+```solisp
 $user = {name: "Alice", email: "alice@example.com"}
 
 // Validate required fields
@@ -298,7 +298,7 @@ RETURN "Validation passed"
 
 **Pattern**: Validate data types before operations.
 
-```ovsm
+```solisp
 // Check if value is a number
 $value = 42
 
@@ -317,7 +317,7 @@ GUARD $value >= 0 AND $value <= 100 ELSE
 
 **Pattern**: Validate collection size before operations.
 
-```ovsm
+```solisp
 $items = [1, 2, 3]
 
 $length = LEN($items)
@@ -340,7 +340,7 @@ $first = $items[0]
 
 **Pattern**: Stop processing once result is found.
 
-```ovsm
+```solisp
 // Bad: Continues even after finding
 $found = false
 FOR $item IN $large_array:
@@ -359,7 +359,7 @@ FOR $item IN $large_array:
 
 **Pattern**: Flatten logic when possible.
 
-```ovsm
+```solisp
 // Bad: O(n²) complexity
 $duplicates = []
 FOR $i IN [0..LEN($array)]:
@@ -375,7 +375,7 @@ FOR $i IN [0..LEN($array)]:
 
 **Pattern**: Cache computed values.
 
-```ovsm
+```solisp
 // Bad: Calculates length repeatedly
 FOR $i IN [0..LEN($array)]:
     $item = $array[$i]
@@ -396,7 +396,7 @@ FOR $i IN [0..$length]:
 
 **Pattern**: Create reusable test data structures.
 
-```ovsm
+```solisp
 // Setup
 $test_users = [
     {id: 1, name: "Alice", role: "admin"},
@@ -422,7 +422,7 @@ RETURN "Test passed"
 
 **Pattern**: Test boundary conditions.
 
-```ovsm
+```solisp
 // Test empty array
 $empty = []
 GUARD LEN($empty) == 0 ELSE ERROR("Empty array test failed")
@@ -442,7 +442,7 @@ RETURN "All edge case tests passed"
 
 **Pattern**: Validate function outputs.
 
-```ovsm
+```solisp
 // Function under test
 $result = CALCULATE_SCORE([90, 85, 95])
 
@@ -488,7 +488,7 @@ RETURN "Validation passed"
 
 ### 1. Data Processing Pipeline
 
-```ovsm
+```solisp
 // Load data
 $raw_data = [
     {score: 85, status: "active"},
@@ -529,7 +529,7 @@ RETURN {
 
 ### 2. Search and Filter
 
-```ovsm
+```solisp
 // Search configuration
 $query = "alice"
 $min_score = 70
@@ -568,7 +568,7 @@ RETURN {
 
 ### 3. Validation and Normalization
 
-```ovsm
+```solisp
 // Input data
 $input = {
     email: "user@example.com",
@@ -630,9 +630,9 @@ RETURN {
 
 - [USAGE_GUIDE.md](../USAGE_GUIDE.md) - Complete language reference
 - [HOW_TO_USE.md](../HOW_TO_USE.md) - Getting started guide
-- [API Documentation](https://docs.rs/ovsm) - Full API reference
+- [API Documentation](https://docs.rs/solisp) - Full API reference
 - [Examples](../examples/) - Sample scripts
 
 ---
 
-**Need more patterns?** Check the [examples directory](../examples/) for real-world scripts, or consult the [API documentation](https://docs.rs/ovsm) for detailed tool usage.
+**Need more patterns?** Check the [examples directory](../examples/) for real-world scripts, or consult the [API documentation](https://docs.rs/solisp) for detailed tool usage.

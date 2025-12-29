@@ -2,13 +2,13 @@
 
 **Version**: 1.0.0
 **Created**: October 11, 2025
-**Purpose**: Automated testing of OVSM code in markdown documentation
+**Purpose**: Automated testing of Solisp code in markdown documentation
 
 ---
 
 ## Overview
 
-The QA Test Runner is a command-line tool that automatically executes OVSM code blocks found in markdown files. This allows you to:
+The QA Test Runner is a command-line tool that automatically executes Solisp code blocks found in markdown files. This allows you to:
 
 - **Validate documentation examples** - Ensure code examples in docs actually work
 - **Run regression tests** - Test interpreter against known-good examples
@@ -18,10 +18,10 @@ The QA Test Runner is a command-line tool that automatically executes OVSM code 
 
 ## Installation
 
-The tool is included as an example in the OVSM crate:
+The tool is included as an example in the Solisp crate:
 
 ```bash
-cd /path/to/osvm-cli/crates/ovsm
+cd /path/to/solisp/crates/solisp
 cargo build --example qa_test_runner
 ```
 
@@ -46,7 +46,7 @@ cargo run --example qa_test_runner -- examples/sample_qa_test.md
 ```
 📖 Reading: examples/sample_qa_test.md
 
-🔍 Found 8 OVSM code blocks:
+🔍 Found 8 Solisp code blocks:
 ═══════════════════════════════════════════════
 
 📝 Test #1:
@@ -74,10 +74,10 @@ RETURN $x + $y
 
 ### Code Block Syntax
 
-The tool looks for OVSM code blocks using standard markdown fence syntax:
+The tool looks for Solisp code blocks using standard markdown fence syntax:
 
 ````markdown
-```ovsm
+```solisp
 $x = 10
 $y = 20
 RETURN $x + $y
@@ -93,14 +93,14 @@ You can have multiple code blocks in a single file:
 
 ## Test 1: Arithmetic
 
-```ovsm
+```solisp
 $sum = 10 + 20
 RETURN $sum
 ```
 
 ## Test 2: Arrays
 
-```ovsm
+```solisp
 $numbers = [1, 2, 3]
 $total = SUM($numbers)
 RETURN $total
@@ -111,7 +111,7 @@ RETURN $total
 
 ## Features Tested
 
-The QA runner validates all implemented OVSM features:
+The QA runner validates all implemented Solisp features:
 
 ### ✅ Working Features
 
@@ -149,7 +149,7 @@ The runner categorizes errors into three types:
 **Cause**: Lexical errors in code
 **Example**: Unclosed string literal
 
-```ovsm
+```solisp
 $str = "unclosed
 RETURN $str
 ```
@@ -161,7 +161,7 @@ RETURN $str
 **Cause**: Syntax errors in code
 **Example**: Missing THEN keyword
 
-```ovsm
+```solisp
 IF $x > 0
     RETURN "positive"
 ```
@@ -173,7 +173,7 @@ IF $x > 0
 **Cause**: Execution errors
 **Example**: Division by zero
 
-```ovsm
+```solisp
 $x = 10 / 0
 RETURN $x
 ```
@@ -196,7 +196,7 @@ cargo run --example qa_test_runner -- examples/*.md
 
 ### 2. Run QA Test Suites
 
-The `/home/larp/larpdevs/osvm-cli/test_qa_categories/` directory contains comprehensive QA tests:
+The `/home/larp/larpdevs/solisp/test_qa_categories/` directory contains comprehensive QA tests:
 
 ```bash
 # Test specific category
@@ -240,14 +240,14 @@ echo "Regression test complete: $PASS passed, $FAIL failed"
 
 Each test shows:
 - **Test number**: Sequential numbering
-- **Code**: The OVSM code being tested
+- **Code**: The Solisp code being tested
 - **Result**: The execution result or error
 
 ### Value Formatting
 
 Results are formatted for clarity:
 
-| OVSM Value | Display Format |
+| Solisp Value | Display Format |
 |------------|----------------|
 | Integer | `Int(42)` |
 | Float | `Float(3.14)` |
@@ -272,9 +272,9 @@ The final summary shows:
 
 ### No Code Blocks Found
 
-**Problem**: `⚠️ No OVSM code blocks found in file!`
+**Problem**: `⚠️ No Solisp code blocks found in file!`
 
-**Solution**: Ensure blocks are marked with ` ```ovsm ` (not ` ```ovs ` or other variants)
+**Solution**: Ensure blocks are marked with ` ```solisp ` (not ` ```ovs ` or other variants)
 
 ### Parser Errors on Valid Code
 
@@ -306,7 +306,7 @@ Test multiple files with a shell script:
 #!/bin/bash
 # batch_test.sh
 
-echo "=== OVSM QA Test Suite ==="
+echo "=== Solisp QA Test Suite ==="
 echo ""
 
 for category in test_qa_categories/*; do
@@ -340,7 +340,7 @@ jobs:
       - uses: actions/checkout@v2
       - name: Run QA Test Suite
         run: |
-          cd crates/ovsm
+          cd crates/solisp
           cargo run --example qa_test_runner -- examples/sample_qa_test.md
           # Add more test files as needed
 ```
@@ -362,7 +362,7 @@ Planned features for v2.0:
 
 - **Expected result blocks**: Compare actual vs expected
   ````markdown
-  ```ovsm
+  ```solisp
   $x = 10 + 20
   RETURN $x
   ```
@@ -390,7 +390,7 @@ File: `test_new_features.md`
 
 ## Test: GUARD passes
 
-```ovsm
+```solisp
 $x = 10
 GUARD $x > 0 ELSE
     RETURN "negative"
@@ -399,7 +399,7 @@ RETURN "positive"
 
 ## Test: GUARD fails
 
-```ovsm
+```solisp
 $x = -5
 GUARD $x > 0 ELSE
     RETURN "negative"
@@ -428,7 +428,7 @@ File: `test_errors.md`
 
 ## Test: Division by zero caught
 
-```ovsm
+```solisp
 TRY:
     $result = 10 / 0
 CATCH:
@@ -438,7 +438,7 @@ RETURN $result
 
 ## Test: Undefined variable caught
 
-```ovsm
+```solisp
 TRY:
     $x = $undefined_var
 CATCH:
@@ -466,7 +466,7 @@ Pass rate: 100.0%
 ### 1. One Concept Per Test
 
 ❌ **Bad** - Multiple concepts in one test:
-```ovsm
+```solisp
 $x = 10
 $y = 20
 $sum = $x + $y
@@ -479,7 +479,7 @@ RETURN $result
 ```
 
 ✅ **Good** - Separate tests for each concept:
-```ovsm
+```solisp
 // Test 1: Arithmetic
 $x = 10
 $y = 20
@@ -521,7 +521,7 @@ This test verifies that:
 3. Outer TRY successfully divides by 1
 4. Final result is 100
 
-```ovsm
+```solisp
 TRY:
     TRY:
         $x = 10 / 0
@@ -538,7 +538,7 @@ RETURN $result
 
 ## Summary
 
-The QA Test Runner provides automated testing for OVSM code in markdown files, enabling:
+The QA Test Runner provides automated testing for Solisp code in markdown files, enabling:
 
 - ✅ Documentation validation
 - ✅ Regression testing
@@ -558,6 +558,6 @@ cargo run --example qa_test_runner -- path/to/file.md
 
 ---
 
-*QA Test Runner Guide - OVSM Interpreter v1.1.0*
+*QA Test Runner Guide - Solisp Interpreter v1.1.0*
 *Created: October 11, 2025*
 *Tool Status: Production Ready ✅*

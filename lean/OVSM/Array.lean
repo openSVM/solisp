@@ -1,5 +1,5 @@
 /-
-  OVSM.Array - Array bounds verification
+  Solisp.Array - Array bounds verification
   
   This module provides:
   - Array bounds checking lemmas
@@ -7,10 +7,10 @@
   - Index type for statically-bounded access
 -/
 
-import OVSM.Prelude
-import OVSM.Primitives
+import Solisp.Prelude
+import Solisp.Primitives
 
-namespace OVSM
+namespace Solisp
 
 /-! ## Array Bounds Predicates -/
 
@@ -20,7 +20,7 @@ def InBounds (idx : Nat) (len : Nat) : Prop := idx < len
 /-- Proof that an index is within bounds for UInt64 index -/
 def InBoundsU64 (idx : UInt64) (len : Nat) : Prop := idx.toNat < len
 
-/-- A bounded index type (like Fin but for OVSM) -/
+/-- A bounded index type (like Fin but for Solisp) -/
 structure BoundedIndex (len : Nat) where
   val : Nat
   isLt : val < len
@@ -132,4 +132,4 @@ theorem concat_right_in_bounds {α : Type} (a b : Array α) (idx : Nat) (h : InB
   simp [Array.size_append]
   omega
 
-end OVSM
+end Solisp

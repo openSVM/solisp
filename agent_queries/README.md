@@ -1,6 +1,6 @@
-# OVSM Agent Queries
+# Solisp Agent Queries
 
-This directory contains 100 diverse OVSM-LISP query examples demonstrating various language features and use cases.
+This directory contains 100 diverse Solisp-LISP query examples demonstrating various language features and use cases.
 
 ## Directory Structure
 
@@ -16,11 +16,11 @@ agent_queries/
 
 Execute any query with:
 ```bash
-# Using OVSM service
-osvm ovsm run agent_queries/basic/001_simple_addition.ovsm
+# Using Solisp service
+solisp run agent_queries/basic/001_simple_addition.solisp
 
 # Or directly via cargo
-cargo run --bin osvm -- ovsm run agent_queries/basic/001_simple_addition.ovsm
+cargo run --bin osvm -- solisp run agent_queries/basic/001_simple_addition.solisp
 ```
 
 ## Query Format
@@ -29,7 +29,7 @@ Each query file includes:
 - **Query description**: What the code does
 - **Category**: Feature category
 - **Expected result**: What the output should be
-- **OVSM code**: The actual implementation
+- **Solisp code**: The actual implementation
 
 ## Categories
 

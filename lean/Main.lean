@@ -1,26 +1,26 @@
 /-
-  OVSM Formal Verification - CLI Entry Point
+  Solisp Formal Verification - CLI Entry Point
   
-  This executable verifies OVSM programs by checking generated verification conditions.
+  This executable verifies Solisp programs by checking generated verification conditions.
   It's called by the Rust compiler via subprocess.
   
   Usage:
-    ovsm-verify <file.lean>    Check verification conditions in file
-    ovsm-verify --version      Print version
-    ovsm-verify --help         Print help
+    solisp-verify <file.lean>    Check verification conditions in file
+    solisp-verify --version      Print version
+    solisp-verify --help         Print help
 -/
 
-import OVSM
+import Solisp
 
 def main (args : List String) : IO UInt32 := do
   match args with
   | ["--version"] =>
-    IO.println "ovsm-verify 0.1.0"
+    IO.println "solisp-verify 0.1.0"
     return 0
   | ["--help"] =>
-    IO.println "OVSM Formal Verification Tool"
+    IO.println "Solisp Formal Verification Tool"
     IO.println ""
-    IO.println "Usage: ovsm-verify <file.lean>"
+    IO.println "Usage: solisp-verify <file.lean>"
     IO.println ""
     IO.println "Options:"
     IO.println "  --version    Print version"
@@ -32,5 +32,5 @@ def main (args : List String) : IO UInt32 := do
     IO.println s!"Verification successful: {file}"
     return 0
   | _ =>
-    IO.eprintln "Usage: ovsm-verify <file.lean>"
+    IO.eprintln "Usage: solisp-verify <file.lean>"
     return 1

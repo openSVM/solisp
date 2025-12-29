@@ -9,7 +9,7 @@
 ;;;   4. Stop when target found or max depth reached
 ;;;
 ;;; Usage:
-;;;   osvm ovsm run whale_hunter.ovsm
+;;;   solisp run whale_hunter.ovsm
 
 (println "")
 (println "═══════════════════════════════════════════════════════════════")

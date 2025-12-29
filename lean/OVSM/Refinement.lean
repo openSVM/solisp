@@ -1,5 +1,5 @@
 /-
-  OVSM.Refinement - Refinement type support
+  Solisp.Refinement - Refinement type support
   
   This module provides:
   - Refinement type encoding as dependent subtypes
@@ -7,10 +7,10 @@
   - Common refinement type patterns
 -/
 
-import OVSM.Prelude
-import OVSM.Primitives
+import Solisp.Prelude
+import Solisp.Primitives
 
-namespace OVSM
+namespace Solisp
 
 /-! ## Refinement Type Encoding -/
 
@@ -148,4 +148,4 @@ theorem add_bounded (x y : UInt64) (bx by_ : Nat)
     (x + y).toNat < bx + by_ := by
   sorry -- Requires UInt64 addition semantics
 
-end OVSM
+end Solisp

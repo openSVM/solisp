@@ -1,14 +1,14 @@
 import Lake
 open Lake DSL
 
-package «ovsm-verify» where
+package «solisp-verify» where
   version := v!"0.1.0"
-  description := "Formal verification library for OVSM programs"
+  description := "Formal verification library for Solisp programs"
 
-lean_lib «OVSM» where
-  roots := #[`OVSM]
+lean_lib «Solisp» where
+  roots := #[`Solisp]
 
 @[default_target]
-lean_exe «ovsm-verify» where
+lean_exe «solisp-verify» where
   root := `Main
   supportInterpreter := true

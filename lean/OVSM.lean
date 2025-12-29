@@ -1,20 +1,20 @@
 /-
-  OVSM - Open Versatile Seeker Mind
+  Solisp - Open Versatile Seeker Mind
   Formal Verification Library for Lean 4
   
   This library provides:
-  - Type definitions matching OVSM's type system
+  - Type definitions matching Solisp's type system
   - Verification conditions for safety properties
   - Tactics for automated proof of common patterns
   - Solana blockchain-specific verification support
 -/
 
--- Re-export all OVSM modules
-import OVSM.Prelude
-import OVSM.Types
-import OVSM.Primitives
-import OVSM.Array
-import OVSM.Refinement
-import OVSM.Solana
-import OVSM.Tactics
-import OVSM.Verification
+-- Re-export all Solisp modules
+import Solisp.Prelude
+import Solisp.Types
+import Solisp.Primitives
+import Solisp.Array
+import Solisp.Refinement
+import Solisp.Solana
+import Solisp.Tactics
+import Solisp.Verification

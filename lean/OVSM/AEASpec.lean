@@ -17,8 +17,8 @@
   - Detect missing checks or invalid state transitions
 -/
 
-import OVSM.Primitives
-import OVSM.Solana
+import Solisp.Primitives
+import Solisp.Solana
 
 namespace AEA
 

@@ -6,4 +6,4 @@
 (+ 42 58)  ;; Add 42 and 58
 
 ;; Result: 100
-;; Use + for any numeric addition in OVSM
+;; Use + for any numeric addition in Solisp

@@ -1,8 +1,8 @@
-# Self-Ask and Refine Framework for OVSM Queries
+# Self-Ask and Refine Framework for Solisp Queries
 
 ## Overview
 
-This framework enables iterative refinement of OVSM queries through self-questioning, validation, and improvement cycles.
+This framework enables iterative refinement of Solisp queries through self-questioning, validation, and improvement cycles.
 
 ## Self-Ask Methodology
 
@@ -147,7 +147,7 @@ factorial  ;; Returns 120
 **After:**
 ```lisp
 ;; Demonstrate variadic addition operator
-;; OVSM operators accept multiple arguments unlike Python-style
+;; Solisp operators accept multiple arguments unlike Python-style
 (define numbers-to-sum [1 2 3])
 (+ 1 2 3)  ;; Can add any number of operands
 ```
@@ -265,7 +265,7 @@ Q15: Does it need more context?
 ### Optimization
 Q16: Is there a simpler approach?
 Q17: Are there redundant operations?
-Q18: Is it idiomatic OVSM?
+Q18: Is it idiomatic Solisp?
 Q19: Could performance be better?
 Q20: Is the code too clever?
 
@@ -281,7 +281,7 @@ Q25: How does it compare to alternatives?
 
 Before finalizing a query:
 
-- [ ] Parses correctly in OVSM
+- [ ] Parses correctly in Solisp
 - [ ] Executes without runtime errors
 - [ ] Produces expected output
 - [ ] Has descriptive title
@@ -292,7 +292,7 @@ Before finalizing a query:
 - [ ] Demonstrates clear concept
 - [ ] Avoids anti-patterns
 - [ ] Handles common edge cases
-- [ ] Follows OVSM idioms
+- [ ] Follows Solisp idioms
 - [ ] Has appropriate complexity for category
 - [ ] Teaches transferable knowledge
 - [ ] Includes "why" not just "what"
@@ -331,7 +331,7 @@ A refined query should:
 - Score ≥85/100 on quality rubric
 - Pass all validation checks
 - Teach exactly one clear concept
-- Use idiomatic OVSM patterns
+- Use idiomatic Solisp patterns
 - Include enough context to be self-contained
 - Avoid requiring external knowledge
 - Build on previous queries progressively

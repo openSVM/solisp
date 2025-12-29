@@ -1,5 +1,5 @@
 /-
-  OVSM.Primitives - Checked arithmetic operations and safety lemmas
+  Solisp.Primitives - Checked arithmetic operations and safety lemmas
   
   This module provides:
   - Checked arithmetic operations that require safety proofs
@@ -7,9 +7,9 @@
   - Division and modulo safety
 -/
 
-import OVSM.Prelude
+import Solisp.Prelude
 
-namespace OVSM
+namespace Solisp
 
 /-! ## Division Safety -/
 
@@ -138,4 +138,4 @@ def checkedSub (x y : UInt64) : CheckedSubResult x y :=
   else
     .underflow
 
-end OVSM
+end Solisp

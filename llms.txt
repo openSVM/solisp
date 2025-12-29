@@ -1,11 +1,11 @@
-# OVSM - Open Versatile S-expression Machine
+# Solisp - Open Versatile S-expression Machine
 
 > A production-ready Common Lisp dialect for blockchain automation and scripting
 > Version: 1.0.0 | Test Coverage: 100% (356/356 passing) | License: MIT
 
 ## Overview
 
-OVSM is a LISP-1 dialect interpreter with 83% Common Lisp compatibility, designed for:
+Solisp is a LISP-1 dialect interpreter with 83% Common Lisp compatibility, designed for:
 - Blockchain data analysis and automation
 - Solana RPC integration
 - General-purpose scripting
@@ -433,21 +433,21 @@ Current 83% is production-ready for real-world use!
 ### Command Line
 ```bash
 # Run script file
-osvm ovsm run script.ovsm
+solisp run script.solisp
 
 # Evaluate inline
-osvm ovsm eval '(+ 1 2 3)'
+solisp eval '(+ 1 2 3)'
 
 # Check syntax
-osvm ovsm check script.ovsm
+solisp check script.solisp
 
 # Interactive REPL
-osvm ovsm repl
+solisp repl
 ```
 
 ### Programmatic (Rust)
 ```rust
-use ovsm::{LispEvaluator, SExprParser, SExprScanner};
+use solisp::{LispEvaluator, SExprParser, SExprScanner};
 
 let code = r#"
     (define x 10)
@@ -472,15 +472,15 @@ let result = evaluator.eval(&ast)?;  // Int(30)
 - USAGE_GUIDE.md - Comprehensive usage guide
 - QUICK_START.md - 5-minute tutorial
 - docs/COMMON_PATTERNS.md - Idiomatic patterns
-- API docs: https://docs.rs/ovsm
+- API docs: https://docs.rs/solisp
 
 ---
 
 ## Project Info
 
-Repository: https://github.com/opensvm/osvm-cli
-Package: https://crates.io/crates/ovsm
-Documentation: https://docs.rs/ovsm
+Repository: https://github.com/opensvm/solisp
+Package: https://crates.io/crates/solisp
+Documentation: https://docs.rs/solisp
 License: MIT
 Status: Production Ready (100% test coverage)
 Rust Version: 1.70+
@@ -526,16 +526,16 @@ Rust Version: 1.70+
 
 ```bash
 # All tests
-cargo test --package ovsm
+cargo test --package solisp
 
 # Unit tests only
-cargo test --package ovsm --lib
+cargo test --package solisp --lib
 
 # Integration tests
-cargo test --package ovsm --test lisp_e2e_tests
+cargo test --package solisp --test lisp_e2e_tests
 
 # With output
-cargo test --package ovsm -- --nocapture
+cargo test --package solisp -- --nocapture
 ```
 
 ---
@@ -550,5 +550,5 @@ cargo test --package ovsm -- --nocapture
 ---
 
 Generated: 2025-10-27
-OVSM Version: 1.0.0
+Solisp Version: 1.0.0
 Test Status: ✅ 356/356 passing (100%)

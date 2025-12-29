@@ -1,8 +1,8 @@
-# OVSM Agent Query Catalog
+# Solisp Agent Query Catalog
 
 **Total Queries:** 100
-**Format:** OVSM-LISP (`.ovsm` files)
-**Purpose:** Demonstrate OVSM language features, provide test cases, and serve as examples for AI agents
+**Format:** Solisp-LISP (`.solisp` files)
+**Purpose:** Demonstrate Solisp language features, provide test cases, and serve as examples for AI agents
 
 ---
 
@@ -185,7 +185,7 @@ agent_queries/
 ## 🌟 Featured Queries
 
 ### Query #036: The Critical Fix ⭐
-**File:** `loops/036_while_with_if.ovsm`
+**File:** `loops/036_while_with_if.solisp`
 
 This query demonstrates the **critical parser bug fix** - IF-THEN-ELSE inside a WHILE loop now works correctly!
 
@@ -201,10 +201,10 @@ count
 ```
 
 **Expected:** `1`
-**Why it matters:** This was impossible in Python-style OVSM due to parser ambiguity. LISP syntax fixes it!
+**Why it matters:** This was impossible in Python-style Solisp due to parser ambiguity. LISP syntax fixes it!
 
 ### Query #077: Fibonacci
-**File:** `advanced/077_fibonacci_recursive_iter.ovsm`
+**File:** `advanced/077_fibonacci_recursive_iter.solisp`
 
 Demonstrates iterative Fibonacci with array manipulation:
 
@@ -218,7 +218,7 @@ Demonstrates iterative Fibonacci with array manipulation:
 **Expected:** `55` (10th Fibonacci number)
 
 ### Query #100: DeFi Calculation
-**File:** `advanced/100_liquidity_pool_calc.ovsm`
+**File:** `advanced/100_liquidity_pool_calc.solisp`
 
 Real-world DeFi liquidity pool value calculation:
 
@@ -238,14 +238,14 @@ Real-world DeFi liquidity pool value calculation:
 
 ### Run a Single Query
 ```bash
-osvm ovsm run agent_queries/basic/001_simple_addition.ovsm
+solisp run agent_queries/basic/001_simple_addition.solisp
 ```
 
 ### Run All Basic Queries
 ```bash
-for file in agent_queries/basic/*.ovsm; do
+for file in agent_queries/basic/*.solisp; do
     echo "Running $file..."
-    osvm ovsm run "$file"
+    solisp run "$file"
 done
 ```
 
@@ -255,8 +255,8 @@ done
 cargo test --test lisp_e2e_tests
 
 # Or run specific tests
-for query in agent_queries/loops/*.ovsm; do
-    osvm ovsm run "$query" && echo "✅ PASS" || echo "❌ FAIL"
+for query in agent_queries/loops/*.solisp; do
+    solisp run "$query" && echo "✅ PASS" || echo "❌ FAIL"
 done
 ```
 
@@ -271,7 +271,7 @@ Each query file follows this standard format:
 ;; Category: [Basic|Loops|Data Structures|Advanced]
 ;; Expected: [Expected result]
 
-[OVSM code here]
+[Solisp code here]
 ```
 
 Example:
@@ -355,6 +355,6 @@ Potential additions for v2:
 ---
 
 **Generated:** October 19, 2025
-**OVSM Version:** 1.0 (LISP syntax)
+**Solisp Version:** 1.0 (LISP syntax)
 **Status:** ✅ Complete (100/100 queries)
-**Location:** `/home/larp/larpdevs/osvm-cli/crates/ovsm/agent_queries/`
+**Location:** `/home/larp/larpdevs/osvm-cli/crates/solisp/agent_queries/`
