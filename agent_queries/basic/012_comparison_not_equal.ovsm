@@ -1,6 +1,6 @@
 ;; Query: Check if 10 is not equal to 20
 ;; Category: Basic
 ;; Expected: true (boolean)
-;; Demonstrates: OVSM syntax
+;; Demonstrates: Solisp syntax
 
 (!= 10 20)  ;; Inequality check

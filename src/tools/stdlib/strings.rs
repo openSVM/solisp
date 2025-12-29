@@ -1100,7 +1100,7 @@ impl Tool for NstringUpcaseTool {
     }
 
     fn description(&self) -> &str {
-        "Convert string to uppercase (destructive variant, same as STRING-UPCASE in OVSM)"
+        "Convert string to uppercase (destructive variant, same as STRING-UPCASE in Solisp)"
     }
 
     fn execute(&self, args: &[Value]) -> Result<Value> {
@@ -1125,7 +1125,7 @@ impl Tool for NstringDowncaseTool {
     }
 
     fn description(&self) -> &str {
-        "Convert string to lowercase (destructive variant, same as STRING-DOWNCASE in OVSM)"
+        "Convert string to lowercase (destructive variant, same as STRING-DOWNCASE in Solisp)"
     }
 
     fn execute(&self, args: &[Value]) -> Result<Value> {
@@ -1150,7 +1150,7 @@ impl Tool for NstringCapitalizeTool {
     }
 
     fn description(&self) -> &str {
-        "Capitalize first character (destructive variant, same as STRING-CAPITALIZE in OVSM)"
+        "Capitalize first character (destructive variant, same as STRING-CAPITALIZE in Solisp)"
     }
 
     fn execute(&self, args: &[Value]) -> Result<Value> {
@@ -1204,7 +1204,7 @@ impl Tool for SimpleStringPTool {
     }
 
     fn description(&self) -> &str {
-        "Check if value is a simple string (same as STRINGP in OVSM)"
+        "Check if value is a simple string (same as STRINGP in Solisp)"
     }
 
     fn execute(&self, args: &[Value]) -> Result<Value> {
@@ -1277,7 +1277,7 @@ impl Tool for CharTool {
     }
 }
 
-/// SCHAR - Simple character access (same as CHAR in OVSM)
+/// SCHAR - Simple character access (same as CHAR in Solisp)
 pub struct ScharTool;
 
 impl Tool for ScharTool {
@@ -1286,7 +1286,7 @@ impl Tool for ScharTool {
     }
 
     fn description(&self) -> &str {
-        "Simple character access (same as CHAR in OVSM)"
+        "Simple character access (same as CHAR in Solisp)"
     }
 
     fn execute(&self, args: &[Value]) -> Result<Value> {

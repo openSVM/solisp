@@ -1,6 +1,6 @@
 [
   {
-    "query_file": "001_simple_addition.ovsm",
+    "query_file": "001_simple_addition.solisp",
     "correctness_score": 30,
     "clarity_score": 20,
     "educational_score": 10,
@@ -25,7 +25,7 @@
     }
   },
   {
-    "query_file": "002_variadic_addition.ovsm",
+    "query_file": "002_variadic_addition.solisp",
     "correctness_score": 30,
     "clarity_score": 10,
     "educational_score": 10,
@@ -53,7 +53,7 @@
     }
   },
   {
-    "query_file": "003_multiplication.ovsm",
+    "query_file": "003_multiplication.solisp",
     "correctness_score": 30,
     "clarity_score": 15,
     "educational_score": 10,
@@ -79,7 +79,7 @@
     }
   },
   {
-    "query_file": "004_division.ovsm",
+    "query_file": "004_division.solisp",
     "correctness_score": 30,
     "clarity_score": 15,
     "educational_score": 10,
@@ -105,7 +105,7 @@
     }
   },
   {
-    "query_file": "005_modulo.ovsm",
+    "query_file": "005_modulo.solisp",
     "correctness_score": 30,
     "clarity_score": 20,
     "educational_score": 10,
@@ -130,7 +130,7 @@
     }
   },
   {
-    "query_file": "006_nested_arithmetic.ovsm",
+    "query_file": "006_nested_arithmetic.solisp",
     "correctness_score": 30,
     "clarity_score": 15,
     "educational_score": 10,
@@ -156,7 +156,7 @@
     }
   },
   {
-    "query_file": "007_variable_definition.ovsm",
+    "query_file": "007_variable_definition.solisp",
     "correctness_score": 30,
     "clarity_score": 25,
     "educational_score": 25,
@@ -182,7 +182,7 @@
     }
   },
   {
-    "query_file": "008_variable_mutation.ovsm",
+    "query_file": "008_variable_mutation.solisp",
     "correctness_score": 30,
     "clarity_score": 25,
     "educational_score": 25,
@@ -208,7 +208,7 @@
     }
   },
   {
-    "query_file": "009_constant_definition.ovsm",
+    "query_file": "009_constant_definition.solisp",
     "correctness_score": 30,
     "clarity_score": 10,
     "educational_score": 10,
@@ -236,7 +236,7 @@
     }
   },
   {
-    "query_file": "010_simple_if.ovsm",
+    "query_file": "010_simple_if.solisp",
     "correctness_score": 40,
     "clarity_score": 15,
     "educational_score": 25,
@@ -259,7 +259,7 @@
     }
   },
   {
-    "query_file": "011_comparison_equal.ovsm",
+    "query_file": "011_comparison_equal.solisp",
     "correctness_score": 40,
     "clarity_score": 15,
     "educational_score": 10,
@@ -284,7 +284,7 @@
     }
   },
   {
-    "query_file": "012_comparison_not_equal.ovsm",
+    "query_file": "012_comparison_not_equal.solisp",
     "correctness_score": 40,
     "clarity_score": 10,
     "educational_score": 10,
@@ -311,7 +311,7 @@
     }
   },
   {
-    "query_file": "013_logical_not.ovsm",
+    "query_file": "013_logical_not.solisp",
     "correctness_score": 40,
     "clarity_score": 15,
     "educational_score": 10,
@@ -336,7 +336,7 @@
     }
   },
   {
-    "query_file": "014_null_check.ovsm",
+    "query_file": "014_null_check.solisp",
     "correctness_score": 40,
     "clarity_score": 20,
     "educational_score": 10,
@@ -359,7 +359,7 @@
     }
   },
   {
-    "query_file": "015_string_concatenation.ovsm",
+    "query_file": "015_string_concatenation.solisp",
     "correctness_score": 40,
     "clarity_score": 10,
     "educational_score": 10,
@@ -386,7 +386,7 @@
     }
   },
   {
-    "query_file": "016_sequential_execution.ovsm",
+    "query_file": "016_sequential_execution.solisp",
     "correctness_score": 30,
     "clarity_score": 20,
     "educational_score": 12,
@@ -415,7 +415,7 @@
     }
   },
   {
-    "query_file": "017_nested_if.ovsm",
+    "query_file": "017_nested_if.solisp",
     "correctness_score": 40,
     "clarity_score": 15,
     "educational_score": 20,
@@ -442,7 +442,7 @@
     }
   },
   {
-    "query_file": "018_when_true.ovsm",
+    "query_file": "018_when_true.solisp",
     "correctness_score": 40,
     "clarity_score": 15,
     "educational_score": 15,
@@ -469,7 +469,7 @@
     }
   },
   {
-    "query_file": "019_cond_multiple.ovsm",
+    "query_file": "019_cond_multiple.solisp",
     "correctness_score": 40,
     "clarity_score": 15,
     "educational_score": 25,
@@ -495,7 +495,7 @@
     }
   },
   {
-    "query_file": "020_range_creation.ovsm",
+    "query_file": "020_range_creation.solisp",
     "correctness_score": 40,
     "clarity_score": 15,
     "educational_score": 25,
@@ -518,7 +518,7 @@
     }
   },
   {
-    "query_file": "021_current_timestamp.ovsm",
+    "query_file": "021_current_timestamp.solisp",
     "correctness_score": 30,
     "clarity_score": 25,
     "educational_score": 15,
@@ -543,7 +543,7 @@
     }
   },
   {
-    "query_file": "022_log_message.ovsm",
+    "query_file": "022_log_message.solisp",
     "correctness_score": 40,
     "clarity_score": 5,
     "educational_score": 10,
@@ -571,7 +571,7 @@
     }
   },
   {
-    "query_file": "023_arithmetic_precedence.ovsm",
+    "query_file": "023_arithmetic_precedence.solisp",
     "correctness_score": 30,
     "clarity_score": 10,
     "educational_score": 10,
@@ -599,7 +599,7 @@
     }
   },
   {
-    "query_file": "024_empty_check.ovsm",
+    "query_file": "024_empty_check.solisp",
     "correctness_score": 40,
     "clarity_score": 20,
     "educational_score": 10,
@@ -622,7 +622,7 @@
     }
   },
   {
-    "query_file": "025_array_length.ovsm",
+    "query_file": "025_array_length.solisp",
     "correctness_score": 30,
     "clarity_score": 15,
     "educational_score": 20,
@@ -647,7 +647,7 @@
     }
   },
   {
-    "query_file": "026_simple_while.ovsm",
+    "query_file": "026_simple_while.solisp",
     "correctness_score": 30,
     "clarity_score": 10,
     "educational_score": 12,
@@ -679,7 +679,7 @@
     }
   },
   {
-    "query_file": "027_while_sum.ovsm",
+    "query_file": "027_while_sum.solisp",
     "correctness_score": 30,
     "clarity_score": 15,
     "educational_score": 12,
@@ -710,7 +710,7 @@
     }
   },
   {
-    "query_file": "028_for_range.ovsm",
+    "query_file": "028_for_range.solisp",
     "correctness_score": 30,
     "clarity_score": 20,
     "educational_score": 20,
@@ -738,7 +738,7 @@
     }
   },
   {
-    "query_file": "029_for_array.ovsm",
+    "query_file": "029_for_array.solisp",
     "correctness_score": 30,
     "clarity_score": 20,
     "educational_score": 30,
@@ -765,7 +765,7 @@
     }
   },
   {
-    "query_file": "030_nested_for.ovsm",
+    "query_file": "030_nested_for.solisp",
     "correctness_score": 30,
     "clarity_score": 15,
     "educational_score": 30,
@@ -793,7 +793,7 @@
     }
   },
   {
-    "query_file": "031_while_countdown.ovsm",
+    "query_file": "031_while_countdown.solisp",
     "correctness_score": 30,
     "clarity_score": 15,
     "educational_score": 15,
@@ -823,7 +823,7 @@
     }
   },
   {
-    "query_file": "032_for_string_chars.ovsm",
+    "query_file": "032_for_string_chars.solisp",
     "correctness_score": 30,
     "clarity_score": 20,
     "educational_score": 20,
@@ -851,7 +851,7 @@
     }
   },
   {
-    "query_file": "033_accumulator_pattern.ovsm",
+    "query_file": "033_accumulator_pattern.solisp",
     "correctness_score": 30,
     "clarity_score": 15,
     "educational_score": 30,
@@ -879,7 +879,7 @@
     }
   },
   {
-    "query_file": "034_conditional_loop.ovsm",
+    "query_file": "034_conditional_loop.solisp",
     "correctness_score": 30,
     "clarity_score": 20,
     "educational_score": 30,
@@ -906,7 +906,7 @@
     }
   },
   {
-    "query_file": "035_early_termination.ovsm",
+    "query_file": "035_early_termination.solisp",
     "correctness_score": 30,
     "clarity_score": 15,
     "educational_score": 22,
@@ -936,7 +936,7 @@
     }
   },
   {
-    "query_file": "036_while_with_if.ovsm",
+    "query_file": "036_while_with_if.solisp",
     "correctness_score": 30,
     "clarity_score": 15,
     "educational_score": 30,
@@ -965,7 +965,7 @@
     }
   },
   {
-    "query_file": "037_counting_evens.ovsm",
+    "query_file": "037_counting_evens.solisp",
     "correctness_score": 30,
     "clarity_score": 20,
     "educational_score": 20,
@@ -993,7 +993,7 @@
     }
   },
   {
-    "query_file": "038_max_finder.ovsm",
+    "query_file": "038_max_finder.solisp",
     "correctness_score": 30,
     "clarity_score": 15,
     "educational_score": 30,
@@ -1021,7 +1021,7 @@
     }
   },
   {
-    "query_file": "039_min_finder.ovsm",
+    "query_file": "039_min_finder.solisp",
     "correctness_score": 30,
     "clarity_score": 15,
     "educational_score": 30,
@@ -1049,7 +1049,7 @@
     }
   },
   {
-    "query_file": "040_double_values.ovsm",
+    "query_file": "040_double_values.solisp",
     "correctness_score": 40,
     "clarity_score": 20,
     "educational_score": 30,
@@ -1076,7 +1076,7 @@
     }
   },
   {
-    "query_file": "041_filter_positives.ovsm",
+    "query_file": "041_filter_positives.solisp",
     "correctness_score": 40,
     "clarity_score": 20,
     "educational_score": 20,
@@ -1103,7 +1103,7 @@
     }
   },
   {
-    "query_file": "042_sum_of_squares.ovsm",
+    "query_file": "042_sum_of_squares.solisp",
     "correctness_score": 30,
     "clarity_score": 20,
     "educational_score": 20,
@@ -1131,7 +1131,7 @@
     }
   },
   {
-    "query_file": "043_fibonacci_sequence.ovsm",
+    "query_file": "043_fibonacci_sequence.solisp",
     "correctness_score": 40,
     "clarity_score": 15,
     "educational_score": 20,
@@ -1159,7 +1159,7 @@
     }
   },
   {
-    "query_file": "044_reverse_array.ovsm",
+    "query_file": "044_reverse_array.solisp",
     "correctness_score": 40,
     "clarity_score": 20,
     "educational_score": 30,
@@ -1186,7 +1186,7 @@
     }
   },
   {
-    "query_file": "045_string_builder.ovsm",
+    "query_file": "045_string_builder.solisp",
     "correctness_score": 40,
     "clarity_score": 20,
     "educational_score": 30,
@@ -1213,7 +1213,7 @@
     }
   },
   {
-    "query_file": "046_array_contains.ovsm",
+    "query_file": "046_array_contains.solisp",
     "correctness_score": 40,
     "clarity_score": 20,
     "educational_score": 30,
@@ -1240,7 +1240,7 @@
     }
   },
   {
-    "query_file": "047_count_occurrences.ovsm",
+    "query_file": "047_count_occurrences.solisp",
     "correctness_score": 30,
     "clarity_score": 20,
     "educational_score": 20,
@@ -1268,7 +1268,7 @@
     }
   },
   {
-    "query_file": "048_alternating_sum.ovsm",
+    "query_file": "048_alternating_sum.solisp",
     "correctness_score": 30,
     "clarity_score": 20,
     "educational_score": 20,
@@ -1296,7 +1296,7 @@
     }
   },
   {
-    "query_file": "049_cumulative_product.ovsm",
+    "query_file": "049_cumulative_product.solisp",
     "correctness_score": 30,
     "clarity_score": 15,
     "educational_score": 20,
@@ -1326,7 +1326,7 @@
     }
   },
   {
-    "query_file": "050_nested_sum.ovsm",
+    "query_file": "050_nested_sum.solisp",
     "correctness_score": 30,
     "clarity_score": 20,
     "educational_score": 20,
@@ -1354,7 +1354,7 @@
     }
   },
   {
-    "query_file": "051_create_array.ovsm",
+    "query_file": "051_create_array.solisp",
     "correctness_score": 30,
     "clarity_score": 5,
     "educational_score": 20,
@@ -1382,7 +1382,7 @@
     }
   },
   {
-    "query_file": "052_create_object.ovsm",
+    "query_file": "052_create_object.solisp",
     "correctness_score": 30,
     "clarity_score": 5,
     "educational_score": 20,
@@ -1410,7 +1410,7 @@
     }
   },
   {
-    "query_file": "053_array_first_element.ovsm",
+    "query_file": "053_array_first_element.solisp",
     "correctness_score": 30,
     "clarity_score": 15,
     "educational_score": 15,
@@ -1439,7 +1439,7 @@
     }
   },
   {
-    "query_file": "054_array_last_element.ovsm",
+    "query_file": "054_array_last_element.solisp",
     "correctness_score": 30,
     "clarity_score": 15,
     "educational_score": 15,
@@ -1468,7 +1468,7 @@
     }
   },
   {
-    "query_file": "055_nested_array.ovsm",
+    "query_file": "055_nested_array.solisp",
     "correctness_score": 30,
     "clarity_score": 5,
     "educational_score": 20,
@@ -1496,7 +1496,7 @@
     }
   },
   {
-    "query_file": "056_object_property.ovsm",
+    "query_file": "056_object_property.solisp",
     "correctness_score": 40,
     "clarity_score": 15,
     "educational_score": 25,
@@ -1522,7 +1522,7 @@
     }
   },
   {
-    "query_file": "057_array_concatenation.ovsm",
+    "query_file": "057_array_concatenation.solisp",
     "correctness_score": 40,
     "clarity_score": 10,
     "educational_score": 20,
@@ -1547,7 +1547,7 @@
     }
   },
   {
-    "query_file": "058_array_with_mixed_types.ovsm",
+    "query_file": "058_array_with_mixed_types.solisp",
     "correctness_score": 30,
     "clarity_score": 5,
     "educational_score": 20,
@@ -1575,7 +1575,7 @@
     }
   },
   {
-    "query_file": "059_empty_array.ovsm",
+    "query_file": "059_empty_array.solisp",
     "correctness_score": 30,
     "clarity_score": 5,
     "educational_score": 20,
@@ -1603,7 +1603,7 @@
     }
   },
   {
-    "query_file": "060_empty_object.ovsm",
+    "query_file": "060_empty_object.solisp",
     "correctness_score": 30,
     "clarity_score": 5,
     "educational_score": 20,
@@ -1631,7 +1631,7 @@
     }
   },
   {
-    "query_file": "061_array_push_pattern.ovsm",
+    "query_file": "061_array_push_pattern.solisp",
     "correctness_score": 40,
     "clarity_score": 20,
     "educational_score": 25,
@@ -1657,7 +1657,7 @@
     }
   },
   {
-    "query_file": "062_nested_object.ovsm",
+    "query_file": "062_nested_object.solisp",
     "correctness_score": 30,
     "clarity_score": 5,
     "educational_score": 20,
@@ -1685,7 +1685,7 @@
     }
   },
   {
-    "query_file": "063_array_size_check.ovsm",
+    "query_file": "063_array_size_check.solisp",
     "correctness_score": 30,
     "clarity_score": 10,
     "educational_score": 20,
@@ -1712,7 +1712,7 @@
     }
   },
   {
-    "query_file": "064_object_keys.ovsm",
+    "query_file": "064_object_keys.solisp",
     "correctness_score": 40,
     "clarity_score": 5,
     "educational_score": 20,
@@ -1739,7 +1739,7 @@
     }
   },
   {
-    "query_file": "065_array_membership.ovsm",
+    "query_file": "065_array_membership.solisp",
     "correctness_score": 40,
     "clarity_score": 10,
     "educational_score": 20,
@@ -1764,7 +1764,7 @@
     }
   },
   {
-    "query_file": "066_array_slice.ovsm",
+    "query_file": "066_array_slice.solisp",
     "correctness_score": 40,
     "clarity_score": 5,
     "educational_score": 20,
@@ -1791,7 +1791,7 @@
     }
   },
   {
-    "query_file": "067_merge_objects.ovsm",
+    "query_file": "067_merge_objects.solisp",
     "correctness_score": 40,
     "clarity_score": 5,
     "educational_score": 20,
@@ -1818,7 +1818,7 @@
     }
   },
   {
-    "query_file": "068_array_of_objects.ovsm",
+    "query_file": "068_array_of_objects.solisp",
     "correctness_score": 30,
     "clarity_score": 5,
     "educational_score": 20,
@@ -1846,7 +1846,7 @@
     }
   },
   {
-    "query_file": "069_multidimensional_array.ovsm",
+    "query_file": "069_multidimensional_array.solisp",
     "correctness_score": 30,
     "clarity_score": 15,
     "educational_score": 25,
@@ -1873,7 +1873,7 @@
     }
   },
   {
-    "query_file": "070_array_init.ovsm",
+    "query_file": "070_array_init.solisp",
     "correctness_score": 40,
     "clarity_score": 5,
     "educational_score": 20,
@@ -1900,7 +1900,7 @@
     }
   },
   {
-    "query_file": "071_array_range_generation.ovsm",
+    "query_file": "071_array_range_generation.solisp",
     "correctness_score": 40,
     "clarity_score": 5,
     "educational_score": 10,
@@ -1928,7 +1928,7 @@
     }
   },
   {
-    "query_file": "072_tuple_like_array.ovsm",
+    "query_file": "072_tuple_like_array.solisp",
     "correctness_score": 30,
     "clarity_score": 5,
     "educational_score": 20,
@@ -1956,7 +1956,7 @@
     }
   },
   {
-    "query_file": "073_array_prepend.ovsm",
+    "query_file": "073_array_prepend.solisp",
     "correctness_score": 40,
     "clarity_score": 10,
     "educational_score": 10,
@@ -1983,7 +1983,7 @@
     }
   },
   {
-    "query_file": "074_object_update.ovsm",
+    "query_file": "074_object_update.solisp",
     "correctness_score": 40,
     "clarity_score": 15,
     "educational_score": 25,
@@ -2009,7 +2009,7 @@
     }
   },
   {
-    "query_file": "075_deep_nested_structure.ovsm",
+    "query_file": "075_deep_nested_structure.solisp",
     "correctness_score": 30,
     "clarity_score": 5,
     "educational_score": 10,
@@ -2038,7 +2038,7 @@
     }
   },
   {
-    "query_file": "076_factorial.ovsm",
+    "query_file": "076_factorial.solisp",
     "correctness_score": 30,
     "clarity_score": 15,
     "educational_score": 17,
@@ -2069,7 +2069,7 @@
     }
   },
   {
-    "query_file": "077_fibonacci_recursive_iter.ovsm",
+    "query_file": "077_fibonacci_recursive_iter.solisp",
     "correctness_score": 30,
     "clarity_score": 20,
     "educational_score": 30,
@@ -2096,7 +2096,7 @@
     }
   },
   {
-    "query_file": "078_prime_check.ovsm",
+    "query_file": "078_prime_check.solisp",
     "correctness_score": 40,
     "clarity_score": 15,
     "educational_score": 17,
@@ -2125,7 +2125,7 @@
     }
   },
   {
-    "query_file": "079_gcd_calculation.ovsm",
+    "query_file": "079_gcd_calculation.solisp",
     "correctness_score": 30,
     "clarity_score": 15,
     "educational_score": 12,
@@ -2156,7 +2156,7 @@
     }
   },
   {
-    "query_file": "080_bubble_sort_pass.ovsm",
+    "query_file": "080_bubble_sort_pass.solisp",
     "correctness_score": 40,
     "clarity_score": 20,
     "educational_score": 20,
@@ -2183,7 +2183,7 @@
     }
   },
   {
-    "query_file": "081_binary_search_setup.ovsm",
+    "query_file": "081_binary_search_setup.solisp",
     "correctness_score": 30,
     "clarity_score": 15,
     "educational_score": 15,
@@ -2212,7 +2212,7 @@
     }
   },
   {
-    "query_file": "082_average_calculator.ovsm",
+    "query_file": "082_average_calculator.solisp",
     "correctness_score": 30,
     "clarity_score": 20,
     "educational_score": 20,
@@ -2240,7 +2240,7 @@
     }
   },
   {
-    "query_file": "083_variance_calculation.ovsm",
+    "query_file": "083_variance_calculation.solisp",
     "correctness_score": 30,
     "clarity_score": 20,
     "educational_score": 20,
@@ -2268,7 +2268,7 @@
     }
   },
   {
-    "query_file": "084_moving_average.ovsm",
+    "query_file": "084_moving_average.solisp",
     "correctness_score": 30,
     "clarity_score": 20,
     "educational_score": 15,
@@ -2296,7 +2296,7 @@
     }
   },
   {
-    "query_file": "085_time_difference.ovsm",
+    "query_file": "085_time_difference.solisp",
     "correctness_score": 30,
     "clarity_score": 20,
     "educational_score": 15,
@@ -2324,7 +2324,7 @@
     }
   },
   {
-    "query_file": "086_percentage_calculator.ovsm",
+    "query_file": "086_percentage_calculator.solisp",
     "correctness_score": 30,
     "clarity_score": 20,
     "educational_score": 15,
@@ -2352,7 +2352,7 @@
     }
   },
   {
-    "query_file": "087_compound_interest.ovsm",
+    "query_file": "087_compound_interest.solisp",
     "correctness_score": 30,
     "clarity_score": 20,
     "educational_score": 15,
@@ -2380,7 +2380,7 @@
     }
   },
   {
-    "query_file": "088_distance_formula.ovsm",
+    "query_file": "088_distance_formula.solisp",
     "correctness_score": 30,
     "clarity_score": 20,
     "educational_score": 15,
@@ -2408,7 +2408,7 @@
     }
   },
   {
-    "query_file": "089_quadratic_formula.ovsm",
+    "query_file": "089_quadratic_formula.solisp",
     "correctness_score": 30,
     "clarity_score": 15,
     "educational_score": 12,
@@ -2438,7 +2438,7 @@
     }
   },
   {
-    "query_file": "090_matrix_sum.ovsm",
+    "query_file": "090_matrix_sum.solisp",
     "correctness_score": 30,
     "clarity_score": 20,
     "educational_score": 20,
@@ -2466,7 +2466,7 @@
     }
   },
   {
-    "query_file": "091_string_reversal.ovsm",
+    "query_file": "091_string_reversal.solisp",
     "correctness_score": 40,
     "clarity_score": 20,
     "educational_score": 20,
@@ -2493,7 +2493,7 @@
     }
   },
   {
-    "query_file": "092_palindrome_check.ovsm",
+    "query_file": "092_palindrome_check.solisp",
     "correctness_score": 40,
     "clarity_score": 20,
     "educational_score": 20,
@@ -2520,7 +2520,7 @@
     }
   },
   {
-    "query_file": "093_word_count.ovsm",
+    "query_file": "093_word_count.solisp",
     "correctness_score": 30,
     "clarity_score": 15,
     "educational_score": 15,
@@ -2549,7 +2549,7 @@
     }
   },
   {
-    "query_file": "094_blockchain_timestamp.ovsm",
+    "query_file": "094_blockchain_timestamp.solisp",
     "correctness_score": 30,
     "clarity_score": 5,
     "educational_score": 10,
@@ -2578,7 +2578,7 @@
     }
   },
   {
-    "query_file": "095_hash_simulation.ovsm",
+    "query_file": "095_hash_simulation.solisp",
     "correctness_score": 30,
     "clarity_score": 20,
     "educational_score": 20,
@@ -2606,7 +2606,7 @@
     }
   },
   {
-    "query_file": "096_merkle_root_simulation.ovsm",
+    "query_file": "096_merkle_root_simulation.solisp",
     "correctness_score": 30,
     "clarity_score": 20,
     "educational_score": 15,
@@ -2634,7 +2634,7 @@
     }
   },
   {
-    "query_file": "097_exponential_growth.ovsm",
+    "query_file": "097_exponential_growth.solisp",
     "correctness_score": 30,
     "clarity_score": 20,
     "educational_score": 20,
@@ -2662,7 +2662,7 @@
     }
   },
   {
-    "query_file": "098_amortization_calc.ovsm",
+    "query_file": "098_amortization_calc.solisp",
     "correctness_score": 30,
     "clarity_score": 20,
     "educational_score": 15,
@@ -2690,7 +2690,7 @@
     }
   },
   {
-    "query_file": "099_rsi_calculation.ovsm",
+    "query_file": "099_rsi_calculation.solisp",
     "correctness_score": 30,
     "clarity_score": 20,
     "educational_score": 15,
@@ -2718,7 +2718,7 @@
     }
   },
   {
-    "query_file": "100_liquidity_pool_calc.ovsm",
+    "query_file": "100_liquidity_pool_calc.solisp",
     "correctness_score": 30,
     "clarity_score": 20,
     "educational_score": 15,

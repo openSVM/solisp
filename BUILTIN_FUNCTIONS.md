@@ -1,6 +1,6 @@
-# OVSM Built-in Functions Glossary
+# Solisp Built-in Functions Glossary
 
-Complete reference guide for all 91+ built-in functions in the OVSM LISP interpreter.
+Complete reference guide for all 91+ built-in functions in the Solisp LISP interpreter.
 
 **Version:** 1.0.0
 **Last Updated:** 2025-10-27
@@ -404,7 +404,7 @@ Complete reference guide for all 91+ built-in functions in the OVSM LISP interpr
 (not true)      ; => false
 (not false)     ; => true
 (not null)      ; => true
-(not 0)         ; => false (0 is truthy in OVSM)
+(not 0)         ; => false (0 is truthy in Solisp)
 ```
 
 ---
@@ -737,8 +737,8 @@ All type predicates return `true` or `false`.
 **Returns:** String with replacements
 
 ```lisp
-(replace "hello world" "world" "OVSM")
-; => "hello OVSM"
+(replace "hello world" "world" "Solisp")
+; => "hello Solisp"
 ```
 
 ---
@@ -1550,7 +1550,7 @@ Used for object keys and named parameters:
 
 ### Special Forms
 
-OVSM distinguishes between:
+Solisp distinguishes between:
 - **Special forms**: Evaluated with special rules (e.g., `if`, `define`, `lambda`)
 - **Functions**: All arguments evaluated before application (e.g., `+`, `map`, `filter`)
 
@@ -1560,7 +1560,7 @@ OVSM distinguishes between:
 
 ### Immutable Data Structures
 
-All OVSM data structures are **immutable by default**:
+All Solisp data structures are **immutable by default**:
 - Operations return new copies
 - Original values are never modified
 - Use `set!` to rebind variables
@@ -1640,7 +1640,7 @@ sum
 
 ## Migration from Old Syntax
 
-OVSM previously used Python-style syntax. It now uses LISP S-expressions exclusively.
+Solisp previously used Python-style syntax. It now uses LISP S-expressions exclusively.
 
 **OLD (Python-style - REMOVED):**
 ```python
@@ -1662,17 +1662,17 @@ IF $x > 5 THEN
 ## Testing Your Code
 
 ```bash
-# Run OVSM script
-osvm ovsm run script.ovsm
+# Run Solisp script
+solisp run script.solisp
 
 # Evaluate inline
-osvm ovsm eval '(+ 1 2 3)'
+solisp eval '(+ 1 2 3)'
 
 # Check syntax
-osvm ovsm check script.ovsm
+solisp check script.solisp
 
 # Interactive REPL
-osvm ovsm repl
+solisp repl
 ```
 
 ---
@@ -1682,8 +1682,8 @@ osvm ovsm repl
 - **[README.md](README.md)** - Overview and quick start
 - **[USAGE_GUIDE.md](USAGE_GUIDE.md)** - Comprehensive usage guide
 - **[COMMON_PATTERNS.md](docs/COMMON_PATTERNS.md)** - Idiomatic patterns (needs update for LISP)
-- **[API Documentation](https://docs.rs/ovsm)** - Full Rust API reference
-- **[Example Scripts](../../examples/ovsm_scripts/)** - Real-world examples
+- **[API Documentation](https://docs.rs/solisp)** - Full Rust API reference
+- **[Example Scripts](../../examples/solisp_scripts/)** - Real-world examples
 
 ---
 
@@ -1711,11 +1711,11 @@ osvm ovsm repl
 ---
 
 **Last Updated:** 2025-10-27
-**OVSM Version:** 1.0.0
+**Solisp Version:** 1.0.0
 **Test Coverage:** 100% (356/356 tests passing)
 
 ---
 
 *Made with ❤️ by the OpenSVM team*
 
-*OVSM: Where blockchain meets LISP elegance* 🚀
+*Solisp: Where blockchain meets LISP elegance* 🚀

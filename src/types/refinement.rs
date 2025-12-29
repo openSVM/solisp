@@ -1,4 +1,4 @@
-//! # Refinement Types for OVSM
+//! # Refinement Types for Solisp
 //!
 //! This module implements refinement types - types augmented with predicates
 //! that constrain their values. Refinement types enable compile-time verification

@@ -2,7 +2,7 @@
 
 ## Test: FOR loop with IF, trace all operations
 
-```ovsm
+```solisp
 $after = 0
 FOR $i IN [1..3]:
     $before = $i

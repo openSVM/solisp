@@ -1,4 +1,4 @@
-//! Loop utility functions for OVSM
+//! Loop utility functions for Solisp
 //!
 //! Simplified loop utilities instead of full LOOP macro implementation.
 //! Provides functional programming alternatives to complex loop constructs.

@@ -1,4 +1,4 @@
-//! Printer control for OVSM
+//! Printer control for Solisp
 //!
 //! Pretty printing, print dispatch, and printer variables.
 //! Provides Common Lisp-style output formatting control.

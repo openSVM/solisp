@@ -12,7 +12,7 @@
 //! ## Usage
 //!
 //! ```ignore
-//! use ovsm::compiler::lean::{LeanVerifier, VerificationOptions};
+//! use solisp::compiler::lean::{LeanVerifier, VerificationOptions};
 //!
 //! let verifier = LeanVerifier::new(VerificationOptions::default())?;
 //! let result = verifier.verify(&program)?;
@@ -502,7 +502,7 @@ pub struct ProvedVC {
     pub category: VCCategory,
     /// Human-readable description
     pub description: String,
-    /// Source location in OVSM file
+    /// Source location in Solisp file
     pub location: Option<SourceLocation>,
     /// Time to prove in milliseconds
     pub time_ms: u64,
@@ -517,7 +517,7 @@ pub struct FailedVC {
     pub category: VCCategory,
     /// Human-readable description
     pub description: String,
-    /// Source location in OVSM file
+    /// Source location in Solisp file
     pub location: Option<SourceLocation>,
     /// Error message from Lean
     pub error: String,
@@ -534,13 +534,13 @@ pub struct UnknownVC {
     pub category: VCCategory,
     /// Human-readable description
     pub description: String,
-    /// Source location in OVSM file
+    /// Source location in Solisp file
     pub location: Option<SourceLocation>,
     /// Reason why verification couldn't complete
     pub reason: String,
 }
 
-/// Source location in OVSM code
+/// Source location in Solisp code
 #[derive(Debug, Clone)]
 pub struct SourceLocation {
     /// Source file path

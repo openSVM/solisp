@@ -1,4 +1,4 @@
-//! Extended I/O functions for OVSM
+//! Extended I/O functions for Solisp
 //!
 //! Binary I/O, file positioning, and stream properties.
 //! Provides Common Lisp-style advanced I/O capabilities.

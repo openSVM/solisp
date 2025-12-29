@@ -2,7 +2,7 @@
 
 ## Test 1: WHILE with IF, access variable after
 
-```ovsm
+```solisp
 $i = 0
 WHILE $i < 3:
     $before = $i
@@ -15,7 +15,7 @@ RETURN "ok"
 
 ## Test 2: Simple WHILE
 
-```ovsm
+```solisp
 $i = 0
 WHILE $i < 3:
     $x = $i

@@ -1,17 +1,17 @@
 /-
-  OVSM.Types - Type system definitions matching OVSM's type system
+  Solisp.Types - Type system definitions matching Solisp's type system
   
-  This module defines Lean 4 representations of all OVSM types,
-  enabling formal reasoning about OVSM programs.
+  This module defines Lean 4 representations of all Solisp types,
+  enabling formal reasoning about Solisp programs.
 -/
 
-import OVSM.Prelude
+import Solisp.Prelude
 
-namespace OVSM
+namespace Solisp
 
 /-! ## Primitive Types -/
 
-/-- OVSM primitive types -/
+/-- Solisp primitive types -/
 inductive PrimType where
   | u8 | u16 | u32 | u64
   | i8 | i16 | i32 | i64
@@ -51,67 +51,67 @@ def Pubkey.zero : Pubkey := {
   size_eq := by native_decide
 }
 
-/-! ## OVSM Type Representation -/
+/-! ## Solisp Type Representation -/
 
-/-- Full OVSM type representation -/
-inductive OVSMType where
+/-- Full Solisp type representation -/
+inductive SolispType where
   | prim (t : PrimType)
-  | array (elem : OVSMType) (size : Nat)
-  | dynArray (elem : OVSMType)
-  | tuple (types : List OVSMType)
-  | struct (name : String) (fields : List (String × OVSMType))
+  | array (elem : SolispType) (size : Nat)
+  | dynArray (elem : SolispType)
+  | tuple (types : List SolispType)
+  | struct (name : String) (fields : List (String × SolispType))
   | pubkey
   | string
-  | ptr (pointee : OVSMType)
-  | ref (referent : OVSMType)
-  | refMut (referent : OVSMType)
-  | fn (params : List OVSMType) (ret : OVSMType)
+  | ptr (pointee : SolispType)
+  | ref (referent : SolispType)
+  | refMut (referent : SolispType)
+  | fn (params : List SolispType) (ret : SolispType)
   | any
   | never
   | unknown
-  | refined (base : OVSMType) (var : String) (pred : String)
+  | refined (base : SolispType) (var : String) (pred : String)
   deriving Repr, BEq, Inhabited
 
 /-! ## Type Predicates -/
 
 /-- Check if type is numeric -/
-def OVSMType.isNumeric : OVSMType → Bool
+def SolispType.isNumeric : SolispType → Bool
   | .prim .u8 | .prim .u16 | .prim .u32 | .prim .u64 => true
   | .prim .i8 | .prim .i16 | .prim .i32 | .prim .i64 => true
   | .prim .f32 | .prim .f64 => true
   | _ => false
 
 /-- Check if type is an integer type -/
-def OVSMType.isInteger : OVSMType → Bool
+def SolispType.isInteger : SolispType → Bool
   | .prim .u8 | .prim .u16 | .prim .u32 | .prim .u64 => true
   | .prim .i8 | .prim .i16 | .prim .i32 | .prim .i64 => true
   | _ => false
 
 /-- Check if type is unsigned -/
-def OVSMType.isUnsigned : OVSMType → Bool
+def SolispType.isUnsigned : SolispType → Bool
   | .prim .u8 | .prim .u16 | .prim .u32 | .prim .u64 => true
   | _ => false
 
 /-- Check if type is signed -/  
-def OVSMType.isSigned : OVSMType → Bool
+def SolispType.isSigned : SolispType → Bool
   | .prim .i8 | .prim .i16 | .prim .i32 | .prim .i64 => true
   | _ => false
 
 /-- Get the base type of a refined type -/
-def OVSMType.baseType : OVSMType → OVSMType
+def SolispType.baseType : SolispType → SolispType
   | .refined base _ _ => base.baseType
   | t => t
 
 /-! ## Type Size Calculation -/
 
 /-- Calculate size of a type in bytes (for fixed-size types) -/
-partial def OVSMType.sizeBytes : OVSMType → Option Nat
+partial def SolispType.sizeBytes : SolispType → Option Nat
   | .prim p => some p.sizeBytes
   | .array elem size => do
     let elemSize ← elem.sizeBytes
     some (elemSize * size)
   | .tuple types => do
-    let sizes ← types.mapM OVSMType.sizeBytes
+    let sizes ← types.mapM SolispType.sizeBytes
     some (sizes.foldl (· + ·) 0)
   | .pubkey => some 32
   | .prim .bool => some 1
@@ -125,15 +125,15 @@ partial def OVSMType.sizeBytes : OVSMType → Option Nat
 /-! ## Common Type Constructors -/
 
 /-- u64 type -/
-def u64Type : OVSMType := .prim .u64
+def u64Type : SolispType := .prim .u64
 
 /-- i64 type -/
-def i64Type : OVSMType := .prim .i64
+def i64Type : SolispType := .prim .i64
 
 /-- bool type -/
-def boolType : OVSMType := .prim .bool
+def boolType : SolispType := .prim .bool
 
 /-- Array of u8 with given size -/
-def byteArrayType (size : Nat) : OVSMType := .array (.prim .u8) size
+def byteArrayType (size : Nat) : SolispType := .array (.prim .u8) size
 
-end OVSM
+end Solisp

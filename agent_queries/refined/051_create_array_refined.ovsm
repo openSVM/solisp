@@ -1,9 +1,9 @@
-;; Query: Create and manipulate arrays in OVSM
+;; Query: Create and manipulate arrays in Solisp
 ;; Category: Data Structures - Arrays
 ;; Expected: [1, 2, 3, 4, 5] (array of integers)
 ;; Demonstrates: Array literal syntax, immutability, type flexibility
 
-;; Arrays in OVSM use square bracket syntax [...]
+;; Arrays in Solisp use square bracket syntax [...]
 ;; Spaces separate elements (commas are optional and ignored)
 
 (define numbers [1 2 3 4 5])

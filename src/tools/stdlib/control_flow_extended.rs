@@ -1,4 +1,4 @@
-//! Extended control flow for OVSM
+//! Extended control flow for Solisp
 //!
 //! Low-level control flow primitives: TAGBODY, GO, PROG, PROG*, BLOCK, RETURN-FROM.
 //! These primitives enable implementation of higher-level control structures.

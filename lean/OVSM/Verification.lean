@@ -1,23 +1,23 @@
 /-
-  OVSM.Verification - Main verification interface
+  Solisp.Verification - Main verification interface
   
   This module provides:
   - The main verification condition framework
-  - Integration with OVSM compiler output
+  - Integration with Solisp compiler output
   - Proof state tracking
 -/
 
-import OVSM.Prelude
-import OVSM.Types
-import OVSM.Primitives
-import OVSM.Array
-import OVSM.Refinement
-import OVSM.Solana
-import OVSM.Tactics
+import Solisp.Prelude
+import Solisp.Types
+import Solisp.Primitives
+import Solisp.Array
+import Solisp.Refinement
+import Solisp.Solana
+import Solisp.Tactics
 
-namespace OVSM.Verification
+namespace Solisp.Verification
 
-open OVSM.Tactics
+open Solisp.Tactics
 
 /-! ## Verification Condition Types -/
 
@@ -50,32 +50,32 @@ structure VC where
 /-- Declare a division safety verification condition -/
 macro "vc_div_safe" id:ident "at" file:str ":" line:num ":" col:num ":" 
       "divisor" divisor:term "proof" body:term : command =>
-  `(theorem $id : OVSM.NonZero $divisor := $body)
+  `(theorem $id : Solisp.NonZero $divisor := $body)
 
 /-- Declare an array bounds verification condition -/
 macro "vc_array_bounds" id:ident "at" file:str ":" line:num ":" col:num ":"
       "index" idx:term "length" len:term "proof" body:term : command =>
-  `(theorem $id : OVSM.InBounds $idx $len := $body)
+  `(theorem $id : Solisp.InBounds $idx $len := $body)
 
 /-- Declare an underflow safety verification condition -/
 macro "vc_sub_safe" id:ident "at" file:str ":" line:num ":" col:num ":"
       "minuend" x:term "subtrahend" y:term "proof" body:term : command =>
-  `(theorem $id : OVSM.SubNoUnderflow $x $y := $body)
+  `(theorem $id : Solisp.SubNoUnderflow $x $y := $body)
 
 /-- Declare an overflow safety verification condition -/
 macro "vc_add_safe" id:ident "at" file:str ":" line:num ":" col:num ":"
       "lhs" x:term "rhs" y:term "proof" body:term : command =>
-  `(theorem $id : OVSM.AddNoOverflow $x $y := $body)
+  `(theorem $id : Solisp.AddNoOverflow $x $y := $body)
 
 /-- Declare a refinement type verification condition -/
 macro "vc_refinement" id:ident "at" file:str ":" line:num ":" col:num ":"
       "value" val:term "bound" bound:term "proof" body:term : command =>
-  `(theorem $id : OVSM.satisfiesBound $val $bound := $body)
+  `(theorem $id : Solisp.satisfiesBound $val $bound := $body)
 
 /-- Declare a Solana transfer safety verification condition -/
 macro "vc_transfer_safe" id:ident "at" file:str ":" line:num ":" col:num ":"
       "src" src:term "dst" dst:term "amount" amt:term "proof" body:term : command =>
-  `(theorem $id : OVSM.Solana.TransferSafe $src $dst $amt := $body)
+  `(theorem $id : Solisp.Solana.TransferSafe $src $dst $amt := $body)
 
 /-! ## Standard Verification Patterns -/
 
@@ -162,4 +162,4 @@ def verifyAll (vcs : List (String × Prop)) : Bool :=
   -- All theorems must type-check for the program to compile
   true
 
-end OVSM.Verification
+end Solisp.Verification

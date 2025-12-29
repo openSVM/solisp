@@ -1,4 +1,4 @@
-//! Documentation system for OVSM
+//! Documentation system for Solisp
 //!
 //! Documentation strings and introspection.
 //! Provides Common Lisp DOCUMENTATION accessor system.

@@ -1,4 +1,4 @@
-//! Reader control for OVSM
+//! Reader control for Solisp
 //!
 //! Read-time evaluation, reader dispatch, and custom syntax.
 //! Provides Common Lisp reader customization capabilities.

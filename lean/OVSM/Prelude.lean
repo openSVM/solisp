@@ -1,18 +1,18 @@
 /-
-  OVSM.Prelude - Common imports and basic definitions
+  Solisp.Prelude - Common imports and basic definitions
   
   This module provides the foundational types and utilities used throughout
-  the OVSM verification library.
+  the Solisp verification library.
 -/
 
 -- Standard library imports
 import Lean
 
-namespace OVSM
+namespace Solisp
 
 /-! ## Basic Type Aliases -/
 
-/-- 64-bit unsigned integer (primary numeric type in OVSM/Solana) -/
+/-- 64-bit unsigned integer (primary numeric type in Solisp/Solana) -/
 abbrev U64 := UInt64
 
 /-- 64-bit signed integer -/
@@ -52,7 +52,7 @@ structure U64Bounded (n : Nat) : Prop where
 
 /-! ## Source Location Tracking -/
 
-/-- Source location in OVSM program -/
+/-- Source location in Solisp program -/
 structure SourceLoc where
   file : String
   line : Nat
@@ -80,4 +80,4 @@ structure VerificationCondition where
   property : Prop
   deriving Repr
 
-end OVSM
+end Solisp

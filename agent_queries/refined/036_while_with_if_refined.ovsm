@@ -4,7 +4,7 @@
 ;; Demonstrates: Explicit parentheses eliminate parser ambiguity
 
 ;; ⭐ THE CRITICAL FIX ⭐
-;; In Python-style OVSM, this pattern caused infinite loops:
+;; In Python-style Solisp, this pattern caused infinite loops:
 ;;   WHILE condition:
 ;;       IF x THEN ... ELSE ...
 ;;       next_statement  <-- Parser incorrectly consumed this as part of ELSE!
@@ -21,7 +21,7 @@
       (set! count 2))    ;; Else branch: set count to 2
 
   ;; ✅ This statement executes AFTER the if block!
-  ;; In Python-style OVSM, parser incorrectly included this in ELSE block
+  ;; In Python-style Solisp, parser incorrectly included this in ELSE block
   (set! done true))
 
 ;; Result: count is 1 (took the THEN branch, then exited loop)

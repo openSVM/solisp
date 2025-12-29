@@ -1,6 +1,6 @@
-# How to Use OVSM
+# How to Use Solisp
 
-This guide shows you all the ways to execute OVSM scripts and programs.
+This guide shows you all the ways to execute Solisp scripts and programs.
 
 ## Table of Contents
 
@@ -15,18 +15,18 @@ This guide shows you all the ways to execute OVSM scripts and programs.
 
 ## Quick Start
 
-**Fastest way to run an OVSM script:**
+**Fastest way to run a Solisp script:**
 
 ```bash
-cd crates/ovsm
-cargo run --example run_file examples/hello_world.ovsm
+cd /home/runner/work/solisp/solisp
+cargo run --example run_file examples/real_world/sol_transfer.solisp
 ```
 
 Expected output:
 ```
-🚀 Executing: examples/hello_world.ovsm
+🚀 Executing: examples/real_world/sol_transfer.solisp
 ============================================================
-✅ Result: String("Hello from OVSM! 🚀")
+✅ Result: ...
 ```
 
 ---
@@ -35,44 +35,31 @@ Expected output:
 
 ### Step 1: Create a Script File
 
-Create a file named `my_script.ovsm`:
+Create a file named `my_script.solisp`:
 
-```ovsm
-// my_script.ovsm
-$sum = 0
+```lisp
+;; my_script.solisp
+(define sum 0)
 
-FOR $i IN [1..11]:
-    $sum = $sum + $i
+(for (i (range 1 11))
+  (set! sum (+ sum i)))
 
-RETURN $sum
+sum
 ```
 
 ### Step 2: Execute It
 
 ```bash
-cargo run --example run_file my_script.ovsm
+cargo run --example run_file my_script.solisp
 ```
 
 ### Available Example Scripts
 
 ```bash
-# Simple hello world
-cargo run --example run_file examples/hello_world.ovsm
-
-# Calculate factorial
-cargo run --example run_file examples/factorial.ovsm
-
-# Fibonacci sequence
-cargo run --example run_file examples/fibonacci.ovsm
-
-# Array operations
-cargo run --example run_file examples/array_operations.ovsm
-
-# Conditional logic
-cargo run --example run_file examples/conditional_logic.ovsm
-
-# Loop control (BREAK/CONTINUE)
-cargo run --example run_file examples/loop_control.ovsm
+# Real-world examples
+cargo run --example run_file examples/real_world/sol_transfer.solisp
+cargo run --example run_file examples/real_world/whale_hunter.solisp
+cargo run --example run_file examples/real_world/pumpfun_graduation_tracker.solisp
 ```
 
 ---
@@ -89,23 +76,23 @@ cargo run --example simple_repl
 
 ```
 ╔══════════════════════════════════════════╗
-║   OVSM Interactive REPL v1.0.0           ║
+║   Solisp Interactive REPL v1.0.0         ║
 ╚══════════════════════════════════════════╝
 
-Type OVSM expressions and press Enter.
+Type Solisp expressions and press Enter.
 Type 'exit' or press Ctrl+C to quit.
 Type 'help' for examples.
 
-ovsm[1]> RETURN 2 + 3 * 4
+solisp[1]> (+ 2 (* 3 4))
   ⇒ Int(14)
 
-ovsm[2]> RETURN 10 > 5
+solisp[2]> (> 10 5)
   ⇒ Bool(true)
 
-ovsm[3]> IF 10 > 5 THEN RETURN "yes" ELSE RETURN "no"
+solisp[3]> (if (> 10 5) "yes" "no")
   ⇒ String("yes")
 
-ovsm[4]> exit
+solisp[4]> exit
 Goodbye! 👋
 ```
 
@@ -119,13 +106,13 @@ Goodbye! 👋
 
 ## Method 3: Programmatic Usage
 
-Use OVSM as a library in your Rust programs.
+Use Solisp as a library in your Rust programs.
 
 ### Create a Binary Project
 
 ```bash
-cargo new my_ovsm_app
-cd my_ovsm_app
+cargo new my_solisp_app
+cd my_solisp_app
 ```
 
 ### Add Dependency
@@ -134,7 +121,7 @@ Edit `Cargo.toml`:
 
 ```toml
 [dependencies]
-ovsm = { path = "../osvm-cli/crates/ovsm" }
+solisp = "1.0.0"
 ```
 
 ### Write Your Code
@@ -142,9 +129,9 @@ ovsm = { path = "../osvm-cli/crates/ovsm" }
 Edit `src/main.rs`:
 
 ```rust
-use ovsm::{Evaluator, Parser, Scanner, Value};
+use solisp::{Evaluator, Parser, Scanner, Value};
 
-fn execute_ovsm(code: &str) -> Result<Value, Box<dyn std::error::Error>> {
+fn execute_solisp(code: &str) -> Result<Value, Box<dyn std::error::Error>> {
     // Tokenize (Scanner)
     let mut scanner = Scanner::new(code);
     let tokens = scanner.scan_tokens()?;
@@ -160,37 +147,36 @@ fn execute_ovsm(code: &str) -> Result<Value, Box<dyn std::error::Error>> {
 
 fn main() {
     // Example 1: Simple arithmetic
-    let code1 = "RETURN 2 + 3 * 4";
-    match execute_ovsm(code1) {
+    let code1 = "(+ 2 (* 3 4))";
+    match execute_solisp(code1) {
         Ok(result) => println!("Result: {:?}", result), // Int(14)
         Err(err) => eprintln!("Error: {}", err),
     }
 
     // Example 2: Variables and control flow
     let code2 = r#"
-        $x = 10
-        $y = 20
+        (define x 10)
+        (define y 20)
 
-        IF $x < $y THEN
-            RETURN "x is less"
-        ELSE
-            RETURN "x is greater or equal"
+        (if (< x y)
+            "x is less"
+            "x is greater or equal")
     "#;
 
-    match execute_ovsm(code2) {
+    match execute_solisp(code2) {
         Ok(result) => println!("Result: {:?}", result),
         Err(err) => eprintln!("Error: {}", err),
     }
 
     // Example 3: Loop with accumulator
     let code3 = r#"
-        $sum = 0
-        FOR $i IN [1..11]:
-            $sum = $sum + $i
-        RETURN $sum
+        (define sum 0)
+        (for (i (range 1 11))
+          (set! sum (+ sum i)))
+        sum
     "#;
 
-    match execute_ovsm(code3) {
+    match execute_solisp(code3) {
         Ok(result) => println!("Sum 1-10: {:?}", result), // Int(55)
         Err(err) => eprintln!("Error: {}", err),
     }
@@ -217,22 +203,20 @@ Sum 1-10: Int(55)
 Run existing tests to see more examples:
 
 ```bash
-cd crates/ovsm
-
 # Run all tests
-cargo test
+cargo test --package solisp
 
 # Run specific test file
-cargo test --test test_comparisons
+cargo test --package solisp --test lisp_e2e_tests
 
 # Run with output
-cargo test -- --show-output
+cargo test --package solisp -- --show-output
 
 # Run specific test
-cargo test test_if_statement
+cargo test --package solisp test_let_star
 
 # Run unit tests only
-cargo test --lib --bins
+cargo test --package solisp --lib
 ```
 
 ### Writing Your Own Tests
@@ -240,7 +224,7 @@ cargo test --lib --bins
 Create `tests/my_test.rs`:
 
 ```rust
-use ovsm::{Evaluator, Parser, Scanner, Value};
+use solisp::{Evaluator, Parser, Scanner, Value};
 
 fn execute(code: &str) -> Result<Value, Box<dyn std::error::Error>> {
     let mut scanner = Scanner::new(code);
@@ -254,10 +238,10 @@ fn execute(code: &str) -> Result<Value, Box<dyn std::error::Error>> {
 #[test]
 fn test_my_feature() {
     let result = execute(r#"
-        $result = 0
-        FOR $i IN [1..6]:
-            $result = $result + $i
-        RETURN $result
+        (define result 0)
+        (for (i (range 1 6))
+          (set! result (+ result i)))
+        result
     "#).unwrap();
 
     assert_eq!(result, Value::Int(15)); // 1+2+3+4+5
@@ -276,92 +260,33 @@ cargo test test_my_feature
 ### Issue 1: "Undefined variable" Error
 
 **Problem:**
-```ovsm
-FOR $i IN [1..5]:
-    $sum = $sum + $i  // ❌ $sum not defined!
+```lisp
+(for (i (range 1 5))
+  (set! sum (+ sum i)))  ; ❌ sum not defined!
 ```
 
 **Solution:**
-```ovsm
-$sum = 0  // ✅ Define first
-FOR $i IN [1..5]:
-    $sum = $sum + $i
+```lisp
+(define sum 0)  ; ✅ Define first
+(for (i (range 1 5))
+  (set! sum (+ sum i)))
 ```
 
-### Issue 2: "Unexpected token" After Loop
+### Issue 2: Division by Zero
 
 **Problem:**
-```ovsm
-FOR $i IN [1..5]:
-    IF $i > 3 THEN
-        $result = "found"
-
-RETURN $result  // ❌ Parser might consume this!
-```
-
-**Solution A - Use BREAK:**
-```ovsm
-FOR $i IN [1..5]:
-    IF $i > 3 THEN
-        $result = "found"
-        BREAK  // ✅ Signals end of loop
-
-RETURN $result
-```
-
-**Solution B - Use ELSE:**
-```ovsm
-FOR $i IN [1..5]:
-    IF $i > 3 THEN
-        $result = "found"
-    ELSE
-        $result = "searching"
-
-RETURN $result  // ✅ Unambiguous
-```
-
-**Solution C - Move RETURN Inside:**
-```ovsm
-$result = "not found"
-FOR $i IN [1..5]:
-    IF $i > 3 THEN
-        RETURN "found"  // ✅ Early return
-
-RETURN $result
-```
-
-### Issue 3: Division by Zero
-
-**Problem:**
-```ovsm
-RETURN 10 / 0  // ❌ Runtime error
+```lisp
+(/ 10 0)  ; ❌ Runtime error
 ```
 
 **Solution:**
-```ovsm
-$x = 10
-$y = 0
+```lisp
+(define x 10)
+(define y 0)
 
-IF $y == 0 THEN
-    RETURN "Error: division by zero"
-ELSE
-    RETURN $x / $y
-```
-
-### Issue 4: Range Confusion
-
-**Important:** Ranges are **exclusive** of the end value!
-
-```ovsm
-// [1..5] creates: 1, 2, 3, 4 (NOT 5!)
-FOR $i IN [1..5]:
-    // Loops 4 times, not 5!
-```
-
-To include 5, use `[1..6]`:
-```ovsm
-FOR $i IN [1..6]:
-    // Loops 5 times: 1, 2, 3, 4, 5
+(if (= y 0)
+    "Error: division by zero"
+    (/ x y))
 ```
 
 ---
@@ -370,33 +295,27 @@ FOR $i IN [1..6]:
 
 ### ✅ Fully Working
 
-- Variables: `$var = value`
-- Constants: `CONST NAME = value`
-- Control flow: `IF/THEN/ELSE`, `FOR`, `WHILE`
-- Loop control: `BREAK`, `CONTINUE`, `BREAK IF`, `CONTINUE IF`
-- Operators: `+`, `-`, `*`, `/`, `%`, `**`, `<`, `>`, `==`, `!=`, `AND`, `OR`, `NOT`
+- Variables: `(define var value)`
+- Constants: `(const NAME value)`
+- Control flow: `if`, `cond`, `when`, `unless`, `for`, `while`
+- Functions: `defun`, `lambda`, closures
+- Macros: `defmacro`, quasiquote, unquote
+- Operators: `+`, `-`, `*`, `/`, `%`, `<`, `>`, `=`, `!=`, `and`, `or`, `not`
 - Data types: Int, Float, String, Bool, Null, Arrays, Objects, Ranges
-- Return: `RETURN value`
+- Advanced: `let`, `let*`, `flet`, `labels`, `case`, `typecase`, multiple values
 
-### ⚠️ Has Issues
+### ⚠️ Experimental
 
-- `TRY/CATCH` - Parsed but has block termination bugs
-
-### ❌ Not Implemented
-
-- Lambda functions (`fn:`)
-- `DECISION/BRANCH` constructs
-- `PARALLEL` execution
-- Advanced tools: `MAP`, `FILTER`, `REDUCE`, etc.
+- `try/catch` - Basic error handling
 
 ---
 
 ## Next Steps
 
-1. **Try Examples:** Run all scripts in `examples/` directory
+1. **Try Examples:** Run scripts in `examples/real_world/` directory
 2. **Read Guide:** Check `USAGE_GUIDE.md` for complete language reference
-3. **Check Status:** See `TEST_RESULTS_SUMMARY.md` for implementation status
-4. **Write Code:** Create your own `.ovsm` scripts
+3. **Check Docs:** See `BUILTIN_FUNCTIONS.md` for all built-in functions
+4. **Write Code:** Create your own `.solisp` scripts
 5. **Run Tests:** Explore test files in `tests/` for more examples
 
 ---
@@ -406,12 +325,10 @@ FOR $i IN [1..6]:
 | File | Description |
 |------|-------------|
 | `USAGE_GUIDE.md` | Complete language reference and syntax |
-| `TEST_RESULTS_SUMMARY.md` | Current implementation status |
+| `BUILTIN_FUNCTIONS.md` | All built-in functions glossary |
 | `examples/README.md` | Example scripts documentation |
 | `tests/` | Unit test examples |
 
 ---
 
-**Happy coding with OVSM! 🚀**
-
-For questions or issues, check the test files or create an issue on GitHub.
+**Happy coding with Solisp! 🚀**

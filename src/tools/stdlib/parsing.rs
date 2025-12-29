@@ -1,4 +1,4 @@
-//! Parsing tools for OVSM - JSON, Base58, Base64, URLs, and more
+//! Parsing tools for Solisp - JSON, Base58, Base64, URLs, and more
 
 use crate::error::{Error, Result};
 use crate::runtime::Value;

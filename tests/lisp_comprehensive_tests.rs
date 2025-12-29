@@ -1,4 +1,4 @@
-/// Comprehensive Test Suite for OVSM LISP Syntax Support
+/// Comprehensive Test Suite for Solisp LISP Syntax Support
 ///
 /// This test file covers all major aspects of the LISP implementation:
 /// 1. Basic syntax (literals, variables, operators)

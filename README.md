@@ -1,13 +1,13 @@
-# OVSM - Open Versatile S-expression Machine
+# Solisp - A LISP Dialect for Solana
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Build Status](https://github.com/opensvm/osvm-cli/workflows/CI/badge.svg)](https://github.com/opensvm/osvm-cli/actions)
+[![Build Status](https://github.com/openSVM/solisp/workflows/CI/badge.svg)](https://github.com/openSVM/solisp/actions)
 
 A production-ready **Common Lisp dialect** interpreter designed for blockchain automation, Solana RPC integration, and general-purpose scripting.
 
-## 🎯 What is OVSM?
+## 🎯 What is Solisp?
 
-OVSM is a **LISP-1 dialect** (functions and variables share the same namespace) with:
+Solisp is a **LISP-1 dialect** (functions and variables share the same namespace) with:
 - **S-expression syntax** - No indentation bugs, explicit parentheses
 - **83% Common Lisp coverage** - Advanced features like macros, closures, pattern matching
 - **Blockchain-native** - First-class Solana RPC integration
@@ -24,8 +24,8 @@ OVSM is a **LISP-1 dialect** (functions and variables share the same namespace) 
 (define response {
   :supply 999859804306166700
   :metadata {
-    :name "OSVM.AI"
-    :symbol "OVSM"
+    :name "Solisp"
+    :symbol "SLISP"
   }
 })
 
@@ -97,15 +97,15 @@ Add to your `Cargo.toml`:
 
 ```toml
 [dependencies]
-ovsm = "1.0.0"
+solisp = "1.0.0"
 ```
 
 ### Basic Usage (Rust)
 
 ```rust
-use ovsm::{LispEvaluator, SExprParser, SExprScanner};
+use solisp::{LispEvaluator, SExprParser, SExprScanner};
 
-fn execute_ovsm(code: &str) -> Result<String, Box<dyn std::error::Error>> {
+fn execute_solisp(code: &str) -> Result<String, Box<dyn std::error::Error>> {
     // Scan tokens
     let mut scanner = SExprScanner::new(code);
     let tokens = scanner.scan_tokens()?;
@@ -129,7 +129,7 @@ fn main() {
         sum
     "#;
 
-    match execute_ovsm(code) {
+    match execute_solisp(code) {
         Ok(result) => println!("Result: {}", result), // 55
         Err(err) => eprintln!("Error: {}", err),
     }
@@ -140,19 +140,19 @@ fn main() {
 
 ```bash
 # Execute a script file
-osvm ovsm run script.ovsm
+solisp run script.solisp
 
 # Execute inline code
-osvm ovsm eval '(+ 1 2 3)'
+solisp eval '(+ 1 2 3)'
 
 # Check syntax without running
-osvm ovsm check script.ovsm
+solisp check script.solisp
 
 # Interactive REPL
-osvm ovsm repl
+solisp repl
 
 # Show example scripts
-osvm ovsm examples
+solisp examples
 ```
 
 ## 📚 Language Examples
@@ -320,13 +320,13 @@ osvm ovsm examples
   :supply 999859804306166700
   :decimals 9
   :metadata {
-    :name "OSVM.AI"
-    :symbol "OVSM"
-    :description "AI-powered blockchain investigation"
+    :name "Solisp"
+    :symbol "SLISP"
+    :description "LISP dialect for Solana"
     :links {
-      :website "https://osvm.ai"
-      :twitter "@osvm_ai"
-      :github "github.com/opensvm"
+      :website "https://solisp.dev"
+      :twitter "@solisp_dev"
+      :github "github.com/openSVM/solisp"
     }
   }
 })
@@ -399,24 +399,24 @@ total-count
 
 ### Core Documentation
 - **[Built-in Functions Glossary](BUILTIN_FUNCTIONS.md)** - Complete reference for all 91+ built-in functions
-- **[Language Specification](../../OVSM_LISP_SYNTAX_SPEC.md)** - Complete LISP syntax reference
-- **[Usage Guide](USAGE_GUIDE.md)** - How to write OVSM scripts
+- **[Language Specification](../../SOLISP_SYNTAX_SPEC.md)** - Complete LISP syntax reference
+- **[Usage Guide](USAGE_GUIDE.md)** - How to write Solisp scripts
 - **[Quick Start](QUICK_START.md)** - Get started in 5 minutes
 
 ### Additional Resources
-- **[API Documentation](https://docs.rs/ovsm)** - Complete Rust API reference
+- **[API Documentation](https://docs.rs/solisp)** - Complete Rust API reference
 - **[Common Patterns](docs/COMMON_PATTERNS.md)** - Idiomatic patterns and best practices
 - **[Features Status](../../FEATURES_STATUS.md)** - What's implemented vs. planned
 - **[Change Log](CHANGELOG.md)** - Version history and updates
 
 ### Example Scripts
 
-Check the `examples/ovsm_scripts/` directory for:
-- `factorial.ovsm` - Recursive factorial calculation
-- `fibonacci.ovsm` - Fibonacci sequence generation
-- `macros_demo.ovsm` - Macro system demonstrations
-- `closures_demo.ovsm` - Closure and higher-order functions
-- `pattern_matching.ovsm` - case/typecase examples
+Check the `examples/real_world/` directory for:
+- Recursive factorial calculation
+- Fibonacci sequence generation
+- Macro system demonstrations
+- Closure and higher-order functions
+- case/typecase examples
 
 ## 🧪 Test Coverage
 
@@ -480,7 +480,7 @@ ELSE
     "small")
 ```
 
-**All `.ovsm` files now use LISP syntax exclusively.**
+**All `.solisp` files (and legacy `.ovsm` files) now use LISP syntax exclusively.**
 
 ## 🛠️ Development
 
@@ -488,16 +488,16 @@ ELSE
 
 ```bash
 # All tests
-cargo test --package ovsm
+cargo test --package solisp
 
 # Unit tests only
-cargo test --package ovsm --lib
+cargo test --package solisp --lib
 
 # Specific integration test
-cargo test --package ovsm --test let_star_tests
+cargo test --package solisp --test let_star_tests
 
 # With output
-cargo test --package ovsm -- --nocapture
+cargo test --package solisp -- --nocapture
 ```
 
 ### Code Quality
@@ -507,10 +507,10 @@ cargo test --package ovsm -- --nocapture
 cargo fmt --all
 
 # Lint
-cargo clippy --package ovsm
+cargo clippy --package solisp
 
 # Check compilation
-cargo check --package ovsm
+cargo check --package solisp
 ```
 
 ## 🤝 Contributing
@@ -523,12 +523,12 @@ Licensed under the [MIT License](https://opensource.org/licenses/MIT).
 
 ## 🔗 Links
 
-- [Main Repository](https://github.com/opensvm/osvm-cli)
-- [Issue Tracker](https://github.com/opensvm/osvm-cli/issues)
-- [Documentation](https://docs.rs/ovsm)
+- [Main Repository](https://github.com/openSVM/solisp)
+- [Issue Tracker](https://github.com/openSVM/solisp/issues)
+- [Documentation](https://docs.rs/solisp)
 
 ---
 
 **Made with ❤️ by the OpenSVM team**
 
-*OVSM: Where blockchain meets LISP elegance* 🚀
+*Solisp: Where blockchain meets LISP elegance* 🚀

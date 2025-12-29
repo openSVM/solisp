@@ -1,4 +1,4 @@
-//! Basic async/await examples in OVSM
+//! Basic async/await examples in Solisp
 //!
 //! Run with: cargo run --example async_basics
 

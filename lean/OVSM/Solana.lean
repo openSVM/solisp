@@ -1,5 +1,5 @@
 /-
-  OVSM.Solana - Solana blockchain-specific verification
+  Solisp.Solana - Solana blockchain-specific verification
   
   This module provides:
   - Account and lamport types
@@ -7,11 +7,11 @@
   - Signer and writability verification
 -/
 
-import OVSM.Prelude
-import OVSM.Primitives
-import OVSM.Refinement
+import Solisp.Prelude
+import Solisp.Primitives
+import Solisp.Refinement
 
-namespace OVSM.Solana
+namespace Solisp.Solana
 
 /-! ## Lamports (SOL smallest unit) -/
 
@@ -169,4 +169,4 @@ theorem read_u64_requires_8_bytes (dataLen : Nat) (h : dataLen ≥ 8) :
   unfold InstructionDataInBounds
   omega
 
-end OVSM.Solana
+end Solisp.Solana

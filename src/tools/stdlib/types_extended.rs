@@ -1,4 +1,4 @@
-//! Extended type system for OVSM
+//! Extended type system for Solisp
 //!
 //! Type definitions, type checking, coercion, and compound types.
 //! Provides Common Lisp-style advanced type system capabilities.

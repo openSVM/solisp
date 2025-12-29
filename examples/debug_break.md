@@ -2,7 +2,7 @@
 
 ## Test 1: Can we access $i in IF?
 
-```ovsm
+```solisp
 FOR $i IN [1..5]:
     IF $i > 3 THEN
         $dummy = 1
@@ -11,7 +11,7 @@ FOR $i IN [1..5]:
 
 ## Test 2: Can we access $i after IF?
 
-```ovsm
+```solisp
 $result = 0
 FOR $i IN [1..5]:
     IF $i > 3 THEN
@@ -22,7 +22,7 @@ RETURN $result
 
 ## Test 3: Can we use $i in condition?
 
-```ovsm
+```solisp
 FOR $i IN [1..5]:
     $test = $i > 3
     RETURN $test
@@ -30,7 +30,7 @@ FOR $i IN [1..5]:
 
 ## Test 4: Simple BREAK
 
-```ovsm
+```solisp
 FOR $i IN [1..5]:
     BREAK
 RETURN "done"
@@ -38,7 +38,7 @@ RETURN "done"
 
 ## Test 5: BREAK with variable reference AFTER
 
-```ovsm
+```solisp
 FOR $i IN [1..10]:
     IF $i > 5 THEN
         BREAK

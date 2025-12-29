@@ -1,6 +1,6 @@
-//! # Type System for OVSM Compilation
+//! # Type System for Solisp Compilation
 //!
-//! Static type inference and checking for OVSM programs.
+//! Static type inference and checking for Solisp programs.
 //! sBPF is statically typed at the bytecode level, so we need
 //! to infer types before code generation.
 

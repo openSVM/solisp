@@ -6,7 +6,7 @@
 
 ## Overview
 
-The OVSM compiler now supports both SBPF V1 (with relocations) and V2 (static syscalls) bytecode formats, selectable via `CompileOptions.sbpf_version`.
+The Solisp compiler now supports both SBPF V1 (with relocations) and V2 (static syscalls) bytecode formats, selectable via `CompileOptions.sbpf_version`.
 
 ## Key Changes
 
@@ -122,7 +122,7 @@ pub fn compile(&self, source: &str) -> Result<CompileResult> {
 
 Both `write()` and `write_with_syscalls()` now accept `sbpf_version` parameter and set appropriate ELF flags.
 
-### 8. Default Configuration (`src/commands/ovsm_handler.rs:192`)
+### 8. Default Configuration (`src/commands/solisp_handler.rs:192`)
 
 ```rust
 let options = CompileOptions {
@@ -130,7 +130,7 @@ let options = CompileOptions {
     compute_budget: 200_000,
     debug_info: emit_ir,
     source_map: false,
-    sbpf_version: ovsm::compiler::SbpfVersion::V1,  // V1 for devnet
+    sbpf_version: solisp::compiler::SbpfVersion::V1,  // V1 for devnet
 };
 ```
 
@@ -186,7 +186,7 @@ let options = CompileOptions {
 
 ```bash
 # Compile V1 program
-./target/debug/osvm ovsm compile /tmp/hello_ovsm.ovsm -o /tmp/hello_v1.so
+./target/debug/solisp compile /tmp/hello_solisp.solisp -o /tmp/hello_v1.so
 
 # Verify structure
 readelf -h /tmp/hello_v1.so | grep Flags
@@ -234,7 +234,7 @@ readelf -r /tmp/hello_v1.so
 ### Default (V1)
 
 ```rust
-use ovsm::compiler::{Compiler, CompileOptions};
+use solisp::compiler::{Compiler, CompileOptions};
 
 let compiler = Compiler::new(CompileOptions::default());
 let result = compiler.compile(source)?;  // Generates V1 with relocations
@@ -243,7 +243,7 @@ let result = compiler.compile(source)?;  // Generates V1 with relocations
 ### Explicit V2
 
 ```rust
-use ovsm::compiler::{Compiler, CompileOptions, SbpfVersion};
+use solisp::compiler::{Compiler, CompileOptions, SbpfVersion};
 
 let options = CompileOptions {
     sbpf_version: SbpfVersion::V2,
@@ -257,10 +257,10 @@ let result = compiler.compile(source)?;  // Generates V2 with static calls
 
 ```bash
 # Default V1
-osvm ovsm compile script.ovsm -o program.so
+solisp compile script.solisp -o program.so
 
 # Future: Add --sbpf-version flag
-osvm ovsm compile script.ovsm -o program.so --sbpf-version v2
+solisp compile script.solisp -o program.so --sbpf-version v2
 ```
 
 ## Future Work

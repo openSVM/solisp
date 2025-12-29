@@ -136,7 +136,7 @@
 //!
 //! ### 8. Future Enhancements
 //!
-//! - **Property annotations**: `(assert-safe expr)` in OVSM code
+//! - **Property annotations**: `(assert-safe expr)` in Solisp code
 //! - **Incremental verification**: Only re-verify changed functions
 //! - **Counter-example guided refinement**: Learn from failed proofs
 //! - **Parallel solving**: Use multiple Z3 instances for different paths

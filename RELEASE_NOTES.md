@@ -1,4 +1,4 @@
-# OVSM Interpreter - Release Notes
+# Solisp Interpreter - Release Notes
 
 ## Version 1.1.0 - Critical Bug Fixes and New Features
 
@@ -27,7 +27,7 @@ The evaluator contained a catch-all pattern that caused 5 statement types to be 
 - WAIT strategies
 
 **Example of Vulnerable Code**:
-```ovsm
+```solisp
 TRY:
     $x = 10 / 0  # Would error
 CATCH:
@@ -50,13 +50,13 @@ RETURN $x        # Returns Null instead of 0
 Guard clauses provide an early-exit pattern for precondition checking, reducing nesting and improving code readability.
 
 **Syntax**:
-```ovsm
+```solisp
 GUARD condition ELSE
     error_statement
 ```
 
 **Example**:
-```ovsm
+```solisp
 $balance = 100
 $amount = 150
 
@@ -90,7 +90,7 @@ RETURN "Transaction successful"
 Full exception handling with support for catching errors, nested blocks, and graceful error recovery.
 
 **Syntax**:
-```ovsm
+```solisp
 TRY:
     // ... code that might error
 CATCH:
@@ -98,7 +98,7 @@ CATCH:
 ```
 
 **Example**:
-```ovsm
+```solisp
 TRY:
     $result = PARSE_JSON($input)
 CATCH:
@@ -139,7 +139,7 @@ RETURN $result
 **Issue**: Parser's `is_end_of_block()` function incorrectly treated `RETURN` as a block terminator, causing GUARD ELSE bodies to be parsed as empty.
 
 **Example**:
-```ovsm
+```solisp
 # Before (BROKEN):
 GUARD $x > 0 ELSE
     RETURN -1    # Parsed as separate statement!
@@ -284,7 +284,7 @@ This release is **fully backward compatible**. All existing code continues to wo
 
 ```bash
 # Run full test suite
-cargo test --package ovsm
+cargo test --package solisp
 
 # Expected output:
 # test result: ok. 65 passed (unit tests)
@@ -292,15 +292,15 @@ cargo test --package ovsm
 # test result: ok. 1 passed (integration)
 
 # Run examples
-cargo run --package ovsm --example test_guard
-cargo run --package ovsm --example test_try_catch
-cargo run --package ovsm --example showcase_new_features
+cargo run --package solisp --example test_guard
+cargo run --package solisp --example test_try_catch
+cargo run --package solisp --example showcase_new_features
 ```
 
 ### Smoke Tests
 
 **Test GUARD**:
-```ovsm
+```solisp
 $x = 10
 GUARD $x > 0 ELSE
     RETURN "error"
@@ -309,7 +309,7 @@ RETURN $x
 ```
 
 **Test TRY-CATCH**:
-```ovsm
+```solisp
 TRY:
     $x = 10 / 0
 CATCH:
@@ -327,7 +327,7 @@ RETURN $x
 ```bash
 # Update your Cargo.toml
 [dependencies]
-ovsm = "1.1.0"
+solisp = "1.1.0"
 
 # Rebuild
 cargo clean
@@ -348,7 +348,7 @@ cargo test
 ### Using GUARD Clauses
 
 **✅ Do**:
-```ovsm
+```solisp
 GUARD $user != null ELSE
     RETURN "Not authenticated"
 
@@ -359,7 +359,7 @@ GUARD $user.is_admin ELSE
 ```
 
 **❌ Don't** (multiple statements not supported):
-```ovsm
+```solisp
 GUARD $condition ELSE
     LOG("Error")
     RETURN "error"  # Won't work - only first statement executes
@@ -368,7 +368,7 @@ GUARD $condition ELSE
 ### Using TRY-CATCH
 
 **✅ Do**:
-```ovsm
+```solisp
 TRY:
     $data = DANGEROUS_OPERATION()
 CATCH:
@@ -378,7 +378,7 @@ CATCH:
 ```
 
 **✅ Do** (nested):
-```ovsm
+```solisp
 TRY:
     TRY:
         $parsed = PARSE($input)
@@ -390,7 +390,7 @@ CATCH:
 ```
 
 **❌ Avoid** (overly broad):
-```ovsm
+```solisp
 TRY:
     # ... lots of code ...
 CATCH:

@@ -1,6 +1,6 @@
-# OVSM sBPF Compiler Built-in Functions
+# Solisp sBPF Compiler Built-in Functions
 
-Reference guide for built-in functions available when compiling OVSM to Solana sBPF bytecode.
+Reference guide for built-in functions available when compiling Solisp to Solana sBPF bytecode.
 
 **Version:** 1.0.7
 **Last Updated:** 2025-11-27
@@ -27,7 +27,7 @@ Reference guide for built-in functions available when compiling OVSM to Solana s
 
 ## Overview
 
-The OVSM sBPF compiler transforms OVSM LISP code into Solana BPF bytecode that runs on-chain. Unlike the interpreter (which runs locally), compiled programs:
+The Solisp sBPF compiler transforms Solisp LISP code into Solana BPF bytecode that runs on-chain. Unlike the interpreter (which runs locally), compiled programs:
 
 - Execute within Solana's BPF virtual machine
 - Have access to account data passed by the runtime
@@ -37,8 +37,8 @@ The OVSM sBPF compiler transforms OVSM LISP code into Solana BPF bytecode that r
 ### Compilation Command
 
 ```bash
-# Compile OVSM to sBPF
-osvm ovsm compile program.ovsm -o program.so
+# Compile Solisp to sBPF
+solisp compile program.solisp -o program.so
 
 # Deploy to Solana
 solana program deploy program.so --keypair wallet.json --url devnet
@@ -320,7 +320,7 @@ Functions for accessing instruction data passed to your program.
 
 ## Cross-Program Invocation (CPI)
 
-Functions for calling other Solana programs from your OVSM program.
+Functions for calling other Solana programs from your Solisp program.
 
 > **Note:** CPI currently has a known issue with heap address loading. The functions compile and deploy correctly, but may fail at runtime due to register spilling of large constant addresses. This is being actively fixed.
 
@@ -421,13 +421,13 @@ Functions for logging to Solana program logs.
 **Tested:** ✅ Verified on devnet
 
 ```lisp
-(sol_log_ "Hello from OVSM!")
+(sol_log_ "Hello from Solisp!")
 (sol_log_ "=== Program Start ===")
 ```
 
 **Example Output:**
 ```
-Program log: Hello from OVSM!
+Program log: Hello from Solisp!
 Program log: === Program Start ===
 ```
 
@@ -661,7 +661,7 @@ Program log: HzqH2YWBcYfxecnxWwszpwypKBBYdjgxq1ANB7DSkKV
 
 ## Built-in Variables
 
-These variables are automatically available in every OVSM program.
+These variables are automatically available in every Solisp program.
 
 ### `accounts`
 
@@ -987,17 +987,17 @@ The compiler reports estimated CU usage:
 ## Additional Resources
 
 - **[BUILTIN_FUNCTIONS.md](BUILTIN_FUNCTIONS.md)** - Interpreter built-ins
-- **[README.md](README.md)** - OVSM overview
+- **[README.md](README.md)** - Solisp overview
 - **[Solana Docs](https://docs.solana.com/developing/on-chain-programs/overview)** - Solana program development
 
 ---
 
 **Last Updated:** 2025-11-26
-**OVSM Version:** 1.0.6
+**Solisp Version:** 1.0.6
 **Compiler Status:** Production-ready for account reading and instruction data
 
 ---
 
 *Made with ❤️ by the OpenSVM team*
 
-*OVSM: Solana programs in LISP* 🚀
+*Solisp: Solana programs in LISP* 🚀

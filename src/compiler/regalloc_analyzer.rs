@@ -1,4 +1,4 @@
-//! Register Pressure Analyzer for OVSM sBPF Codegen
+//! Register Pressure Analyzer for Solisp sBPF Codegen
 //!
 //! This module provides tooling to analyze register allocation and detect
 //! potential issues like:

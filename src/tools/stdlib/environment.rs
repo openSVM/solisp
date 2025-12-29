@@ -1,4 +1,4 @@
-//! Environment introspection for OVSM
+//! Environment introspection for Solisp
 //!
 //! Runtime environment access and introspection.
 //! Variable bindings, function bindings, declarations, and macroexpansion.

@@ -1,5 +1,5 @@
 
-# OVSM Query Validation Report
+# Solisp Query Validation Report
 
 ## Summary Statistics
 
@@ -21,62 +21,62 @@
 
 ## Top 10 Queries
 
-1. **040_double_values.ovsm** - Score: 90/100
-2. **044_reverse_array.ovsm** - Score: 90/100
-3. **045_string_builder.ovsm** - Score: 90/100
-4. **046_array_contains.ovsm** - Score: 90/100
-5. **061_array_push_pattern.ovsm** - Score: 85/100
-6. **007_variable_definition.ovsm** - Score: 80/100
-7. **008_variable_mutation.ovsm** - Score: 80/100
-8. **010_simple_if.ovsm** - Score: 80/100
-9. **019_cond_multiple.ovsm** - Score: 80/100
-10. **020_range_creation.ovsm** - Score: 80/100
+1. **040_double_values.solisp** - Score: 90/100
+2. **044_reverse_array.solisp** - Score: 90/100
+3. **045_string_builder.solisp** - Score: 90/100
+4. **046_array_contains.solisp** - Score: 90/100
+5. **061_array_push_pattern.solisp** - Score: 85/100
+6. **007_variable_definition.solisp** - Score: 80/100
+7. **008_variable_mutation.solisp** - Score: 80/100
+8. **010_simple_if.solisp** - Score: 80/100
+9. **019_cond_multiple.solisp** - Score: 80/100
+10. **020_range_creation.solisp** - Score: 80/100
 
 ## Queries Needing Improvement
 
-- **075_deep_nested_structure.ovsm** - Score: 45/100
+- **075_deep_nested_structure.solisp** - Score: 45/100
   - ⚠️ Missing LISP parentheses
   - ⚠️ Description could be more specific
   - ⚠️ Add inline comments to explain complex logic
   - 💡 Add comments explaining the logic flow
-- **094_blockchain_timestamp.ovsm** - Score: 45/100
+- **094_blockchain_timestamp.solisp** - Score: 45/100
   - ⚠️ Expected output not clearly typed
   - ⚠️ Description could be more specific
   - ⚠️ Add inline comments to explain complex logic
   - 💡 Add comments explaining the logic flow
-- **002_variadic_addition.ovsm** - Score: 50/100
+- **002_variadic_addition.solisp** - Score: 50/100
   - ⚠️ Expected output not clearly typed
   - ⚠️ Add inline comments to explain complex logic
   - ⚠️ Unclear what concept this teaches
   - 💡 Add comments explaining the logic flow
-- **009_constant_definition.ovsm** - Score: 50/100
+- **009_constant_definition.solisp** - Score: 50/100
   - ⚠️ Expected output not clearly typed
   - ⚠️ Add inline comments to explain complex logic
   - ⚠️ Unclear what concept this teaches
   - 💡 Add comments explaining the logic flow
-- **023_arithmetic_precedence.ovsm** - Score: 50/100
+- **023_arithmetic_precedence.solisp** - Score: 50/100
   - ⚠️ Expected output not clearly typed
   - ⚠️ Add inline comments to explain complex logic
   - ⚠️ Unclear what concept this teaches
   - 💡 Add comments explaining the logic flow
-- **026_simple_while.ovsm** - Score: 52/100
+- **026_simple_while.solisp** - Score: 52/100
   - ⚠️ Expected output not clearly typed
   - ⚠️ Use descriptive variable names instead of single letters
   - ⚠️ Add inline comments to explain complex logic
   - 💡 Rename variables: x -> count, n -> number, etc.
-- **003_multiplication.ovsm** - Score: 55/100
+- **003_multiplication.solisp** - Score: 55/100
   - ⚠️ Expected output not clearly typed
   - ⚠️ Description could be more specific
   - ⚠️ Unclear what concept this teaches
-- **004_division.ovsm** - Score: 55/100
+- **004_division.solisp** - Score: 55/100
   - ⚠️ Expected output not clearly typed
   - ⚠️ Description could be more specific
   - ⚠️ Unclear what concept this teaches
-- **006_nested_arithmetic.ovsm** - Score: 55/100
+- **006_nested_arithmetic.solisp** - Score: 55/100
   - ⚠️ Expected output not clearly typed
   - ⚠️ Description could be more specific
   - ⚠️ Unclear what concept this teaches
-- **022_log_message.ovsm** - Score: 55/100
+- **022_log_message.solisp** - Score: 55/100
   - ⚠️ Description could be more specific
   - ⚠️ Add inline comments to explain complex logic
   - ⚠️ Unclear what concept this teaches

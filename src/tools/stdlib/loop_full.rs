@@ -1,4 +1,4 @@
-//! Complete LOOP macro implementation for OVSM
+//! Complete LOOP macro implementation for Solisp
 //!
 //! Full LOOP DSL with all clauses, destructuring, and complex iteration.
 //! Extends the basic loop utilities with complete Common Lisp LOOP functionality.

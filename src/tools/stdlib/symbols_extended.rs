@@ -1,4 +1,4 @@
-//! Extended symbol operations for OVSM
+//! Extended symbol operations for Solisp
 //!
 //! Symbol property lists, symbol manipulation, and symbol packages.
 //! Provides Common Lisp-style symbol system capabilities.

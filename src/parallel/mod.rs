@@ -1,4 +1,4 @@
-//! Parallel execution support for OVSM
+//! Parallel execution support for Solisp
 //!
 //! Provides parallel map operations for processing arrays concurrently.
 

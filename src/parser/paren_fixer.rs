@@ -1,7 +1,7 @@
-//! Automatic parenthesis balancing for OVSM LISP code
+//! Automatic parenthesis balancing for Solisp LISP code
 //!
 //! This module provides automatic correction of missing or mismatched
-//! parentheses in OVSM code, similar to error recovery in modern compilers.
+//! parentheses in Solisp code, similar to error recovery in modern compilers.
 
 use crate::error::Result;
 use crate::parser::SExprParser;

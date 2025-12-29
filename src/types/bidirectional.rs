@@ -1,4 +1,4 @@
-//! # Bidirectional Type Inference for OVSM
+//! # Bidirectional Type Inference for Solisp
 //!
 //! This module implements bidirectional type checking following the
 //! approach described in "Complete and Easy Bidirectional Typechecking

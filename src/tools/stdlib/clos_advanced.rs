@@ -1,4 +1,4 @@
-//! Advanced CLOS (Common Lisp Object System) features for OVSM
+//! Advanced CLOS (Common Lisp Object System) features for Solisp
 //!
 //! Method specialization, generic function introspection, and Meta-Object Protocol basics.
 //! This module extends the basic CLOS functionality with advanced features.

@@ -1,4 +1,4 @@
-//! Property-based fuzzing tests for OVSM parser, runtime, and compiler
+//! Property-based fuzzing tests for Solisp parser, runtime, and compiler
 //!
 //! These tests use proptest to generate random inputs and verify that:
 //! 1. The parser never panics on arbitrary input

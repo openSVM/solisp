@@ -6,7 +6,7 @@
 //!
 //! ## Why This Bridge Exists
 //!
-//! The OVSM compiler has two separate type systems:
+//! The Solisp compiler has two separate type systems:
 //!
 //! 1. **Source Level** (`Type`): Captures programmer intent
 //!    - `u64`, `i32`, `Pubkey`, `[u8; 32]`, `fn(i64) -> bool`
@@ -26,7 +26,7 @@
 //! ## Usage
 //!
 //! ```rust,ignore
-//! use ovsm::types::bridge::TypeBridge;
+//! use solisp::types::bridge::TypeBridge;
 //!
 //! let mut bridge = TypeBridge::new();
 //!

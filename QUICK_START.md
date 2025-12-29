@@ -1,4 +1,4 @@
-# OVSM Interpreter - Quick Start Guide
+# Solisp Interpreter - Quick Start Guide
 
 **Version**: 1.0.3
 **Status**: Production Ready ✅ (356/356 tests passing)
@@ -12,18 +12,18 @@
 
 ```bash
 # Add to your project
-cd /path/to/osvm-cli
-cargo build --package ovsm --release
+cd /path/to/solisp
+cargo build --package solisp --release
 
 # Verify installation
-cargo test --package ovsm
+cargo test --package solisp
 # Should see: 356/356 tests passing (100%)
 ```
 
-### Your First OVSM Program
+### Your First Solisp Program
 
 ```rust
-use ovsm::{LispEvaluator, SExprParser, SExprScanner};
+use solisp::{LispEvaluator, SExprParser, SExprScanner};
 
 fn main() {
     let code = r#"
@@ -269,7 +269,7 @@ x
 
 ```rust
 #[test]
-fn test_my_ovsm_code() {
+fn test_my_solisp_code() {
     let code = r#"
         (define x 10)
         (if (> x 0)
@@ -284,7 +284,7 @@ fn test_my_ovsm_code() {
     let mut evaluator = LispEvaluator::new();
     let result = evaluator.eval(&sexpr).unwrap();
 
-    assert_eq!(result, ovsm::Value::Int(10));
+    assert_eq!(result, solisp::Value::Int(10));
 }
 ```
 
@@ -292,7 +292,7 @@ fn test_my_ovsm_code() {
 
 ## 📚 Further Reading
 
-- **OVSM_LISP_SYNTAX_SPEC.md** - Complete language specification
+- **Solisp_LISP_SYNTAX_SPEC.md** - Complete language specification
 - **FEATURES_STATUS.md** - Current feature status (83% → 100%)
 - **FINAL_LISP_IMPLEMENTATION_REPORT.md** - Implementation details
 - **RELEASE_NOTES.md** - Complete changelog
@@ -378,7 +378,7 @@ fn test_my_ovsm_code() {
 
 ```bash
 # Start interactive REPL
-osvm ovsm repl
+osvm solisp repl
 
 # Try expressions live
 > (define x 10)
@@ -422,7 +422,7 @@ osvm ovsm repl
 ## 🎉 You're Ready!
 
 You now know enough to:
-- ✅ Write OVSM LISP scripts
+- ✅ Write Solisp LISP scripts
 - ✅ Use 83% of Common Lisp features
 - ✅ Handle errors gracefully
 - ✅ Write macros and closures
@@ -434,11 +434,11 @@ You now know enough to:
 - **[BUILTIN_FUNCTIONS.md](BUILTIN_FUNCTIONS.md)** - Complete glossary of all 91+ built-in functions
 - **[USAGE_GUIDE.md](USAGE_GUIDE.md)** - Comprehensive usage guide with examples
 - **[docs/COMMON_PATTERNS.md](docs/COMMON_PATTERNS.md)** - Idiomatic patterns and best practices
-- **[OVSM_LISP_SYNTAX_SPEC.md](../../OVSM_LISP_SYNTAX_SPEC.md)** - Complete language specification
+- **[Solisp_LISP_SYNTAX_SPEC.md](../../Solisp_LISP_SYNTAX_SPEC.md)** - Complete language specification
 
 **Happy coding!** 🚀
 
 ---
 
-*Quick Start Guide - OVSM Interpreter v1.0.3*
+*Quick Start Guide - Solisp Interpreter v1.0.3*
 *356/356 tests passing (100%) - Production Ready*

@@ -1,6 +1,6 @@
 # Changelog
 
-All notable changes to the OVSM crate will be documented in this file.
+All notable changes to the Solisp crate will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
@@ -10,7 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [1.0.7] - 2025-11-27
 
 ### Added
-- 🔧 **Cross-Program Invocation (CPI) Support** - Call other Solana programs from OVSM
+- 🔧 **Cross-Program Invocation (CPI) Support** - Call other Solana programs from Solisp
   - `system-transfer` - High-level SOL transfer via System Program CPI
   - `invoke` - Low-level CPI for custom instruction structures
   - `invoke-signed` - PDA-signed CPI for program-derived addresses
@@ -135,7 +135,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [1.0.0] - 2025-10-11
 
 ### Added
-- ✨ Complete OVSM language interpreter
+- ✨ Complete Solisp language interpreter
 - 🔧 Scanner (lexer) with full token support
 - 🌳 Parser with AST generation
 - ⚡ Runtime evaluator with proper scoping
@@ -151,15 +151,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - **Return Statements**: Early return support
 
 #### Tools & Examples
-- 📦 Example runner (`run_file.rs`) for executing `.ovsm` scripts
+- 📦 Example runner (`run_file.rs`) for executing `.solisp` scripts
 - 🎮 Interactive REPL (`simple_repl.rs`) for experimentation
 - 📚 6 example scripts demonstrating language features:
-  - `hello_world.ovsm` - Basic greeting
-  - `factorial.ovsm` - Recursive-style calculation
-  - `fibonacci.ovsm` - Sequence generation
-  - `array_operations.ovsm` - Array iteration and operations
-  - `conditional_logic.ovsm` - Nested conditionals
-  - `loop_control.ovsm` - BREAK and CONTINUE usage
+  - `hello_world.solisp` - Basic greeting
+  - `factorial.solisp` - Recursive-style calculation
+  - `fibonacci.solisp` - Sequence generation
+  - `array_operations.solisp` - Array iteration and operations
+  - `conditional_logic.solisp` - Nested conditionals
+  - `loop_control.solisp` - BREAK and CONTINUE usage
 
 #### Documentation
 - 📖 `USAGE_GUIDE.md` - Complete language reference
@@ -247,6 +247,6 @@ Licensed under MIT License. See [LICENSE](../../LICENSE) for details.
 
 ---
 
-[Unreleased]: https://github.com/opensvm/osvm-cli/compare/ovsm-v1.0.0...HEAD
-[1.0.0]: https://github.com/opensvm/osvm-cli/releases/tag/ovsm-v1.0.0
-[0.1.0]: https://github.com/opensvm/osvm-cli/releases/tag/ovsm-v0.1.0
+[Unreleased]: https://github.com/opensvm/solisp/compare/solisp-v1.0.0...HEAD
+[1.0.0]: https://github.com/opensvm/solisp/releases/tag/solisp-v1.0.0
+[0.1.0]: https://github.com/opensvm/solisp/releases/tag/solisp-v0.1.0

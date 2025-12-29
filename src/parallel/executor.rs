@@ -1,4 +1,4 @@
-//! Parallel executor for OVSM operations
+//! Parallel executor for Solisp operations
 //!
 //! Uses Rayon for work-stealing parallelism with configurable limits.
 

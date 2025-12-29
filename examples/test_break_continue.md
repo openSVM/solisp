@@ -2,7 +2,7 @@
 
 ## Test: Simple FOR without BREAK
 
-```ovsm
+```solisp
 $sum = 0
 FOR $i IN [1..5]:
     $sum = $sum + $i
@@ -11,7 +11,7 @@ RETURN $sum
 
 ## Test: FOR with BREAK
 
-```ovsm
+```solisp
 $sum = 0
 FOR $i IN [1..10]:
     IF $i > 5 THEN
@@ -22,7 +22,7 @@ RETURN $sum
 
 ## Test: Simpler BREAK
 
-```ovsm
+```solisp
 FOR $i IN [1..10]:
     IF $i > 5 THEN
         BREAK

@@ -5,7 +5,7 @@
 ;;;
 ;;; Usage:
 ;;;   1. Start streaming server: osvm stream --programs pumpfun --port 8080
-;;;   2. Run this script: osvm ovsm run /tmp/pumpfun_graduation_tracker.ovsm
+;;;   2. Run this script: solisp run /tmp/pumpfun_graduation_tracker.ovsm
 
 ;; Connect to streaming server (local instance)
 (define stream-id (stream-connect "http://localhost:8080"

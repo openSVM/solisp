@@ -6,7 +6,7 @@
 use super::sbpf_codegen::{memory, syscall_hash, SbpfInstruction, SbpfReg, SolanaSymbols};
 use super::SbpfVersion;
 
-/// Stack frame layout for OVSM functions
+/// Stack frame layout for Solisp functions
 ///
 /// ```text
 /// High addresses

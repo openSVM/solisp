@@ -1,4 +1,4 @@
-# OVSM Query Refinement Report
+# Solisp Query Refinement Report
 
 **Date:** October 19, 2025
 **Methodology:** Self-Ask Framework
@@ -9,10 +9,10 @@
 
 ## Executive Summary
 
-Using the Self-Ask methodology, we validated all 100 OVSM queries and identified significant opportunities for improvement. While the queries are functionally correct, they lack the educational depth and clarity needed for optimal learning.
+Using the Self-Ask methodology, we validated all 100 Solisp queries and identified significant opportunities for improvement. While the queries are functionally correct, they lack the educational depth and clarity needed for optimal learning.
 
 **Key Findings:**
-- ✅ All queries demonstrate valid OVSM syntax
+- ✅ All queries demonstrate valid Solisp syntax
 - ⚠️ 74% need improvement (score <70)
 - ⚠️ 100% lack inline comments
 - ⚠️ 87% have unclear expected output types
@@ -44,12 +44,12 @@ Score Range    | Count | Percentage
 
 ### Top Performing Queries
 
-1. **046_array_contains.ovsm** - 90/100 ⭐
+1. **046_array_contains.solisp** - 90/100 ⭐
    - Excellent variable names
    - Clear teaching objective
    - Demonstrates practical pattern
 
-2. **092_palindrome_check.ovsm** - 80/100
+2. **092_palindrome_check.solisp** - 80/100
    - Good algorithm demonstration
    - Clear logic flow
    - Practical application
@@ -119,7 +119,7 @@ Score Range    | Count | Percentage
 
 ;; AFTER
 ;; Query: Demonstrate variadic addition by summing numbers 1 through 10
-;; Demonstrates: OVSM operators accept multiple arguments
+;; Demonstrates: Solisp operators accept multiple arguments
 ```
 
 ### 4. Unclear Teaching Concepts (63%)
@@ -159,16 +159,16 @@ Score Range    | Count | Percentage
 ;; Query: Demonstrate variadic addition by summing numbers 1 through 10
 ;; Category: Basic - Variadic Operators
 ;; Expected: 55 (integer)
-;; Demonstrates: OVSM operators accept multiple arguments
+;; Demonstrates: Solisp operators accept multiple arguments
 
-;; OVSM's + operator is variadic - it can take any number of arguments
+;; Solisp's + operator is variadic - it can take any number of arguments
 ;; This is more concise than looping or repeated binary operations
 
 (+ 1 2 3 4 5 6 7 8 9 10)  ;; All operands summed in one expression
 
 ;; Alternative approaches:
 ;; - Loop with accumulator (more verbose)
-;; - Variadic form is idiomatic OVSM
+;; - Variadic form is idiomatic Solisp
 ```
 
 **Improvements:**
@@ -210,7 +210,7 @@ count
 ;; Demonstrates: Explicit parentheses eliminate parser ambiguity
 
 ;; ⭐ THE CRITICAL FIX ⭐
-;; In Python-style OVSM, this pattern caused infinite loops:
+;; In Python-style Solisp, this pattern caused infinite loops:
 ;;   WHILE condition:
 ;;       IF x THEN ... ELSE ...
 ;;       next_statement  <-- Parser incorrectly consumed this!
@@ -514,7 +514,7 @@ The Self-Ask methodology revealed that while our queries are syntactically corre
 1. Refine top 25 most-used queries
 2. Create automated validation pipeline
 3. Build learning path graph
-4. Integrate with OVSM documentation
+4. Integrate with Solisp documentation
 5. Use refined queries as official examples
 
 The refined queries in `agent_queries/refined/` serve as templates for future improvements.

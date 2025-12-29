@@ -1,4 +1,4 @@
-//! Condition system for OVSM
+//! Condition system for Solisp
 //!
 //! Full Common Lisp condition handling and restart system.
 //! Error handling, warnings, conditions, and restarts.

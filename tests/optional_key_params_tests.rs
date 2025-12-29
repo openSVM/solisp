@@ -1,4 +1,4 @@
-//! Tests for &optional and &key parameters in OVSM functions
+//! Tests for &optional and &key parameters in Solisp functions
 //!
 //! This test suite covers:
 //! - Optional parameters with defaults

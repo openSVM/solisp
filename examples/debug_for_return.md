@@ -2,14 +2,14 @@
 
 ## Test 1: Simple FOR with RETURN
 
-```ovsm
+```solisp
 FOR $i IN [1..5]:
     RETURN $i
 ```
 
 ## Test 2: FOR with assignment then RETURN
 
-```ovsm
+```solisp
 FOR $i IN [1..5]:
     $x = $i
     RETURN $x
@@ -17,7 +17,7 @@ FOR $i IN [1..5]:
 
 ## Test 3: FOR without RETURN
 
-```ovsm
+```solisp
 $result = 0
 FOR $i IN [1..5]:
     $result = $i
@@ -26,7 +26,7 @@ RETURN $result
 
 ## Test 4: FOR with IF but no RETURN inside loop
 
-```ovsm
+```solisp
 $result = 0
 FOR $i IN [1..5]:
     IF $i > 3 THEN

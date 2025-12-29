@@ -1,4 +1,4 @@
-//! Runtime execution for OVSM programs using LISP-style evaluation
+//! Runtime execution for Solisp programs using LISP-style evaluation
 
 mod environment;
 mod lisp_evaluator;

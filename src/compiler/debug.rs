@@ -1,4 +1,4 @@
-//! Debug utilities for OVSM→sBPF compilation
+//! Debug utilities for Solisp→sBPF compilation
 //!
 //! Tools for inspecting IR, bytecode, and register allocation.
 

@@ -1,4 +1,4 @@
-//! Advanced sequence operations for OVSM
+//! Advanced sequence operations for Solisp
 //!
 //! Sorting with keys, sequence comparisons, and advanced searches.
 //! Completes the Common Lisp sequence manipulation suite.

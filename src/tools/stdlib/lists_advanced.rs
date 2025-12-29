@@ -372,7 +372,7 @@ impl Tool for SublisTool {
     }
 }
 
-/// NSUBLIS - Destructive substitute (creates new in OVSM)
+/// NSUBLIS - Destructive substitute (creates new in Solisp)
 pub struct NsublisTool;
 
 impl Tool for NsublisTool {
@@ -381,7 +381,7 @@ impl Tool for NsublisTool {
     }
 
     fn description(&self) -> &str {
-        "Destructive substitute (creates new in OVSM)"
+        "Destructive substitute (creates new in Solisp)"
     }
 
     fn execute(&self, args: &[Value]) -> Result<Value> {

@@ -12,7 +12,7 @@
 //! ## Usage
 //!
 //! ```ignore
-//! use ovsm::compiler::{Compiler, CompileOptions};
+//! use solisp::compiler::{Compiler, CompileOptions};
 //!
 //! let source = "(define x 42)";
 //! let compiler = Compiler::new(CompileOptions::default());

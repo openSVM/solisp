@@ -1,4 +1,4 @@
-//! Simplified CLOS (Common Lisp Object System) for OVSM
+//! Simplified CLOS (Common Lisp Object System) for Solisp
 //!
 //! Basic object-oriented programming support.
 //! Simplified compared to full CLOS.

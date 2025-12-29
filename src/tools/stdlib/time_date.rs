@@ -1,4 +1,4 @@
-//! Time and date operations for OVSM
+//! Time and date operations for Solisp
 //!
 //! Universal time, decoded time, and time arithmetic.
 //! Provides Common Lisp-style temporal operations.

@@ -1,4 +1,4 @@
-//! Formal Memory Model for OVSM Compiler
+//! Formal Memory Model for Solisp Compiler
 //!
 //! This module introduces pointer provenance tracking and type-safe memory operations
 //! to eliminate the class of bugs that occur from:

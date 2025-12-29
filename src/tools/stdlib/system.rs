@@ -1,4 +1,4 @@
-//! System functions for OVSM
+//! System functions for Solisp
 //!
 //! Environment variables, process management, system information, and file system operations.
 //! Provides Common Lisp-style system interaction capabilities.

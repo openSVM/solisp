@@ -1,6 +1,6 @@
 # Self-Ask and Refine: Complete Summary
 
-**Project:** OVSM Agent Query Refinement
+**Project:** Solisp Agent Query Refinement
 **Date:** October 19, 2025
 **Status:** ✅ Complete
 
@@ -175,9 +175,9 @@ Includes:
 ```lisp
 ;; Query: Demonstrate variadic addition by summing 1-10
 ;; Expected: 55 (integer)
-;; Demonstrates: OVSM operators accept multiple arguments
+;; Demonstrates: Solisp operators accept multiple arguments
 
-;; OVSM's + is variadic - takes any number of args
+;; Solisp's + is variadic - takes any number of args
 ;; More concise than looping
 
 (+ 1 2 3 4 5 6 7 8 9 10)  ;; All operands summed
@@ -302,7 +302,7 @@ Includes:
    - Production-ready examples
 
 8. **Interactive Playground** (40 hours)
-   - Web-based OVSM executor
+   - Web-based Solisp executor
    - Live query testing
    - Gamified learning
 
@@ -349,11 +349,11 @@ Includes:
    - Suggestions for each query
 
 ### Refined Queries (5 files)
-7. **refined/002_variadic_addition_refined.ovsm**
-8. **refined/036_while_with_if_refined.ovsm**
-9. **refined/051_create_array_refined.ovsm**
-10. **refined/076_factorial_refined.ovsm**
-11. **refined/100_liquidity_pool_refined.ovsm**
+7. **refined/002_variadic_addition_refined.solisp**
+8. **refined/036_while_with_if_refined.solisp**
+9. **refined/051_create_array_refined.solisp**
+10. **refined/076_factorial_refined.solisp**
+11. **refined/100_liquidity_pool_refined.solisp**
 
 **Total:** 11 new files, ~2,000 lines of documentation, 5 refined examples
 
@@ -386,7 +386,7 @@ Includes:
 
 ## Conclusion
 
-The Self-Ask methodology has transformed 100 basic OVSM queries into a foundation for a comprehensive learning system. Through systematic questioning, validation, and refinement, we've:
+The Self-Ask methodology has transformed 100 basic Solisp queries into a foundation for a comprehensive learning system. Through systematic questioning, validation, and refinement, we've:
 
 1. **Identified** the current quality baseline (60.6/100)
 2. **Demonstrated** the potential (+52% improvement)
@@ -412,4 +412,4 @@ The refined queries in `agent_queries/refined/` are not just examples—they're 
 **Estimated Time:** 31-40 hours
 **ROI:** Transform basic examples into world-class learning resources
 
-**Let's make OVSM queries the gold standard for educational code examples!** 🎓✨
+**Let's make Solisp queries the gold standard for educational code examples!** 🎓✨

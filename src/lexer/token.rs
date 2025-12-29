@@ -25,7 +25,7 @@ impl Token {
     }
 }
 
-/// All possible token types in OVSM
+/// All possible token types in Solisp
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
 pub enum TokenKind {
     // Literals

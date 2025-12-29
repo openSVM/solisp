@@ -1,6 +1,6 @@
-# Publishing OVSM to crates.io
+# Publishing Solisp to crates.io
 
-This guide explains how to publish the OVSM crate to crates.io.
+This guide explains how to publish the Solisp crate to crates.io.
 
 ## Prerequisites
 
@@ -22,7 +22,7 @@ This guide explains how to publish the OVSM crate to crates.io.
 
 #### Step 1: Update Version
 
-Edit `crates/ovsm/Cargo.toml`:
+Edit `crates/solisp/Cargo.toml`:
 
 ```toml
 [package]
@@ -31,7 +31,7 @@ version = "1.0.1"  # Increment version
 
 #### Step 2: Update Changelog
 
-Edit `crates/ovsm/CHANGELOG.md`:
+Edit `crates/solisp/CHANGELOG.md`:
 
 ```markdown
 ## [1.0.1] - 2025-10-11
@@ -48,16 +48,16 @@ Edit `crates/ovsm/CHANGELOG.md`:
 #### Step 3: Commit Changes
 
 ```bash
-git add crates/ovsm/Cargo.toml crates/ovsm/CHANGELOG.md
-git commit -m "chore(ovsm): bump version to 1.0.1"
+git add crates/solisp/Cargo.toml crates/solisp/CHANGELOG.md
+git commit -m "chore(solisp): bump version to 1.0.1"
 git push origin main
 ```
 
 #### Step 4: Create Git Tag
 
 ```bash
-git tag ovsm-v1.0.1
-git push origin ovsm-v1.0.1
+git tag solisp-v1.0.1
+git push origin solisp-v1.0.1
 ```
 
 This will automatically trigger the GitHub Actions workflow that:
@@ -71,9 +71,9 @@ This will automatically trigger the GitHub Actions workflow that:
 #### Step 5: Verify Publication
 
 Check:
-- https://crates.io/crates/ovsm
-- https://docs.rs/ovsm
-- https://github.com/opensvm/osvm-cli/releases
+- https://crates.io/crates/solisp
+- https://docs.rs/solisp
+- https://github.com/opensvm/solisp/releases
 
 ---
 
@@ -82,7 +82,7 @@ Check:
 #### Step 1: Verify Everything Works
 
 ```bash
-cd crates/ovsm
+cd crates/solisp
 
 # Check formatting
 cargo fmt --all -- --check
@@ -94,7 +94,7 @@ cargo clippy --all-targets --all-features -- -D warnings
 cargo test
 
 # Test examples
-cargo run --example run_file examples/hello_world.ovsm
+cargo run --example run_file examples/hello_world.solisp
 ```
 
 #### Step 2: Verify Package
@@ -105,14 +105,14 @@ cargo package --allow-dirty
 
 # Check the generated package
 cd target/package
-tar -xzf ovsm-*.crate
-ls -la ovsm-*/
+tar -xzf solisp-*.crate
+ls -la solisp-*/
 ```
 
 #### Step 3: Publish
 
 ```bash
-cd crates/ovsm
+cd crates/solisp
 cargo publish --token YOUR_TOKEN_HERE
 ```
 
@@ -131,11 +131,11 @@ Test the publishing workflow without actually publishing:
 
 ```bash
 # Via GitHub Actions UI
-# Go to Actions → Publish OVSM Crate → Run workflow
+# Go to Actions → Publish Solisp Crate → Run workflow
 # Set "Dry run" to "true"
 
 # Or manually
-cd crates/ovsm
+cd crates/solisp
 cargo publish --dry-run --allow-dirty
 ```
 
@@ -169,7 +169,7 @@ version = "1.1.0" → "2.0.0"
 Before publishing, verify:
 
 - [ ] All tests pass: `cargo test`
-- [ ] Examples work: Test all `.ovsm` scripts
+- [ ] Examples work: Test all `.solisp` scripts
 - [ ] Documentation builds: `cargo doc --no-deps`
 - [ ] Package builds: `cargo package --allow-dirty`
 - [ ] Version bumped in `Cargo.toml`
@@ -186,17 +186,17 @@ After successful publication:
 
 1. **Verify on crates.io**
    ```
-   https://crates.io/crates/ovsm/1.0.1
+   https://crates.io/crates/solisp/1.0.1
    ```
 
 2. **Check documentation**
    ```
-   https://docs.rs/ovsm/1.0.1
+   https://docs.rs/solisp/1.0.1
    ```
 
 3. **Test installation**
    ```bash
-   cargo install ovsm --version 1.0.1
+   cargo install solisp --version 1.0.1
    ```
 
 4. **Announce release**
@@ -231,7 +231,7 @@ version = "1.0.1"  # Increment version
 **Solution:** Ensure `LICENSE` or `LICENSE-MIT` file exists:
 
 ```bash
-cd crates/ovsm
+cd crates/solisp
 # If missing, copy from root
 cp ../../LICENSE .
 ```
@@ -315,9 +315,9 @@ cargo yank --vers 1.0.1 --undo
 
 ### Workflow Triggers
 
-The publish workflow (`publish-ovsm.yml`) triggers on:
+The publish workflow (`publish-solisp.yml`) triggers on:
 
-1. **Git tags**: `ovsm-v*` (e.g., `ovsm-v1.0.1`)
+1. **Git tags**: `solisp-v*` (e.g., `solisp-v1.0.1`)
 2. **Manual**: Via GitHub Actions UI
 
 ### Workflow Steps
@@ -377,25 +377,25 @@ The publish workflow (`publish-ovsm.yml`) triggers on:
 
 ```bash
 # Update version
-vim crates/ovsm/Cargo.toml
+vim crates/solisp/Cargo.toml
 
 # Update changelog
-vim crates/ovsm/CHANGELOG.md
+vim crates/solisp/CHANGELOG.md
 
 # Commit and tag
-git add crates/ovsm/Cargo.toml crates/ovsm/CHANGELOG.md
-git commit -m "chore(ovsm): bump version to X.Y.Z"
+git add crates/solisp/Cargo.toml crates/solisp/CHANGELOG.md
+git commit -m "chore(solisp): bump version to X.Y.Z"
 git push origin main
-git tag ovsm-vX.Y.Z
-git push origin ovsm-vX.Y.Z
+git tag solisp-vX.Y.Z
+git push origin solisp-vX.Y.Z
 
 # Manual publish (if needed)
-cd crates/ovsm
+cd crates/solisp
 cargo publish
 
 # Verify
-open https://crates.io/crates/ovsm
-open https://docs.rs/ovsm
+open https://crates.io/crates/solisp
+open https://docs.rs/solisp
 ```
 
 ---

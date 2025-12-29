@@ -162,7 +162,7 @@ impl Tool for ArefTool {
     }
 }
 
-/// SVREF - Simple vector ref (same as AREF in OVSM)
+/// SVREF - Simple vector ref (same as AREF in Solisp)
 pub struct SvrefTool;
 
 impl Tool for SvrefTool {
@@ -235,7 +235,7 @@ impl Tool for ArrayRankTool {
     }
 
     fn description(&self) -> &str {
-        "Get number of dimensions (always 1 in OVSM)"
+        "Get number of dimensions (always 1 in Solisp)"
     }
 
     fn execute(&self, args: &[Value]) -> Result<Value> {
@@ -247,7 +247,7 @@ impl Tool for ArrayRankTool {
         }
 
         args[0].as_array()?;
-        Ok(Value::Int(1)) // Always 1D in OVSM
+        Ok(Value::Int(1)) // Always 1D in Solisp
     }
 }
 
@@ -316,7 +316,7 @@ impl Tool for AdjustArrayTool {
     }
 
     fn description(&self) -> &str {
-        "Adjust array to new size (creates new array in OVSM)"
+        "Adjust array to new size (creates new array in Solisp)"
     }
 
     fn execute(&self, args: &[Value]) -> Result<Value> {
@@ -354,7 +354,7 @@ impl Tool for ArrayElementTypeTool {
     }
 
     fn description(&self) -> &str {
-        "Get array element type (returns 'T' for any in OVSM)"
+        "Get array element type (returns 'T' for any in Solisp)"
     }
 
     fn execute(&self, args: &[Value]) -> Result<Value> {

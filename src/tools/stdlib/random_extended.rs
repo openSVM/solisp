@@ -1,4 +1,4 @@
-//! Extended random number operations for OVSM
+//! Extended random number operations for Solisp
 //!
 //! Random state control and distribution management.
 //! Completes the Common Lisp random number system.

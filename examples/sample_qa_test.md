@@ -1,10 +1,10 @@
 # Sample QA Test File
 
-This file contains sample OVSM code blocks for testing.
+This file contains sample Solisp code blocks for testing.
 
 ## Test 1: Basic Arithmetic
 
-```ovsm
+```solisp
 $x = 10
 $y = 20
 RETURN $x + $y
@@ -12,7 +12,7 @@ RETURN $x + $y
 
 ## Test 2: GUARD Clause
 
-```ovsm
+```solisp
 $value = 5
 GUARD $value > 0 ELSE
     RETURN "negative"
@@ -21,7 +21,7 @@ RETURN "positive"
 
 ## Test 3: TRY-CATCH
 
-```ovsm
+```solisp
 TRY:
     $result = 10 / 0
 CATCH:
@@ -31,7 +31,7 @@ RETURN $result
 
 ## Test 4: Array Operations
 
-```ovsm
+```solisp
 $numbers = [1, 2, 3, 4, 5]
 $sum = SUM($numbers)
 RETURN $sum
@@ -39,14 +39,14 @@ RETURN $sum
 
 ## Test 5: Object Creation
 
-```ovsm
+```solisp
 $user = {name: "Alice", age: 30}
 RETURN $user.name
 ```
 
 ## Test 6: FOR Loop
 
-```ovsm
+```solisp
 $total = 0
 FOR $i IN [1..5]:
     $total = $total + $i
@@ -55,7 +55,7 @@ RETURN $total
 
 ## Test 7: Nested TRY-CATCH
 
-```ovsm
+```solisp
 TRY:
     TRY:
         $x = 10 / 0
@@ -69,7 +69,7 @@ RETURN $result
 
 ## Test 8: Multiple GUARDs
 
-```ovsm
+```solisp
 $a = 10
 $b = 20
 
