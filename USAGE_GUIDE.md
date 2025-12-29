@@ -1,45 +1,45 @@
-# OVSM Usage Guide
+# Solisp Usage Guide
 
 **📚 Looking for a complete function reference?** See **[BUILTIN_FUNCTIONS.md](BUILTIN_FUNCTIONS.md)** for a comprehensive glossary of all 91+ built-in functions organized by category.
 
 ---
 
-## How to Execute OVSM Scripts
+## How to Execute Solisp Scripts
 
-OVSM is a library crate implementing a LISP dialect for blockchain scripting. You can execute scripts in several ways:
+Solisp is a library crate implementing a LISP dialect for blockchain scripting. You can execute scripts in several ways:
 
 ### 1. Using the OSVM CLI (Recommended)
 
-The easiest way to run OVSM LISP scripts:
+The easiest way to run Solisp LISP scripts:
 
 ```bash
 # Run a LISP script file
-osvm ovsm run script.ovsm
+solisp run script.solisp
 
 # Evaluate inline LISP code
-osvm ovsm eval '(define x 42) (+ x 8)'
+solisp eval '(define x 42) (+ x 8)'
 
 # Check syntax without running
-osvm ovsm check script.ovsm
+solisp check script.solisp
 
 # Interactive REPL
-osvm ovsm repl
+solisp repl
 ```
 
 **Example:**
 ```bash
-cd /path/to/osvm-cli
-osvm ovsm run examples/ovsm_scripts/balance_check.ovsm
+cd /path/to/solisp
+solisp run examples/solisp_scripts/balance_check.solisp
 ```
 
 ### 2. Programmatic Usage
 
-Use OVSM as a library in your Rust programs:
+Use Solisp as a library in your Rust programs:
 
 ```rust
-use ovsm::{LispEvaluator, SExprParser, SExprScanner, Value};
+use solisp::{LispEvaluator, SExprParser, SExprScanner, Value};
 
-fn execute_ovsm(code: &str) -> Result<Value, Box<dyn std::error::Error>> {
+fn execute_solisp(code: &str) -> Result<Value, Box<dyn std::error::Error>> {
     // Tokenize
     let mut scanner = SExprScanner::new(code);
     let tokens = scanner.scan_tokens()?;
@@ -61,7 +61,7 @@ fn main() {
             "low")
     "#;
 
-    match execute_ovsm(code) {
+    match execute_solisp(code) {
         Ok(result) => println!("Result: {:?}", result),
         Err(err) => eprintln!("Error: {}", err),
     }
@@ -86,11 +86,11 @@ cargo test -- --show-output        # Show test output
 
 ```lisp
 ;; Simple Hello World example
-(define message "Hello from OVSM! 🚀")
+(define message "Hello from Solisp! 🚀")
 message
 ```
 
-**Output:** `String("Hello from OVSM! 🚀")`
+**Output:** `String("Hello from Solisp! 🚀")`
 
 ---
 
@@ -154,7 +154,7 @@ average
 
 ---
 
-## OVSM LISP Language Features
+## Solisp LISP Language Features
 
 ### Supported Features ✅
 
@@ -202,7 +202,7 @@ average
 
 ### S-Expression Structure
 
-OVSM uses S-expressions (symbolic expressions) with explicit parentheses:
+Solisp uses S-expressions (symbolic expressions) with explicit parentheses:
 
 #### ✅ DO: Use Explicit Parentheses
 
@@ -245,7 +245,7 @@ OVSM uses S-expressions (symbolic expressions) with explicit parentheses:
 ### Quick Test
 
 ```bash
-osvm ovsm run your_script.ovsm
+solisp run your_script.solisp
 ```
 
 ### With Debugging
@@ -530,12 +530,12 @@ sum
 ## Next Steps
 
 1. **Function Reference:** See **[BUILTIN_FUNCTIONS.md](BUILTIN_FUNCTIONS.md)** for complete glossary of all 91+ built-in functions
-2. **Explore Examples:** Run all scripts in `examples/ovsm_scripts/` directory
+2. **Explore Examples:** Run all scripts in `examples/solisp_scripts/` directory
 3. **Read Tests:** Check `tests/lisp_e2e_tests.rs` for comprehensive examples
-4. **Check Docs:** See `OVSM_LISP_SYNTAX_SPEC.md` for complete language specification
+4. **Check Docs:** See `Solisp_LISP_SYNTAX_SPEC.md` for complete language specification
 5. **Common Patterns:** See `docs/COMMON_PATTERNS.md` for idiomatic patterns
 6. **Check Status:** See `FEATURES_STATUS.md` for current 83% → 100% roadmap
 
 ---
 
-**Happy coding with OVSM LISP! 🚀**
+**Happy coding with Solisp LISP! 🚀**

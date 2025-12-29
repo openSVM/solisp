@@ -1,12 +1,12 @@
 # GitHub Actions Setup Complete! 🎉
 
-The OVSM crate is now fully configured for automated publishing to crates.io via GitHub Actions.
+The Solisp crate is now fully configured for automated publishing to crates.io via GitHub Actions.
 
 ## What Was Created
 
 ### GitHub Actions Workflows
 
-#### 1. **`.github/workflows/publish-ovsm.yml`** - NEW ✨
+#### 1. **`.github/workflows/publish-solisp.yml`** - NEW ✨
 Automatic publishing workflow triggered by git tags.
 
 **Features:**
@@ -19,15 +19,15 @@ Automatic publishing workflow triggered by git tags.
 
 **Trigger:**
 ```bash
-git tag ovsm-v1.0.0
-git push origin ovsm-v1.0.0
+git tag solisp-v1.0.0
+git push origin solisp-v1.0.0
 ```
 
 #### 2. **`.github/workflows/ci.yml`** - UPDATED ✨
-Added OVSM crate testing to CI pipeline.
+Added Solisp crate testing to CI pipeline.
 
 **New Job:**
-- `ovsm-tests`: Tests OVSM crate on every push/PR
+- `solisp-tests`: Tests Solisp crate on every push/PR
 - Runs unit tests, integration tests, and example scripts
 - Generates coverage reports
 
@@ -35,36 +35,36 @@ Added OVSM crate testing to CI pipeline.
 
 #### Comprehensive Guides
 
-1. **`crates/ovsm/README.md`** ✨
+1. **`crates/solisp/README.md`** ✨
    - Crates.io landing page
    - Quick start guide
    - Feature showcase
    - Examples and links
 
-2. **`crates/ovsm/CHANGELOG.md`** ✨
+2. **`crates/solisp/CHANGELOG.md`** ✨
    - Version history
    - Release notes format
    - Migration guides
 
-3. **`crates/ovsm/USAGE_GUIDE.md`** ✨
+3. **`crates/solisp/USAGE_GUIDE.md`** ✨
    - Complete language reference
    - All features documented
    - Syntax examples
    - Common patterns
 
-4. **`crates/ovsm/HOW_TO_USE.md`** ✨
+4. **`crates/solisp/HOW_TO_USE.md`** ✨
    - Getting started
    - All execution methods
    - Troubleshooting
    - Quick reference
 
-5. **`crates/ovsm/PUBLISHING.md`** ✨
+5. **`crates/solisp/PUBLISHING.md`** ✨
    - Detailed publishing guide
    - Troubleshooting
    - Version numbering
    - Post-release tasks
 
-6. **`crates/ovsm/PUBLISH_CHECKLIST.md`** ✨
+6. **`crates/solisp/PUBLISH_CHECKLIST.md`** ✨
    - Quick reference
    - Step-by-step checklist
    - Common commands
@@ -81,7 +81,7 @@ Added OVSM crate testing to CI pipeline.
 #### Executable Scripts
 
 1. **`examples/run_file.rs`** ✨
-   - Execute `.ovsm` files
+   - Execute `.solisp` files
    - Error handling
    - Usage instructions
 
@@ -90,33 +90,33 @@ Added OVSM crate testing to CI pipeline.
    - Help system
    - Example prompts
 
-#### Sample OVSM Scripts
+#### Sample Solisp Scripts
 
 All tested and working! ✅
 
-1. `hello_world.ovsm` - Basic greeting
-2. `factorial.ovsm` - Calculate factorial
-3. `fibonacci.ovsm` - Fibonacci sequence
-4. `array_operations.ovsm` - Array manipulation
-5. `conditional_logic.ovsm` - Nested conditionals
-6. `loop_control.ovsm` - BREAK/CONTINUE demo
+1. `hello_world.solisp` - Basic greeting
+2. `factorial.solisp` - Calculate factorial
+3. `fibonacci.solisp` - Fibonacci sequence
+4. `array_operations.solisp` - Array manipulation
+5. `conditional_logic.solisp` - Nested conditionals
+6. `loop_control.solisp` - BREAK/CONTINUE demo
 
 ### Configuration Files
 
-#### `crates/ovsm/Cargo.toml` - UPDATED ✨
+#### `crates/solisp/Cargo.toml` - UPDATED ✨
 
 Added complete metadata for crates.io:
 ```toml
 [package]
-name = "ovsm"
+name = "solisp"
 version = "1.0.0"
 edition = "2021"
 authors = ["OSVM Team <rin@opensvm.com>"]
-description = "OVSM language interpreter for blockchain automation"
+description = "Solisp language interpreter for blockchain automation"
 license = "MIT"
-repository = "https://github.com/opensvm/osvm-cli"
-homepage = "https://github.com/opensvm/osvm-cli"
-documentation = "https://docs.rs/ovsm"
+repository = "https://github.com/opensvm/solisp"
+homepage = "https://github.com/opensvm/solisp"
+documentation = "https://docs.rs/solisp"
 readme = "README.md"
 keywords = ["blockchain", "solana", "language", "interpreter", "scripting"]
 categories = ["parser-implementations", "development-tools"]
@@ -163,22 +163,22 @@ For documentation hosting:
 
 ```bash
 # 1. Update version
-vim crates/ovsm/Cargo.toml  # Change version = "1.0.1"
+vim crates/solisp/Cargo.toml  # Change version = "1.0.1"
 
 # 2. Update changelog
-vim crates/ovsm/CHANGELOG.md  # Add release notes
+vim crates/solisp/CHANGELOG.md  # Add release notes
 
 # 3. Commit
-git add crates/ovsm/Cargo.toml crates/ovsm/CHANGELOG.md
-git commit -m "chore(ovsm): bump version to 1.0.1"
+git add crates/solisp/Cargo.toml crates/solisp/CHANGELOG.md
+git commit -m "chore(solisp): bump version to 1.0.1"
 git push origin main
 
 # 4. Tag and push
-git tag ovsm-v1.0.1 -m "OVSM v1.0.1"
-git push origin ovsm-v1.0.1
+git tag solisp-v1.0.1 -m "Solisp v1.0.1"
+git push origin solisp-v1.0.1
 
 # 5. Watch workflow
-# Go to: https://github.com/opensvm/osvm-cli/actions
+# Go to: https://github.com/opensvm/solisp/actions
 ```
 
 ### Detailed Version
@@ -187,7 +187,7 @@ See `PUBLISHING.md` or `PUBLISH_CHECKLIST.md` for comprehensive instructions.
 
 ## What Happens Automatically
 
-When you push a tag like `ovsm-v1.0.1`, GitHub Actions will:
+When you push a tag like `solisp-v1.0.1`, GitHub Actions will:
 
 1. **Verify** ✅
    - Check code formatting
@@ -223,32 +223,32 @@ When you push a tag like `ovsm-v1.0.1`, GitHub Actions will:
 
 Check these URLs (replace version):
 
-- **Crates.io**: https://crates.io/crates/ovsm/1.0.1
-- **Docs.rs**: https://docs.rs/ovsm/1.0.1
-- **GitHub Release**: https://github.com/opensvm/osvm-cli/releases/tag/ovsm-v1.0.1
-- **GitHub Pages**: https://opensvm.github.io/osvm-cli/ovsm/
+- **Crates.io**: https://crates.io/crates/solisp/1.0.1
+- **Docs.rs**: https://docs.rs/solisp/1.0.1
+- **GitHub Release**: https://github.com/opensvm/solisp/releases/tag/solisp-v1.0.1
+- **GitHub Pages**: https://opensvm.github.io/solisp/solisp/
 
 Test installation:
 ```bash
-cargo install ovsm --version 1.0.1
+cargo install solisp --version 1.0.1
 ```
 
 ## File Structure
 
 ```
-osvm-cli/
+solisp/
 ├── .github/
 │   ├── workflows/
 │   │   ├── ci.yml                    # Updated ✨
-│   │   └── publish-ovsm.yml          # New ✨
+│   │   └── publish-solisp.yml          # New ✨
 │   └── PUBLISHING_GUIDE.md            # New ✨
 │
-└── crates/ovsm/
+└── crates/solisp/
     ├── src/                           # Source code
     ├── examples/
     │   ├── run_file.rs                # New ✨
     │   ├── simple_repl.rs             # New ✨
-    │   ├── *.ovsm                     # Sample scripts ✨
+    │   ├── *.solisp                     # Sample scripts ✨
     │   └── README.md                  # New ✨
     ├── tests/                         # Test suite
     ├── benches/                       # Benchmarks
@@ -280,14 +280,14 @@ osvm-cli/
    - Add `CARGO_REGISTRY_TOKEN` to GitHub Secrets
 
 2. **Test Workflow** (optional)
-   - Create test tag: `ovsm-v0.0.1-test`
+   - Create test tag: `solisp-v0.0.1-test`
    - Watch workflow run
    - Delete test release if successful
 
 3. **First Release**
    - Verify version is correct (currently 1.0.0)
    - Review CHANGELOG.md
-   - Create tag: `ovsm-v1.0.0`
+   - Create tag: `solisp-v1.0.0`
    - Push and watch magic happen! 🎉
 
 ## Resources
@@ -299,8 +299,8 @@ osvm-cli/
 
 ## Support
 
-- **Issues**: https://github.com/opensvm/osvm-cli/issues
-- **Discussions**: https://github.com/opensvm/osvm-cli/discussions
+- **Issues**: https://github.com/opensvm/solisp/issues
+- **Discussions**: https://github.com/opensvm/solisp/discussions
 - **Email**: rin@opensvm.com
 
 ---

@@ -1,8 +1,8 @@
-# OVSM V6.1 - Async/Await Guide
+# Solisp V6.1 - Async/Await Guide
 
 ## Overview
 
-OVSM V6.1 introduces JavaScript-style async/await for concurrent task execution. Tasks run in a thread pool (powered by Rayon), allowing non-blocking concurrent operations.
+Solisp V6.1 introduces JavaScript-style async/await for concurrent task execution. Tasks run in a thread pool (powered by Rayon), allowing non-blocking concurrent operations.
 
 ## Quick Start
 
@@ -254,25 +254,25 @@ For complex async functions, define all helpers inside:
 
 ### Full Examples
 
-- `examples/ovsm_scripts/async_basics.ovsm` - Basic async/await patterns
-- `examples/ovsm_scripts/async_batch_processing.ovsm` - Real-world patterns
-- `examples/ovsm_scripts/async_wallet_discovery.ovsm` - Blockchain use case
-- `/tmp/wallet_discovery_depth10_limited.ovsm` - 10-hop concurrent traversal
+- `examples/solisp_scripts/async_basics.solisp` - Basic async/await patterns
+- `examples/solisp_scripts/async_batch_processing.solisp` - Real-world patterns
+- `examples/solisp_scripts/async_wallet_discovery.solisp` - Blockchain use case
+- `/tmp/wallet_discovery_depth10_limited.solisp` - 10-hop concurrent traversal
 
 ### Running Examples
 
 ```bash
 # Basic examples
-osvm ovsm run examples/ovsm_scripts/async_basics.ovsm
+solisp run examples/solisp_scripts/async_basics.solisp
 
 # Batch processing patterns
-osvm ovsm run examples/ovsm_scripts/async_batch_processing.ovsm
+solisp run examples/solisp_scripts/async_batch_processing.solisp
 
 # Wallet discovery (blockchain)
-osvm ovsm run examples/ovsm_scripts/async_wallet_discovery.ovsm
+solisp run examples/solisp_scripts/async_wallet_discovery.solisp
 
 # Run benchmarks
-cd crates/ovsm
+cd crates/solisp
 cargo bench --bench async_bench
 ```
 
@@ -281,7 +281,7 @@ cargo bench --bench async_bench
 Run performance benchmarks:
 
 ```bash
-cd crates/ovsm
+cd crates/solisp
 cargo bench --bench async_bench
 ```
 
@@ -415,8 +415,8 @@ Opaque handle to async task.
 
 ## Further Reading
 
-- [OVSM README](README.md) - General OVSM documentation
-- [USAGE_GUIDE](USAGE_GUIDE.md) - Getting started with OVSM
+- [Solisp README](README.md) - General Solisp documentation
+- [USAGE_GUIDE](USAGE_GUIDE.md) - Getting started with Solisp
 - [BUILTIN_FUNCTIONS](BUILTIN_FUNCTIONS.md) - All built-in functions
 
 ## Contributing

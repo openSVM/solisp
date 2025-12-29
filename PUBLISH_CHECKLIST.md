@@ -1,6 +1,6 @@
-# OVSM Publishing Checklist
+# Solisp Publishing Checklist
 
-Quick reference for publishing new versions of the OVSM crate.
+Quick reference for publishing new versions of the Solisp crate.
 
 ## Pre-Release Checklist
 
@@ -8,7 +8,7 @@ Quick reference for publishing new versions of the OVSM crate.
 - [ ] All tests pass: `cargo test`
 - [ ] Formatting clean: `cargo fmt --all -- --check`
 - [ ] Clippy clean: `cargo clippy --all-targets --all-features`
-- [ ] Examples work: Test all `.ovsm` scripts
+- [ ] Examples work: Test all `.solisp` scripts
 - [ ] Documentation builds: `cargo doc --no-deps`
 - [ ] Package builds: `cargo package --allow-dirty`
 
@@ -31,7 +31,7 @@ Quick reference for publishing new versions of the OVSM crate.
 
 ```bash
 # Edit Cargo.toml
-vim crates/ovsm/Cargo.toml
+vim crates/solisp/Cargo.toml
 # Change: version = "1.0.1"
 ```
 
@@ -39,14 +39,14 @@ vim crates/ovsm/Cargo.toml
 
 ```bash
 # Edit CHANGELOG.md
-vim crates/ovsm/CHANGELOG.md
+vim crates/solisp/CHANGELOG.md
 # Add section for new version
 ```
 
 ### 3. Test Package
 
 ```bash
-cd crates/ovsm
+cd crates/solisp
 cargo package --allow-dirty
 cargo package --allow-dirty --list | less
 ```
@@ -54,30 +54,30 @@ cargo package --allow-dirty --list | less
 ### 4. Commit Changes
 
 ```bash
-git add crates/ovsm/Cargo.toml crates/ovsm/CHANGELOG.md
-git commit -m "chore(ovsm): bump version to X.Y.Z"
+git add crates/solisp/Cargo.toml crates/solisp/CHANGELOG.md
+git commit -m "chore(solisp): bump version to X.Y.Z"
 git push origin main
 ```
 
 ### 5. Create Tag
 
 ```bash
-git tag ovsm-vX.Y.Z -m "OVSM vX.Y.Z"
-git push origin ovsm-vX.Y.Z
+git tag solisp-vX.Y.Z -m "Solisp vX.Y.Z"
+git push origin solisp-vX.Y.Z
 ```
 
 ### 6. Monitor Workflow
 
-- Go to: https://github.com/opensvm/osvm-cli/actions
-- Watch: "Publish OVSM Crate" workflow
+- Go to: https://github.com/opensvm/solisp/actions
+- Watch: "Publish Solisp Crate" workflow
 - Verify: All jobs pass (green checkmarks)
 
 ### 7. Verify Publication
 
-- [ ] Check crates.io: https://crates.io/crates/ovsm
-- [ ] Check docs.rs: https://docs.rs/ovsm
-- [ ] Check GitHub Release: https://github.com/opensvm/osvm-cli/releases
-- [ ] Test install: `cargo install ovsm --version X.Y.Z`
+- [ ] Check crates.io: https://crates.io/crates/solisp
+- [ ] Check docs.rs: https://docs.rs/solisp
+- [ ] Check GitHub Release: https://github.com/opensvm/solisp/releases
+- [ ] Test install: `cargo install solisp --version X.Y.Z`
 
 ## Post-Release Checklist
 
@@ -102,22 +102,22 @@ git push origin ovsm-vX.Y.Z
 
 ```bash
 # Current version
-grep "^version" crates/ovsm/Cargo.toml
+grep "^version" crates/solisp/Cargo.toml
 
 # Test everything
-cd crates/ovsm && cargo test && cargo run --example run_file examples/hello_world.ovsm
+cd crates/solisp && cargo test && cargo run --example run_file examples/hello_world.solisp
 
 # Package dry run
 cargo package --allow-dirty --list
 
 # Create and push tag
-git tag ovsm-v1.0.1 -m "OVSM v1.0.1" && git push origin ovsm-v1.0.1
+git tag solisp-v1.0.1 -m "Solisp v1.0.1" && git push origin solisp-v1.0.1
 
 # Verify on crates.io (after publish)
-cargo search ovsm
+cargo search solisp
 
 # Install from crates.io (after publish)
-cargo install ovsm
+cargo install solisp
 ```
 
 ## Version Numbering Guide
@@ -158,7 +158,7 @@ cargo yank --vers X.Y.Z --undo
 ## Files to Update
 
 ```
-crates/ovsm/
+crates/solisp/
 ├── Cargo.toml          # Version number
 ├── CHANGELOG.md        # Release notes
 ├── README.md           # If needed
@@ -182,7 +182,7 @@ The GitHub Actions workflow automatically:
 To publish manually (not recommended):
 
 ```bash
-cd crates/ovsm
+cd crates/solisp
 export CARGO_REGISTRY_TOKEN="your-token"
 cargo publish
 ```
@@ -190,8 +190,8 @@ cargo publish
 ## Support
 
 - Documentation: See PUBLISHING.md
-- Issues: https://github.com/opensvm/osvm-cli/issues
-- Actions: https://github.com/opensvm/osvm-cli/actions
+- Issues: https://github.com/opensvm/solisp/issues
+- Actions: https://github.com/opensvm/solisp/actions
 
 ---
 
