@@ -1,4 +1,4 @@
-//! Introspection tools for OVSM
+//! Introspection tools for Solisp
 //!
 //! APROPOS, DESCRIBE, INSPECT and related utilities.
 //! Provides interactive exploration and debugging capabilities.

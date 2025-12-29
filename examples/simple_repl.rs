@@ -1,4 +1,4 @@
-//! Simple REPL (Read-Eval-Print Loop) for OVSM
+//! Simple REPL (Read-Eval-Print Loop) for Solisp
 //!
 //! Usage: cargo run --example simple_repl
 

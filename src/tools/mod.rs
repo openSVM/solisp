@@ -1,4 +1,4 @@
-//! Tool system for OVSM
+//! Tool system for Solisp
 //!
 //! Provides the framework for built-in and custom tools.
 

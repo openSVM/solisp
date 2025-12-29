@@ -1,4 +1,4 @@
-//! Pathname operations for OVSM
+//! Pathname operations for Solisp
 //!
 //! This module implements Common Lisp's pathname functions including:
 //! - Pathname creation (PATHNAME, MAKE-PATHNAME, PARSE-NAMESTRING)
@@ -7,7 +7,7 @@
 //!
 //! Implementation notes:
 //! - Uses Rust's std::path for cross-platform path handling
-//! - Pathnames are represented as strings in OVSM
+//! - Pathnames are represented as strings in Solisp
 //! - Components are extracted using Path methods
 //! - Supports both absolute and relative paths
 
@@ -251,7 +251,7 @@ impl Tool for PathnameDeviceTool {
     }
 }
 
-/// PATHNAME-HOST - Get host component (not applicable in OVSM)
+/// PATHNAME-HOST - Get host component (not applicable in Solisp)
 pub struct PathnameHostTool;
 
 impl Tool for PathnameHostTool {
@@ -260,7 +260,7 @@ impl Tool for PathnameHostTool {
     }
 
     fn description(&self) -> &str {
-        "Get host component (always null in OVSM)"
+        "Get host component (always null in Solisp)"
     }
 
     fn execute(&self, _args: &[Value]) -> Result<Value> {
@@ -269,7 +269,7 @@ impl Tool for PathnameHostTool {
     }
 }
 
-/// PATHNAME-VERSION - Get version component (not applicable in OVSM)
+/// PATHNAME-VERSION - Get version component (not applicable in Solisp)
 pub struct PathnameVersionTool;
 
 impl Tool for PathnameVersionTool {
@@ -278,7 +278,7 @@ impl Tool for PathnameVersionTool {
     }
 
     fn description(&self) -> &str {
-        "Get version component (always null in OVSM)"
+        "Get version component (always null in Solisp)"
     }
 
     fn execute(&self, _args: &[Value]) -> Result<Value> {

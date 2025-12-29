@@ -1,4 +1,4 @@
-//! Multiple values support for OVSM
+//! Multiple values support for Solisp
 //!
 //! Common Lisp multiple values system.
 //! Functions can return multiple values which can be captured or ignored.

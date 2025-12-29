@@ -1,4 +1,4 @@
-//! Compiler and evaluation functions for OVSM
+//! Compiler and evaluation functions for Solisp
 //!
 //! Compilation, evaluation, compiler macros, and declaration handling.
 //! Provides Common Lisp-style compile-time and run-time evaluation capabilities.

@@ -1,6 +1,6 @@
-//! Stream operations for OVSM
+//! Stream operations for Solisp
 //!
-//! Simplified stream implementation for OVSM. Unlike full Common Lisp streams,
+//! Simplified stream implementation for Solisp. Unlike full Common Lisp streams,
 //! OVSM streams are lightweight wrappers around strings and data structures.
 
 use crate::error::{Error, Result};

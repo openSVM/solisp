@@ -1,4 +1,4 @@
-//! Advanced LOOP features for OVSM
+//! Advanced LOOP features for Solisp
 //!
 //! Complex iteration, destructuring, and advanced LOOP clauses.
 //! Completes the Common Lisp LOOP macro implementation.

@@ -1,4 +1,4 @@
-//! Tests for OVSM macro system
+//! Tests for Solisp macro system
 
 use ovsm::{Evaluator, Parser, Scanner, Value};
 

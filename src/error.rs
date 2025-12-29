@@ -1,4 +1,4 @@
-//! Error types for OVSM interpreter
+//! Error types for Solisp interpreter
 
 use thiserror::Error;
 
@@ -361,5 +361,5 @@ impl Error {
     }
 }
 
-/// Result type for OVSM operations
+/// Result type for Solisp operations
 pub type Result<T> = std::result::Result<T, Error>;

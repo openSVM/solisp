@@ -1,4 +1,4 @@
-//! Extended bit operations for OVSM
+//! Extended bit operations for Solisp
 //!
 //! Bit arrays, bit vectors, and bit field operations.
 //! Completes the Common Lisp bit manipulation suite.

@@ -1,4 +1,4 @@
-//! CLOS method combinations for OVSM
+//! CLOS method combinations for Solisp
 //!
 //! Method combination types, qualifiers, and combination control.
 //! Provides full Common Lisp Object System method combination support.

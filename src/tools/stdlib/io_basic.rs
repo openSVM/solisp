@@ -1,4 +1,4 @@
-//! Basic I/O operations for OVSM
+//! Basic I/O operations for Solisp
 //!
 //! This module implements Common Lisp's basic I/O functions including:
 //! - Output functions (PRINT, PRIN1, PRINC, etc.)
@@ -8,7 +8,7 @@
 //!
 //! Implementation notes:
 //! - File operations use Rust's std::fs and std::io
-//! - Stream abstractions are simplified for OVSM's use case
+//! - Stream abstractions are simplified for Solisp's use case
 //! - READ functions parse OVSM LISP syntax
 //! - All operations return Result for error handling
 
@@ -472,7 +472,7 @@ impl Tool for OpenTool {
     }
 }
 
-/// CLOSE - Close stream (no-op in OVSM since we don't have persistent streams)
+/// CLOSE - Close stream (no-op in Solisp since we don't have persistent streams)
 pub struct CloseTool;
 
 impl Tool for CloseTool {
@@ -481,7 +481,7 @@ impl Tool for CloseTool {
     }
 
     fn description(&self) -> &str {
-        "Close stream (no-op in OVSM)"
+        "Close stream (no-op in Solisp)"
     }
 
     fn execute(&self, _args: &[Value]) -> Result<Value> {

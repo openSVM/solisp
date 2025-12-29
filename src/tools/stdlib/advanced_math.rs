@@ -1136,7 +1136,7 @@ impl Tool for PhaseToolMath {
     }
 }
 
-/// RATIONAL - Convert to rational (in OVSM, returns float)
+/// RATIONAL - Convert to rational (in Solisp, returns float)
 pub struct RationalTool;
 
 impl Tool for RationalTool {
@@ -1145,7 +1145,7 @@ impl Tool for RationalTool {
     }
 
     fn description(&self) -> &str {
-        "Convert to rational representation (returns float in OVSM)"
+        "Convert to rational representation (returns float in Solisp)"
     }
 
     fn execute(&self, args: &[Value]) -> Result<Value> {
@@ -1160,7 +1160,7 @@ impl Tool for RationalTool {
     }
 }
 
-/// NUMERATOR - Get numerator (for OVSM numbers, returns value)
+/// NUMERATOR - Get numerator (for Solisp numbers, returns value)
 pub struct NumeratorTool;
 
 impl Tool for NumeratorTool {
@@ -1185,7 +1185,7 @@ impl Tool for NumeratorTool {
     }
 }
 
-/// DENOMINATOR - Get denominator (for OVSM numbers, returns 1)
+/// DENOMINATOR - Get denominator (for Solisp numbers, returns 1)
 pub struct DenominatorTool;
 
 impl Tool for DenominatorTool {

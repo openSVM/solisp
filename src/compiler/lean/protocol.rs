@@ -1,14 +1,14 @@
 //! # Protocol Enforcement Module
 //!
 //! This module provides built-in constructs for enforcing protocol correctness
-//! in OVSM programs. It adds:
+//! in Solisp programs. It adds:
 //!
 //! 1. State Machine Definitions - Enforce valid state transitions
 //! 2. Access Control - Enforce authorization requirements
 //! 3. Economic Invariants - Enforce balance conservation
 //! 4. Automatic VC Generation - Generate proofs for these properties
 //!
-//! ## Usage in OVSM:
+//! ## Usage in Solisp:
 //!
 //! ```lisp
 //! ;; Define a state machine

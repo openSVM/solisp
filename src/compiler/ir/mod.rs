@@ -1,4 +1,4 @@
-//! # Intermediate Representation (IR) for OVSM Compilation
+//! # Intermediate Representation (IR) for Solisp Compilation
 //!
 //! This module compiles OVSM LISP to a three-address-code IR, which is then
 //! lowered to Solana BPF (sBPF) bytecode by the codegen phase.

@@ -1,6 +1,6 @@
 //! WebSocket streaming support for real-time blockchain event monitoring.
 
-/// Streaming support for OVSM LISP
+/// Streaming support for Solisp LISP
 ///
 /// This module provides built-in functions for real-time blockchain event streaming via WebSocket:
 /// - `(stream-connect url :programs ["pumpfun"] :tokens ["USDC"])` - Connect to WebSocket stream

@@ -2,26 +2,26 @@
 
 ## Test 1: Empty code block
 
-```ovsm
+```solisp
 ```
 
 ## Test 2: Syntax error
 
-```ovsm
+```solisp
 $x = 10 +
 RETURN $x
 ```
 
 ## Test 3: Runtime error
 
-```ovsm
+```solisp
 $x = 10 / 0
 RETURN $x
 ```
 
 ## Test 4: Code with comments
 
-```ovsm
+```solisp
 // This is a comment
 $x = 10
 $y = 20
@@ -30,7 +30,7 @@ RETURN $x + $y  // Should return 30
 
 ## Test 5: Multiline expressions
 
-```ovsm
+```solisp
 $result = 10 +
           20 +
           30
@@ -39,7 +39,7 @@ RETURN $result
 
 ## Test 6: Not implemented feature
 
-```ovsm
+```solisp
 PARALLEL {
     $task1 = 1
     $task2 = 2

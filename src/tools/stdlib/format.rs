@@ -1,4 +1,4 @@
-//! Format operations for OVSM
+//! Format operations for Solisp
 //!
 //! This module implements Common Lisp's FORMAT function with directives:
 //! - ~A - ASCII output (aesthetic)

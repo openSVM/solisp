@@ -425,7 +425,7 @@ impl Tool for RoundTool {
     }
 }
 
-/// RATIONALIZE - Convert to rational (returns float in OVSM)
+/// RATIONALIZE - Convert to rational (returns float in Solisp)
 pub struct RationalizeTool;
 
 impl Tool for RationalizeTool {
@@ -434,7 +434,7 @@ impl Tool for RationalizeTool {
     }
 
     fn description(&self) -> &str {
-        "Convert to rational representation (returns value in OVSM)"
+        "Convert to rational representation (returns value in Solisp)"
     }
 
     fn execute(&self, args: &[Value]) -> Result<Value> {

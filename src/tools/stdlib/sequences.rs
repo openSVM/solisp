@@ -173,7 +173,7 @@ impl Tool for CopySeqTool {
     }
 }
 
-/// NREVERSE - Destructively reverse sequence (in OVSM, creates new reversed sequence)
+/// NREVERSE - Destructively reverse sequence (in Solisp, creates new reversed sequence)
 pub struct NreverseTool;
 
 impl Tool for NreverseTool {
@@ -182,7 +182,7 @@ impl Tool for NreverseTool {
     }
 
     fn description(&self) -> &str {
-        "Reverse sequence (destructive in CL, creates new in OVSM)"
+        "Reverse sequence (destructive in CL, creates new in Solisp)"
     }
 
     fn execute(&self, args: &[Value]) -> Result<Value> {
@@ -250,7 +250,7 @@ impl Tool for AppendTool {
     }
 }
 
-/// NCONC - Destructively concatenate lists (creates new in OVSM)
+/// NCONC - Destructively concatenate lists (creates new in Solisp)
 pub struct NconcTool;
 
 impl Tool for NconcTool {
@@ -259,7 +259,7 @@ impl Tool for NconcTool {
     }
 
     fn description(&self) -> &str {
-        "Concatenate lists (destructive in CL, creates new in OVSM)"
+        "Concatenate lists (destructive in CL, creates new in Solisp)"
     }
 
     fn execute(&self, args: &[Value]) -> Result<Value> {
@@ -662,7 +662,7 @@ impl Tool for RemoveDuplicatesTool {
     }
 }
 
-/// DELETE - Destructively remove occurrences (creates new in OVSM)
+/// DELETE - Destructively remove occurrences (creates new in Solisp)
 pub struct DeleteTool;
 
 impl Tool for DeleteTool {
@@ -671,7 +671,7 @@ impl Tool for DeleteTool {
     }
 
     fn description(&self) -> &str {
-        "Remove all occurrences (destructive in CL, creates new in OVSM)"
+        "Remove all occurrences (destructive in CL, creates new in Solisp)"
     }
 
     fn execute(&self, args: &[Value]) -> Result<Value> {
@@ -679,7 +679,7 @@ impl Tool for DeleteTool {
     }
 }
 
-/// DELETE-IF - Destructively remove elements (creates new in OVSM)
+/// DELETE-IF - Destructively remove elements (creates new in Solisp)
 pub struct DeleteIfTool;
 
 impl Tool for DeleteIfTool {
@@ -688,7 +688,7 @@ impl Tool for DeleteIfTool {
     }
 
     fn description(&self) -> &str {
-        "Remove elements matching predicate (destructive in CL, creates new in OVSM)"
+        "Remove elements matching predicate (destructive in CL, creates new in Solisp)"
     }
 
     fn execute(&self, args: &[Value]) -> Result<Value> {
@@ -783,7 +783,7 @@ impl Tool for SubstIfTool {
     }
 }
 
-/// NSUBST - Destructive substitute (creates new in OVSM)
+/// NSUBST - Destructive substitute (creates new in Solisp)
 pub struct NsubstTool;
 
 impl Tool for NsubstTool {
@@ -792,7 +792,7 @@ impl Tool for NsubstTool {
     }
 
     fn description(&self) -> &str {
-        "Substitute (destructive in CL, creates new in OVSM)"
+        "Substitute (destructive in CL, creates new in Solisp)"
     }
 
     fn execute(&self, args: &[Value]) -> Result<Value> {

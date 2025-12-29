@@ -2,7 +2,7 @@
 
 ## Test 1: Direct comparison
 
-```ovsm
+```solisp
 $x = 1
 $y = 5
 IF $x > $y THEN
@@ -15,7 +15,7 @@ Expected: x is smaller
 
 ## Test 2: Literal comparison
 
-```ovsm
+```solisp
 IF 1 > 5 THEN
     RETURN "1 is bigger"
 ELSE
@@ -26,7 +26,7 @@ Expected: 1 is smaller
 
 ## Test 3: Loop variable comparison
 
-```ovsm
+```solisp
 $result = "all small"
 FOR $i IN [1..3]:
     IF $i > 2 THEN

@@ -18,7 +18,7 @@
 //!
 //! ## Usage
 //! ```ignore
-//! use ovsm::compiler::anchor_idl::IdlGenerator;
+//! use solisp::compiler::anchor_idl::IdlGenerator;
 //!
 //! let source = std::fs::read_to_string("program.ovsm")?;
 //! let generator = IdlGenerator::new(&source);

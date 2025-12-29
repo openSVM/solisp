@@ -1,6 +1,6 @@
-//! # Type Checker for OVSM Programs
+//! # Type Checker for Solisp Programs
 //!
-//! This module implements type inference and checking for OVSM source programs.
+//! This module implements type inference and checking for Solisp source programs.
 //! It supports gradual typing - untyped code works unchanged while typed code
 //! gets full type checking.
 
@@ -10,7 +10,7 @@ use crate::compiler::ir::{FieldType, PrimitiveType, StructDef};
 use crate::parser::{Argument, BinaryOp, Expression, Program, Statement, UnaryOp};
 use std::collections::HashMap;
 
-/// Type checker for OVSM programs
+/// Type checker for Solisp programs
 pub struct TypeChecker {
     ctx: TypeContext,
     /// Refinement verifier for checking predicate constraints

@@ -2,21 +2,21 @@
 
 ## Test 1: Variables
 
-```ovsm
+```solisp
 $x = 10
 RETURN $x
 ```
 
 ## Test 2: Constants
 
-```ovsm
+```solisp
 CONST PI = 3.14
 RETURN PI
 ```
 
 ## Test 3: Arithmetic (all operators)
 
-```ovsm
+```solisp
 $a = 10 + 5
 $b = 10 - 5
 $c = 10 * 5
@@ -28,7 +28,7 @@ RETURN $f
 
 ## Test 4: Comparisons
 
-```ovsm
+```solisp
 $a = 10 > 5
 $b = 10 < 5
 $c = 10 >= 10
@@ -40,7 +40,7 @@ RETURN $f
 
 ## Test 5: Logical operators
 
-```ovsm
+```solisp
 $a = true AND true
 $b = true OR false
 $c = NOT false
@@ -49,7 +49,7 @@ RETURN $c
 
 ## Test 6: IF-THEN-ELSE
 
-```ovsm
+```solisp
 $x = 10
 IF $x > 5 THEN
     $result = "greater"
@@ -60,7 +60,7 @@ RETURN $result
 
 ## Test 7: WHILE loop
 
-```ovsm
+```solisp
 $i = 0
 $sum = 0
 WHILE $i < 5:
@@ -71,7 +71,7 @@ RETURN $sum
 
 ## Test 8: FOR loop
 
-```ovsm
+```solisp
 $sum = 0
 FOR $i IN [1..5]:
     $sum = $sum + $i
@@ -80,7 +80,7 @@ RETURN $sum
 
 ## Test 9: BREAK
 
-```ovsm
+```solisp
 $sum = 0
 FOR $i IN [1..10]:
     IF $i > 5 THEN
@@ -91,7 +91,7 @@ RETURN $sum
 
 ## Test 10: CONTINUE
 
-```ovsm
+```solisp
 $sum = 0
 FOR $i IN [1..10]:
     IF $i % 2 == 0 THEN
@@ -102,7 +102,7 @@ RETURN $sum
 
 ## Test 11: GUARD clause
 
-```ovsm
+```solisp
 $x = 10
 GUARD $x > 0 ELSE
     RETURN "negative"
@@ -111,7 +111,7 @@ RETURN "positive"
 
 ## Test 12: TRY-CATCH
 
-```ovsm
+```solisp
 TRY:
     $result = 10 / 0
 CATCH:
@@ -121,21 +121,21 @@ RETURN $result
 
 ## Test 13: Arrays
 
-```ovsm
+```solisp
 $arr = [1, 2, 3, 4, 5]
 RETURN $arr[2]
 ```
 
 ## Test 14: Objects
 
-```ovsm
+```solisp
 $obj = {name: "Alice", age: 30}
 RETURN $obj.name
 ```
 
 ## Test 15: Ranges
 
-```ovsm
+```solisp
 $sum = 0
 FOR $i IN [1..10]:
     $sum = $sum + 1
@@ -144,35 +144,35 @@ RETURN $sum
 
 ## Test 16: SUM tool
 
-```ovsm
+```solisp
 $numbers = [1, 2, 3, 4, 5]
 RETURN SUM($numbers)
 ```
 
 ## Test 17: MAX tool
 
-```ovsm
+```solisp
 $numbers = [5, 2, 8, 1, 9]
 RETURN MAX($numbers)
 ```
 
 ## Test 18: MIN tool
 
-```ovsm
+```solisp
 $numbers = [5, 2, 8, 1, 9]
 RETURN MIN($numbers)
 ```
 
 ## Test 19: COUNT tool
 
-```ovsm
+```solisp
 $arr = [1, 2, 3, 4, 5]
 RETURN COUNT($arr)
 ```
 
 ## Test 20: APPEND tool
 
-```ovsm
+```solisp
 $arr = [1, 2, 3]
 $new = APPEND($arr, 4)
 RETURN $new

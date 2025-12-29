@@ -1,8 +1,8 @@
-//! LLM (Large Language Model) operations for OVSM
+//! LLM (Large Language Model) operations for Solisp
 //!
 //! Provides integration with LLM APIs (Ollama, OpenAI, Anthropic) for AI-powered agents.
 //!
-//! Usage in OVSM:
+//! Usage in Solisp:
 //! ```lisp
 //! ;; Query Ollama (local)
 //! (llm-query "ollama" "What is 2+2?" {:model "smollm2:latest"})

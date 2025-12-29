@@ -1,4 +1,4 @@
-//! Reader and Printer functions for OVSM
+//! Reader and Printer functions for Solisp
 //!
 //! Reader macros, print control variables, pretty printer, and read-print operations.
 //! Provides Common Lisp-style reader and printer functionality.

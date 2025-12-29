@@ -2,7 +2,7 @@
 
 ## Test: Update global variable from loop
 
-```ovsm
+```solisp
 $sum = 0
 FOR $i IN [1..5]:
     $sum = $sum + $i

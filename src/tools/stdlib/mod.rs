@@ -1,4 +1,4 @@
-//! Standard library tools for OVSM
+//! Standard library tools for Solisp
 
 pub mod advanced_math;
 pub mod arrays;

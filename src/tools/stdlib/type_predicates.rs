@@ -128,7 +128,7 @@ impl Tool for StringpTool {
     }
 }
 
-/// SYMBOLP - Check if value is a symbol (in OVSM, this checks for string identifiers)
+/// SYMBOLP - Check if value is a symbol (in Solisp, this checks for string identifiers)
 pub struct SymbolpTool;
 
 impl Tool for SymbolpTool {
@@ -172,7 +172,7 @@ impl Tool for KeywordpTool {
     }
 }
 
-/// CONSP - Check if value is a cons (non-empty list in OVSM)
+/// CONSP - Check if value is a cons (non-empty list in Solisp)
 pub struct ConspTool;
 
 impl Tool for ConspTool {
@@ -282,7 +282,7 @@ impl Tool for ArraypTool {
     }
 }
 
-/// VECTORP - Check if value is a vector (same as array in OVSM)
+/// VECTORP - Check if value is a vector (same as array in Solisp)
 pub struct VectorpTool;
 
 impl Tool for VectorpTool {
@@ -382,7 +382,7 @@ impl Tool for MacropTool {
     }
 }
 
-/// HASH-TABLE-P - Check if value is a hash table (object in OVSM)
+/// HASH-TABLE-P - Check if value is a hash table (object in Solisp)
 pub struct HashTablepTool;
 
 impl Tool for HashTablepTool {

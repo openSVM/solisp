@@ -1673,7 +1673,7 @@ impl SExprParser {
 
             // Colon expected (object keys)
             (TokenKind::Colon, _) => Some(
-                "Object keys must start with `:` in OVSM.\n\
+                "Object keys must start with `:` in Solisp.\n\
                       Example: {:key value} not {key value}",
             ),
 

@@ -5029,13 +5029,13 @@ impl LispEvaluator {
     /// - Parallel pmap: 10 items × 2s / cores ≈ 2-3s total (10x faster!)
     ///
     /// # Example
-    /// ```ovsm
+    /// ```lisp
     /// (pmap tokens (lambda (mint) (get_token_info {:mint mint})))
     /// ```
     fn eval_pmap(&mut self, args: &[crate::parser::Argument]) -> Result<Value> {
         // For now, delegate to regular map for correctness
         // TODO: Implement true parallel execution with cloned evaluator contexts
-        // The infrastructure in crates/ovsm/src/parallel/executor.rs is ready
+        // The infrastructure in solisp/src/parallel/executor.rs is ready
 
         tracing::debug!("pmap called - currently using sequential fallback");
         self.eval_map(args)

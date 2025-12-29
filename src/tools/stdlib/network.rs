@@ -1,4 +1,4 @@
-//! Network operations for OVSM
+//! Network operations for Solisp
 //!
 //! Provides HTTP, WebSocket, and JSON-RPC functionality for blockchain integration.
 

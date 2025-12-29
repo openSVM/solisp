@@ -135,7 +135,7 @@
 //! ### Simple Loop Example
 //!
 //! ```rust
-//! use ovsm::{Evaluator, Parser, Scanner, Value};
+//! use solisp::{Evaluator, Parser, Scanner, Value};
 //!
 //! # fn main() -> Result<(), Box<dyn std::error::Error>> {
 //! // Calculate sum using a for loop
@@ -161,7 +161,7 @@
 //! ### Array Operations
 //!
 //! ```rust
-//! use ovsm::{Evaluator, Parser, Scanner, Value};
+//! use solisp::{Evaluator, Parser, Scanner, Value};
 //!
 //! # fn main() -> Result<(), Box<dyn std::error::Error>> {
 //! let code = r#"
@@ -184,7 +184,7 @@
 //! ### Using Built-in Tools
 //!
 //! ```rust
-//! # use ovsm::{Evaluator, Parser, Scanner, Value};
+//! # use solisp::{Evaluator, Parser, Scanner, Value};
 //! # fn execute(code: &str) -> Value {
 //! #     let mut scanner = Scanner::new(code);
 //! #     let tokens = scanner.scan_tokens().unwrap();
@@ -215,7 +215,7 @@
 //! OVSM provides detailed error messages with context:
 //!
 //! ```rust
-//! # use ovsm::{Evaluator, Parser, Scanner};
+//! # use solisp::{Evaluator, Parser, Scanner};
 //! let code = "(/ 10 0)";  // Division by zero
 //!
 //! let mut scanner = Scanner::new(code);
@@ -241,10 +241,10 @@
 //! - **[Common Patterns]** - Idiomatic code patterns
 //! - **[Troubleshooting]** - Common errors and solutions
 //!
-//! [Examples]: https://github.com/opensvm/osvm-cli/tree/main/crates/ovsm/examples
-//! [Usage Guide]: https://github.com/opensvm/osvm-cli/blob/main/crates/ovsm/USAGE_GUIDE.md
-//! [Common Patterns]: https://github.com/opensvm/osvm-cli/blob/main/crates/ovsm/docs/COMMON_PATTERNS.md
-//! [Troubleshooting]: https://github.com/opensvm/osvm-cli/blob/main/crates/ovsm/USAGE_GUIDE.md#troubleshooting
+//! [Examples]: https://github.com/openSVM/solisp/tree/main/solisp/examples
+//! [Usage Guide]: https://github.com/openSVM/solisp/blob/main/solisp/USAGE_GUIDE.md
+//! [Common Patterns]: https://github.com/openSVM/solisp/blob/main/solisp/docs/COMMON_PATTERNS.md
+//! [Troubleshooting]: https://github.com/openSVM/solisp/blob/main/solisp/USAGE_GUIDE.md#troubleshooting
 //!
 //! ## Performance
 //!

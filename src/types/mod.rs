@@ -1,6 +1,6 @@
 //! # OVSM Source-Level Type System
 //!
-//! This module provides static typing for OVSM programs with gradual typing support.
+//! This module provides static typing for Solisp programs with gradual typing support.
 //! Types can be explicitly annotated or inferred, and untyped code interoperates
 //! seamlessly through the `Any` type.
 //!

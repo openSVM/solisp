@@ -13,7 +13,7 @@
 //! ## Usage
 //!
 //! ```ignore
-//! use ovsm::decompiler::{Decompiler, DecompileOptions};
+//! use solisp::decompiler::{Decompiler, DecompileOptions};
 //!
 //! let elf_bytes = std::fs::read("program.so")?;
 //! let decompiler = Decompiler::new(DecompileOptions::default());

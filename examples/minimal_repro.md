@@ -2,7 +2,7 @@
 
 ## Test 1: FOR with assignment (works)
 
-```ovsm
+```solisp
 FOR $i IN [1..3]:
     $x = 1
 RETURN "ok"
@@ -10,7 +10,7 @@ RETURN "ok"
 
 ## Test 2: FOR with IF (fails?)
 
-```ovsm
+```solisp
 FOR $i IN [1..3]:
     IF true THEN
         $x = 1
@@ -19,7 +19,7 @@ RETURN "ok"
 
 ## Test 3: Access $i before IF
 
-```ovsm
+```solisp
 FOR $i IN [1..3]:
     $before = $i
     IF true THEN
@@ -29,7 +29,7 @@ RETURN "ok"
 
 ## Test 4: Access $i before AND after IF
 
-```ovsm
+```solisp
 FOR $i IN [1..3]:
     $before = $i
     IF true THEN

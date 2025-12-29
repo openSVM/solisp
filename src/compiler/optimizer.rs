@@ -1,4 +1,4 @@
-//! # IR Optimizer for OVSM Compilation
+//! # IR Optimizer for Solisp Compilation
 //!
 //! Optimization passes for the IR:
 //! - Constant folding

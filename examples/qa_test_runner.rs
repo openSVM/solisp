@@ -1,7 +1,7 @@
 //! QA Test Runner - Executes OVSM code from markdown files
 //!
 //! This tool:
-//! 1. Reads markdown files with ```ovsm code blocks
+//! 1. Reads markdown files with ```lisp code blocks
 //! 2. Executes the OVSM code
 //! 3. Displays results
 //!
@@ -35,7 +35,7 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
 
     if ovsm_blocks.is_empty() {
         println!("\n⚠️  No OVSM code blocks found in file!");
-        println!("   Looking for blocks marked with ```ovsm");
+        println!("   Looking for blocks marked with ```lisp");
         return Ok(());
     }
 
@@ -91,8 +91,8 @@ fn extract_ovsm_blocks(content: &str) -> Vec<String> {
     let mut i = 0;
 
     while i < lines.len() {
-        // Look for ```ovsm start marker
-        if lines[i].trim() == "```ovsm" {
+        // Look for ```lisp start marker
+        if lines[i].trim() == "```lisp" {
             let mut code_lines = Vec::new();
             i += 1;
 

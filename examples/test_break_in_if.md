@@ -2,7 +2,7 @@
 
 ## Test: BREAK inside IF should work
 
-```ovsm
+```solisp
 $sum = 0
 FOR $i IN [1..10]:
     IF $i > 5 THEN

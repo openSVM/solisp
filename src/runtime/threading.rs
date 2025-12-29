@@ -1,4 +1,4 @@
-//! Bordeaux Threads implementation for OVSM
+//! Bordeaux Threads implementation for Solisp
 //!
 //! This module provides portable shared-state concurrency primitives compatible
 //! with the Common Lisp Bordeaux Threads library (https://github.com/sionescu/bordeaux-threads).

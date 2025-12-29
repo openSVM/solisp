@@ -1,4 +1,4 @@
-//! Tests for catch/throw - Non-local exits in OVSM
+//! Tests for catch/throw - Non-local exits in Solisp
 //!
 //! This test suite covers:
 //! - Basic catch/throw mechanics

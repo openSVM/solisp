@@ -1,4 +1,4 @@
-//! Package system for OVSM
+//! Package system for Solisp
 //!
 //! Provides namespace management functionality.
 //! Extended package system with full Common Lisp compatibility.
