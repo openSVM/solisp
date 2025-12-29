@@ -1,8 +1,8 @@
 #![allow(dead_code, unused_imports, unused_variables, missing_docs)]
-//! # OVSM - Open Versatile S-expression Machine
+//! # Solisp - A LISP Dialect for Solana
 //!
-//! [![Crates.io](https://img.shields.io/crates/v/ovsm.svg)](https://crates.io/crates/ovsm)
-//! [![Documentation](https://docs.rs/ovsm/badge.svg)](https://docs.rs/ovsm)
+//! [![Crates.io](https://img.shields.io/crates/v/solisp.svg)](https://crates.io/crates/solisp)
+//! [![Documentation](https://docs.rs/solisp/badge.svg)](https://docs.rs/solisp)
 //! [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 //!
 //! A production-ready **Common Lisp dialect** interpreter designed for blockchain automation,
@@ -18,22 +18,22 @@
 //!
 //! ## Quick Start
 //!
-//! Add OVSM to your `Cargo.toml`:
+//! Add Solisp to your `Cargo.toml`:
 //!
 //! ```toml
 //! [dependencies]
-//! ovsm = "1.0.0"
+//! solisp = "1.0.0"
 //! ```
 //!
 //! ### Basic Usage
 //!
-//! Execute OVSM code from a string:
+//! Execute Solisp code from a string:
 //!
 //! ```rust
-//! use ovsm::{Evaluator, Parser, Scanner, Value};
+//! use solisp::{Evaluator, Parser, Scanner, Value};
 //!
 //! # fn main() -> Result<(), Box<dyn std::error::Error>> {
-//! // OVSM LISP code to execute
+//! // Solisp LISP code to execute
 //! let code = r#"
 //!     (define sum 0)
 //!     (for (i (range 1 11))
@@ -60,12 +60,12 @@
 //!
 //! ### Complete Example Function
 //!
-//! Create a reusable function to execute OVSM code:
+//! Create a reusable function to execute Solisp code:
 //!
 //! ```rust
-//! use ovsm::{Evaluator, Parser, Scanner, Value, Result};
+//! use solisp::{Evaluator, Parser, Scanner, Value, Result};
 //!
-//! fn execute_ovsm(code: &str) -> Result<Value> {
+//! fn execute_solisp(code: &str) -> Result<Value> {
 //!     let mut scanner = Scanner::new(code);
 //!     let tokens = scanner.scan_tokens()?;
 //!     let mut parser = Parser::new(tokens);
@@ -76,11 +76,11 @@
 //!
 //! # fn main() -> Result<()> {
 //! // Simple arithmetic
-//! let result = execute_ovsm("(+ 10 20)")?;
+//! let result = execute_solisp("(+ 10 20)")?;
 //! assert_eq!(result, Value::Int(30));
 //!
 //! // Conditional logic
-//! let result = execute_ovsm(r#"
+//! let result = execute_solisp(r#"
 //!     (if (> 5 3)
 //!         "greater"
 //!         "less")

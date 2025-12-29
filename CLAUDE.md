@@ -1,15 +1,15 @@
-# OVSM Crate - CLAUDE.md
+# Solisp Crate - CLAUDE.md
 
 ## Overview
 
-**OVSM** (Open Versatile Seeker Mind) is a LISP-dialect interpreter and sBPF compiler for Solana blockchain automation and on-chain program development.
+**Solisp** is a LISP-dialect interpreter and sBPF compiler for Solana blockchain automation and on-chain program development.
 
 ## Architecture
 
 ```
 src/
 ├── lib.rs              # Public API exports
-├── error.rs            # Error types (OvsmError, Result)
+├── error.rs            # Error types (SolispError, Result)
 ├── lexer/              # S-expression tokenizer
 │   └── sexpr_scanner.rs
 ├── parser/             # AST construction
@@ -39,12 +39,12 @@ src/
 - Validates syntax structure
 
 ### Evaluator (`runtime/lisp_evaluator.rs`)
-- Interprets OVSM code in-memory
+- Interprets Solisp code in-memory
 - Built-in functions: arithmetic, control flow, data structures
 - MCP tool integration for blockchain operations
 
 ### Compiler (`compiler/ir.rs`) - **MOST IMPORTANT FILE**
-- Generates sBPF bytecode from OVSM source
+- Generates sBPF bytecode from Solisp source
 - 6100+ lines containing ALL macro implementations
 - Key sections:
   - Struct operations (lines ~1100-1600)
@@ -61,17 +61,17 @@ src/
 
 ```bash
 # Build the crate
-cargo build -p ovsm
+cargo build -p solisp
 
 # Run all tests
-cargo test -p ovsm
+cargo test -p solisp
 
 # Run specific test module
-cargo test -p ovsm sexpr          # Lexer/parser tests
-cargo test -p ovsm lisp_evaluator # Evaluator tests
+cargo test -p solisp sexpr          # Lexer/parser tests
+cargo test -p solisp lisp_evaluator # Evaluator tests
 
-# Compile an OVSM file to sBPF
-cargo run --bin osvm -- ovsm compile input.ovsm -o output.so
+# Compile a Solisp file to sBPF
+solisp compile input.solisp -o output.so
 ```
 
 ## Adding New Macros
@@ -151,4 +151,4 @@ if name == "my-macro" && args.len() == 2 {
 
 - 469/469 tests passing (100%)
 - Integration tests in `tests/lisp_e2e_tests.rs`
-- Compilation tests in `/tmp/*.ovsm` during development
+- Compilation tests in `/tmp/*.solisp` during development
